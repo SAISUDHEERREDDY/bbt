@@ -1,0 +1,22 @@
+<shared-thumbnail-card [thumbSrc]="thumbSrc">
+  <div type class="secondary-info translucent-container">
+    <ng-container [ngSwitch]="type">
+      <i *ngSwitchCase="'Folder'" class="fa fas fa-folder"></i>
+      <i *ngSwitchCase="'Video'" class="fa fas fa-film"></i>
+      <i *ngSwitchCase="'Presentation'" class="fa fas fa-ticket-alt"></i>
+      <i *ngSwitchDefault class="fa fas fa-question"></i>
+    </ng-container>
+  </div>
+  <div
+    info
+    class="secondary-info translucent-container variable-info"
+    *ngIf="info || hasSubs || passkey"
+  >
+    <span *ngIf="info">{{ info }}</span>
+    <i *ngIf="hasSubs" class="far fa-closed-captioning"></i>
+    <i *ngIf="passkey" class="fa fas fa-lock"></i>
+  </div>
+  <div name>
+    <div class="name">{{ name }}</div>
+  </div>
+</shared-thumbnail-card>

@@ -1,0 +1,52 @@
+<ng-content select="[menu]"></ng-content>
+<div class="footer-navigation-root">
+  <mat-toolbar>
+    <div class="footer-navigation-icon-outer-container">
+      <div
+        class="footer-navigation-icon-inner-container"
+        routerLinkActive="active-route"
+      >
+        <a routerLinkActive="active-route" routerLink="/vod"> VOD </a>
+      </div>
+    </div>
+    <div class="footer-navigation-icon-outer-container">
+      <div
+        class="footer-navigation-icon-inner-container"
+        routerLinkActive="active-route"
+      >
+        <a routerLinkActive="active-route" routerLink="/live"> Live </a>
+      </div>
+    </div>
+
+    <div class="footer-navigation-icon-outer-container">
+      <div
+        class="footer-navigation-icon-inner-container"
+        routerLinkActive="active-route"
+      >
+        <a routerLink="/search">
+          <mat-icon>search</mat-icon>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-navigation-icon-outer-container">
+      <div class="footer-navigation-icon-inner-container">
+        <div
+          id="menu-toggle"
+          tabindex="0"
+          class="slanted-nav slanted-nav-right"
+          (click)="hamburgerHit.emit()"
+          (keydown.enter)="hamburgerHit.emit()"
+        >
+          <div
+            class="fa fas fa-bars"
+            [ngClass]="{
+              'fa-bars': !bottomNavOpen,
+              'fa-times opened': bottomNavOpen
+            }"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>

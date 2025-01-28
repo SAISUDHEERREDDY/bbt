@@ -1,0 +1,87 @@
+<div class="content-container">
+  <div *ngIf="!sysinfo" class="sysinfo-container-content">&nbsp;</div>
+  <div *ngIf="sysinfo" class="sysinfo-container-content">
+    <div class="overview-top-container">
+      <div class="customer-icon">
+        <img src="../../assets/logo.png" width="200" />
+      </div>
+      <div class="customer-data">
+        <div class="customer-row">
+          <div class="customer-pair">
+            <div class="font-bold customer-name">
+              {{ 'CUSTOMER' | jqueryi18n }} &nbsp;&nbsp;
+            </div>
+            <div class="data-value customer-name">{{ sysinfo.customer }}</div>
+          </div>
+        </div>
+        <div class="customer-row">
+          <div class="customer-pair">
+            <div class="font-bold">
+              {{ 'VERSION' | jqueryi18n }} &nbsp;&nbsp;
+            </div>
+            <div class="data-value">{{ sysinfo.version }}</div>
+          </div>
+        </div>
+        <div class="customer-row">&nbsp;</div>
+        <div class="customer-row">
+          <div class="customer-pair">
+            <div class="font-bold">
+              {{ 'HOSTNAME' | jqueryi18n }} &nbsp;&nbsp;
+            </div>
+            <div class="data-value">{{ sysinfo.hostname }}</div>
+          </div>
+        </div>
+        <div class="customer-row">
+          <div class="customer-pair">
+            <div class="font-bold">
+              {{ 'SERIAL_NUMBER' | jqueryi18n }} &nbsp;&nbsp;
+            </div>
+            <div class="data-value">{{ sysinfo.serial_number }}</div>
+          </div>
+        </div>
+        <div>
+          <div class="customer-row">
+            <div class="customer-pair">
+              <div class="font-bold">
+                {{ 'GROUPS' | jqueryi18n }} &nbsp;&nbsp;
+              </div>
+              <div *ngIf="sysinfo.groups" class="group-div">
+                <span
+                  *ngFor="let group of sysinfo.groups; let isLast = last"
+                  class="data-value"
+                >
+                  {{ group }}{{ isLast ? '' : ',&nbsp;' }}
+                </span>
+              </div>
+              <div
+                *ngIf="!sysinfo.groups || sysinfo.groups.length == 0"
+                class="group-div"
+              >
+                <span class="data-value">None</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="updates-container">
+      <div class="font-bold">{{ 'UPDATES' | jqueryi18n }}</div>
+      <div>
+        <table class="updates-table">
+          <tr [ngClass]="{ 'updates-headers': sysinfo.updates.length < 1 }">
+            <th class="updates-cell">
+              {{ 'FILE' | jqueryi18n }}
+            </th>
+            <th class="date-cell">
+              {{ 'DATE_INSTALLED' | jqueryi18n }}
+            </th>
+          </tr>
+          <tr *ngFor="let update of sysinfo.updates" class="updates-row">
+            <td class="updates-cell">{{ update.file }}</td>
+            <td class="date-cell">{{ formatInstalled(update.installed) }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

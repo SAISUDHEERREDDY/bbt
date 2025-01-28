@@ -1,0 +1,12 @@
+Random Notes:
+
+The text to display on a video play button (and others) is
+defined in en.json
+
+When a video is selected to be played (the 'Play' button) 
+the URL to use is defined in this file:
+
+content-landing-menu.component.html
+
+
+

@@ -1,0 +1,93 @@
+<bbt-navigable-container
+  #navKeys="navigableGroup"
+  [representativeChild]="representativeChild"
+>
+  <div class="keyboard">
+    <div
+      *ngFor="let k of keyboard; first as isFirst"
+      class="letter"
+      tabindex="0"
+      bbtDeferringNavigable
+      [stealFocusOnInit]="isFirst"
+      [parent]="navKeys"
+      (keydown.enter)="outputKey.emit(k)"
+      (click)="outputKey.emit(k)"
+      (whenInitEl)="setRepresentativeChild($event)"
+    >
+      {{ k }}
+    </div>
+    <div class="keyboard-options-container symbol-selector">
+      <div
+        tabindex="0"
+        class="keyboard-button keyboard-focusable"
+        bbtDeferringNavigable
+        [parent]="navKeys"
+        [ngClass]="{ 'option-selected': keySet === 'lowercase' }"
+        (keydown.enter)="lowerCase()"
+        (click)="lowerCase()"
+      >
+        abc
+      </div>
+      <div
+        tabindex="0"
+        class="keyboard-button keyboard-focusable"
+        bbtDeferringNavigable
+        [parent]="navKeys"
+        [ngClass]="{ 'option-selected': keySet === 'uppercase' }"
+        (click)="upperCase()"
+        (keydown.enter)="upperCase()"
+      >
+        ABC
+      </div>
+      <div
+        tabindex="0"
+        class="keyboard-button keyboard-focusable"
+        bbtDeferringNavigable
+        [parent]="navKeys"
+        [ngClass]="{ 'option-selected': keySet === 'symbols' }"
+        (click)="specialSet()"
+        (keydown.enter)="specialSet()"
+      >
+        #+-
+      </div>
+    </div>
+  </div>
+</bbt-navigable-container>
+<bbt-navigable-container
+  underflowStrategy="none"
+  overflowStrategy="none"
+  #actions="navigableGroup"
+>
+  <div class="keyboard-movement symbol-selector">
+    <div
+      tabindex="0"
+      class="keyboard-button"
+      (click)="outputKey.emit('space')"
+      (keydown.enter)="outputKey.emit('space')"
+      bbtDeferringNavigable
+      [parent]="actions"
+    >
+      Space
+    </div>
+    <div
+      tabindex="0"
+      class="keyboard-button"
+      (click)="outputKey.emit('backspace')"
+      (keydown.enter)="outputKey.emit('backspace')"
+      bbtDeferringNavigable
+      [parent]="actions"
+    >
+      Backspace
+    </div>
+    <div
+      tabindex="0"
+      class="keyboard-button"
+      (click)="outputKey.emit('search')"
+      (keydown.enter)="outputKey.emit('search')"
+      bbtDeferringNavigable
+      [parent]="actions"
+    >
+      Search
+    </div>
+  </div>
+</bbt-navigable-container>

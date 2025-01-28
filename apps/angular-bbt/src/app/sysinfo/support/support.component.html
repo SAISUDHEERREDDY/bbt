@@ -1,0 +1,19 @@
+<div *ngIf="!sysinfo" class="support-container">&nbsp;</div>
+<div *ngIf="sysinfo" class="support-container">
+  <div class="support-body">
+    <div class="support-purpose">
+      {{ 'SUPPORT_TITLE' | jqueryi18n }}
+    </div>
+    <div *ngIf="sysinfo">
+      <div class="support-email">
+        {{ sysinfo.email }}
+      </div>
+      <div class="support-phone">
+        {{ sysinfo.phone }}
+      </div>
+    </div>
+  </div>
+  <div class="hughes-logo">
+    <img src="../../assets/hughes-logo.png" width="180px" height="48px" />
+  </div>
+</div>

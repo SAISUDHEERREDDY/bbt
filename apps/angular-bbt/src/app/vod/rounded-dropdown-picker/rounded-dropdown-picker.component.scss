@@ -1,0 +1,102 @@
+@use 'sass:math';
+@import '_variables';
+
+$dropdown-min-width: math.div(294, 19.2) * 1vw;
+
+.active > .rounded-dropdown-picker {
+  background-color: pink;
+}
+
+.rounded-dropdown-picker {
+  display: inline-block;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+
+  > .button.button-bordered.button-clear {
+    min-width: $dropdown-min-width;
+  }
+
+  .dropdown-state {
+    display: flex;
+    justify-content: space-between;
+    .dropdown-label {
+      text-align: left;
+    }
+
+    .open-indicator {
+      transition: transform 300ms ease-in-out;
+    }
+  }
+
+  .dropdown-content {
+    height: 0;
+    position: absolute;
+    border: 0;
+    min-width: $dropdown-min-width;
+    margin-top: 0;
+    color: #fff;
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+
+    background-color: #000;
+    transition: background-color 300ms, max-height 300ms ease-in-out;
+
+    .dropdown-option {
+      display: flex;
+      justify-content: space-between;
+
+      //padding: 24px 40px;
+      padding: (math.div(15, 19.2) * 1vh) (math.div(30, 19.2) * 1vh);
+      box-sizing: border-box;
+      font-family: $medium-font;
+      font-size: (math.div(28, 10.8) * 1vh);
+      border-bottom: (math.div(2, 10.8) * 1vh) solid #fff;
+    }
+    .dropdown-option:last-child {
+      border-bottom: 0;
+    }
+
+    .dropdown-option:focus {
+      background-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.dropdown-is-open {
+  > .button.button-bordered.button-clear {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+
+    background-color: #000;
+    border-color: #fff;
+    transition: background-color 300ms;
+  }
+
+  .open-indicator {
+    transform: rotate(-90deg);
+  }
+
+  .dropdown-content {
+    height: auto;
+    max-height: 40vh;
+    border: (math.div(2, 10.8) * 1vh) solid #fff;
+    border-bottom-right-radius: (math.div(8, 10.8) * 1vh);
+    border-bottom-left-radius: (math.div(8, 10.8) * 1vh);
+  }
+}
+
+:host:focus .dropdown-is-open > .button.button-bordered.button-clear {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.rounded-dropdown-picker:focus,
+.button.button-bordered.button-clear:focus {
+  outline: none;
+}

@@ -1,0 +1,63 @@
+<div
+  class="description-container"
+  *ngFor="let title of descriptionArray; let fileIndex = index"
+>
+  <mat-form-field class="description-form" appearance="outline">
+    <!-- Description Field -->
+    <mat-label>{{ 'DESCRIPTION' | jqueryi18n }}</mat-label>
+    <textarea
+      matInput
+      type="text"
+      class="description-textarea"
+      value="{{ title.value }}"
+      (change)="addDescription($event, fileIndex)"
+      (click)="$event.stopPropagation(); $event.preventDefault()"
+    ></textarea>
+
+    <!-- Language Select -->
+    <mat-select
+      #t
+      apperance="none"
+      class="language-select"
+      placeholder="{{ 'LANGUAGE' | jqueryi18n }}"
+      (selectionChange)="selectLanguage(t.value, fileIndex)"
+      value="{{ title.code }}"
+    >
+      <mat-option
+        *ngFor="let lang of supportedLanguages"
+        value="{{ lang.code }}"
+      >
+        {{ lang.description | uppercase | jqueryi18n }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="add-delete-button">
+    <!-- Add Language Button -->
+    <button
+      mat-stroked-button
+      class="add-lang-button"
+      type="button"
+      color="accent"
+      (click)="addLanguage()"
+      *ngIf="fileIndex === 0"
+    >
+      <span class="add-lang">
+        <mat-icon class="icon-display" svgIcon="add-lang"></mat-icon>
+        <br />
+        {{ 'LANGUAGE' | jqueryi18n }}
+      </span>
+    </button>
+
+    <!-- Delete Language button -->
+    <button
+      mat-stroked-button
+      type="button"
+      class="delete-lang-button"
+      (click)="removeDescriptionInput(fileIndex)"
+      *ngIf="fileIndex !== 0"
+    >
+      <mat-icon color="warn">delete_forever</mat-icon>
+    </button>
+  </div>
+</div>

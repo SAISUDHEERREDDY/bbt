@@ -1,0 +1,16 @@
+<div class="dark-mode-theme">
+  <div class="progress-container">
+    <span
+      >{{ media?.currentTime | linearTime }}/{{
+        media?.duration | linearTime
+      }}</span
+    >
+    <ng-content select=".ratio"></ng-content>
+  </div>
+  <mat-progress-bar
+    color="accent"
+    mode="determinate"
+    [value]="(media?.currentTime / media?.duration) * 100"
+  >
+  </mat-progress-bar>
+</div>

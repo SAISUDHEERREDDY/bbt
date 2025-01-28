@@ -1,0 +1,41 @@
+.hughes-horizontal-header {
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: 'Gotham Medium', Helvetica, sans-serif;
+
+  & > .horizontal-header-label {
+    // Sizing
+    $label-height: 43px;
+    $label-font-size: 36px;
+
+    // Font stuff
+    font-size: $label-font-size;
+    height: $label-height;
+    margin: 0;
+    color: black;
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+  }
+
+  & > .horizontal-header-filler {
+    $margin-size: 3px;
+    $line-border-size: 3px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    box-sizing: border-box;
+    flex-grow: 1;
+    border-bottom: #a1a1a3 solid $line-border-size;
+    margin-bottom: $margin-size;
+    color: #7b7b7b;
+    font-size: 12px;
+    font-family: 'Gotham', Helvetica, sans-serif;
+    padding-bottom: 5px;
+
+    & > .filler-content {
+      padding-left: 20px;
+    }
+  }
+}

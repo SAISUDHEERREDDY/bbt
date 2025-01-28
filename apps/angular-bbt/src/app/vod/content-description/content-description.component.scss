@@ -1,0 +1,75 @@
+@use 'sass:math';
+@import '_variables';
+
+.content-description-text {
+  color: $secondary-font-color;
+
+  .parent-name {
+    font-family: $normal-font;
+    font-size: math.div(21, 10.8) * 1vh;
+    margin: math.div(10, 10.8) * 1vh 0;
+    font-weight: normal;
+  }
+
+  .name {
+    //display: flex;
+    //word-wrap: nowrap;
+    //width: 100%;
+    font-family: $bold-font;
+    font-size: math.div(61, 10.8) * 1vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+  }
+
+  .long-description {
+    font-family: $book-font;
+    $description-font-size: math.div(36, 10.8) * 1vh;
+    font-size: $description-font-size;
+    margin-top: math.div(20, 10.8) * 1vh;
+    min-height: $description-font-size * 2;
+
+    -webkit-line-clamp: 4;
+  }
+
+  // Common clamping code
+  .name,
+  .long-description {
+    // This webkit based solution works everywhere I have tested it
+    // (Chromium, Firefox, Edge, and Chrome)
+    // I don't love it, but it works.
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .preview-meta-info {
+    font-family: $medium-font;
+    font-size: math.div(24, 10.8) * 1vh;
+    margin-top: math.div(20, 10.8) * 1vh;
+    margin-bottom: math.div(20, 10.8) * 1vh;
+
+    > .preview-meta-fact {
+      margin-left: math.div(18, 10.8) * 1vh;
+      border-left: (math.div(1, 10.8) * 1vh) solid #fff;
+
+      > i {
+        margin-right: ((math.div(18, 10.8)) * 1vh);
+        margin-left: ((math.div(18, 10.8)) * 1vh);
+      }
+    }
+
+    > .preview-meta-fact:first-child {
+      margin-left: 0;
+      border-left: 0;
+      > i {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.content-description {
+  margin-top: math.div(42, 10.8) * 1vh;
+}

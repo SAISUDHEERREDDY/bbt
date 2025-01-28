@@ -1,0 +1,54 @@
+{
+  "npmScope": "bbt",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*",
+    "tsconfig.base.json": "*"
+  },
+  "projects": {
+    "angular-bbt": {
+      "tags": []
+    },
+    "angular-bbt-e2e": {
+      "tags": [],
+      "implicitDependencies": ["angular-bbt"]
+    },
+    "device-detector": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "shared-e2e": {
+      "tags": [],
+      "implicitDependencies": ["shared"]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
+      }
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "itemId": 368,
+  "title": "New Hire Presentation (HDT15050)",
+  "description": "This is an example of a PowerPoint-type Presentation using the old 'New Hire Orientation' from 2020. Slides and videos can be sequentially viewed, just as faciltators used to with the New Hire DVDs. (HDT15050)",
+  "type": "Presentation",
+  "customIconId": 352,
+  "iconType": "custom",
+  "customIcon": "/lms/content//lms/content/677/unknownName",
+  "displayOrder": 10,
+  "passKey": false,
+  "goldMaster": false,
+  "startDate": "",
+  "endDate": "",
+  "items": [
+    {
+      "itemId": 349,
+      "title": "hdt15050-01.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 660,
+      "filePath": "/lms/content/660/hdt15050-01.jpg",
+      "iconType": "default",
+      "displayOrder": 0,
+      "passKey": false
+    },
+    {
+      "itemId": 353,
+      "title": "hdt15050-02.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 661,
+      "filePath": "/lms/content/661/hdt15050-02.jpg",
+      "iconType": "default",
+      "displayOrder": 1,
+      "passKey": false
+    },
+    {
+      "itemId": 346,
+      "title": "hdt15050-03.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 656,
+      "filePath": "/lms/content/656/hdt15050-03.jpg",
+      "iconType": "default",
+      "displayOrder": 2,
+      "passKey": false
+    },
+    {
+      "itemId": 348,
+      "title": "hdt15050-04.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 659,
+      "filePath": "/lms/content/659/hdt15050-04.jpg",
+      "iconType": "default",
+      "displayOrder": 3,
+      "passKey": false
+    },
+    {
+      "itemId": 352,
+      "title": "hdt15050-05.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 658,
+      "filePath": "/lms/content/658/hdt15050-05.jpg",
+      "iconType": "default",
+      "displayOrder": 4,
+      "passKey": false
+    },
+    {
+      "itemId": 347,
+      "title": "hdt15050-06.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 657,
+      "filePath": "/lms/content/657/hdt15050-06.jpg",
+      "iconType": "default",
+      "displayOrder": 5,
+      "passKey": false
+    },
+    {
+      "itemId": 351,
+      "title": "hdt15050-07.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 663,
+      "filePath": "/lms/content/663/hdt15050-07.jpg",
+      "iconType": "default",
+      "displayOrder": 6,
+      "passKey": false
+    },
+    {
+      "itemId": 350,
+      "title": "hdt15050-08.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 662,
+      "filePath": "/lms/content/662/hdt15050-08.jpg",
+      "iconType": "default",
+      "displayOrder": 7,
+      "passKey": false
+    },
+    {
+      "itemId": 354,
+      "title": "hdt15050-09.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 664,
+      "filePath": "/lms/content/664/hdt15050-09.jpg",
+      "iconType": "default",
+      "displayOrder": 8,
+      "passKey": false
+    },
+    {
+      "itemId": 355,
+      "title": "hdt15050-10.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 665,
+      "filePath": "/lms/content/665/hdt15050-10.jpg",
+      "iconType": "default",
+      "displayOrder": 9,
+      "passKey": false
+    },
+    {
+      "itemId": 366,
+      "title": "hdt15050-11_EE_cc1cc3.mp4",
+      "description": null,
+      "type": "Video",
+      "pifId": 676,
+      "duration": 310,
+      "filePath": "/lms/content/676/hdt15050-11_EE_cc1cc3.m3u8",
+      "iconType": "custom",
+      "customIcon": "/lms/content/665/hdt15050-10.jpg",
+      "displayOrder": 10,
+      "tracks": [
+        {
+          "kind": "audio",
+          "label": "English",
+          "srclang": "en",
+          "subtype": "stereo"
+        }
+      ],
+      "passKey": false
+    },
+    {
+      "itemId": 356,
+      "title": "hdt15050-12.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 666,
+      "filePath": "/lms/content/666/hdt15050-12.jpg",
+      "iconType": "default",
+      "displayOrder": 11,
+      "passKey": false
+    },
+    {
+      "itemId": 358,
+      "title": "hdt15050-13.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 668,
+      "filePath": "/lms/content/668/hdt15050-13.jpg",
+      "iconType": "default",
+      "displayOrder": 12,
+      "passKey": false
+    },
+    {
+      "itemId": 359,
+      "title": "hdt15050-14.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 669,
+      "filePath": "/lms/content/669/hdt15050-14.jpg",
+      "iconType": "default",
+      "displayOrder": 13,
+      "passKey": false
+    },
+    {
+      "itemId": 364,
+      "title": "hdt15050-15_EE_cc1cc3.mp4",
+      "description": null,
+      "type": "Video",
+      "pifId": 674,
+      "duration": 88,
+      "filePath": "/lms/content/674/hdt15050-15_EE_cc1cc3.m3u8",
+      "iconType": "default",
+      "displayOrder": 14,
+      "tracks": [
+        {
+          "kind": "audio",
+          "label": "English",
+          "srclang": "en",
+          "subtype": "stereo"
+        }
+      ],
+      "passKey": false
+    },
+    {
+      "itemId": 360,
+      "title": "hdt15050-16.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 670,
+      "filePath": "/lms/content/670/hdt15050-16.jpg",
+      "iconType": "default",
+      "displayOrder": 15,
+      "passKey": false
+    },
+    {
+      "itemId": 365,
+      "title": "hdt15050-17_EE_cc1cc3.mp4",
+      "description": null,
+      "type": "Video",
+      "pifId": 675,
+      "duration": 214,
+      "filePath": "/lms/content/675/hdt15050-17_EE_cc1cc3.m3u8",
+      "iconType": "default",
+      "displayOrder": 16,
+      "tracks": [
+        {
+          "kind": "audio",
+          "label": "English",
+          "srclang": "en",
+          "subtype": "stereo"
+        }
+      ],
+      "passKey": false
+    },
+    {
+      "itemId": 357,
+      "title": "hdt15050-18.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 667,
+      "filePath": "/lms/content/667/hdt15050-18.jpg",
+      "iconType": "default",
+      "displayOrder": 17,
+      "passKey": false
+    },
+    {
+      "itemId": 361,
+      "title": "hdt15050-19.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 671,
+      "filePath": "/lms/content/671/hdt15050-19.jpg",
+      "iconType": "default",
+      "displayOrder": 18,
+      "passKey": false
+    },
+    {
+      "itemId": 362,
+      "title": "hdt15050-20.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 672,
+      "filePath": "/lms/content/672/hdt15050-20.jpg",
+      "iconType": "default",
+      "displayOrder": 19,
+      "passKey": false
+    },
+    {
+      "itemId": 363,
+      "title": "hdt15050-21.jpg",
+      "description": null,
+      "type": "Image",
+      "pifId": 673,
+      "filePath": "/lms/content/673/hdt15050-21.jpg",
+      "iconType": "default",
+      "displayOrder": 20,
+      "passKey": false
+    }
+  ]
+}

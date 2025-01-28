@@ -1,0 +1,45 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="cdkfocusregionstart" />
+            <item index="1" class="java.lang.String" itemvalue="cdkfocusinitial" />
+            <item index="2" class="java.lang.String" itemvalue="loading" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="18">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="hr" />
+            <item index="7" class="java.lang.String" itemvalue="bbt-hls-plyr" />
+            <item index="8" class="java.lang.String" itemvalue="bbt-rounded-dropdown-picker" />
+            <item index="9" class="java.lang.String" itemvalue="bbt-program-browser" />
+            <item index="10" class="java.lang.String" itemvalue="bbt-idle-player" />
+            <item index="11" class="java.lang.String" itemvalue="bbt-plyr" />
+            <item index="12" class="java.lang.String" itemvalue="bbt-live-description" />
+            <item index="13" class="java.lang.String" itemvalue="bbt-heading-navigation" />
+            <item index="14" class="java.lang.String" itemvalue="mat-sidenav-container" />
+            <item index="15" class="java.lang.String" itemvalue="mat-icon" />
+            <item index="16" class="java.lang.String" itemvalue="bbt-heading-clock" />
+            <item index="17" class="java.lang.String" itemvalue="mat-progress-bar" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="TsLint" enabled="true" level="WARNING" enabled_by_default="true" />
+  </profile>
+</component>

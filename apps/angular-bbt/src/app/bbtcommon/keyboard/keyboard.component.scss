@@ -1,0 +1,103 @@
+@import '_variables';
+
+.keyboard {
+  flex-wrap: wrap;
+}
+
+.keyboard-button {
+  width: 141px;
+  height: 33px;
+  line-height: 33px;
+  font-size: 20px;
+  background-color: $btn-secondary-background;
+  border-radius: 8px;
+}
+
+.keyboard-focusable,
+.keyboard-button,
+.option-lowercase,
+.option-uppercase,
+.option-symbols {
+  &.option-selected {
+    background-color: #000000;
+    color: $secondary-font-color;
+  }
+
+  &:hover,
+  &:focus {
+    color: $secondary-font-color;
+    background: $primary-color;
+    box-shadow: $box-shadow-3;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.keyboard-focusable:focus,
+.keyboard-button:focus,
+.option-lowercase:focus,
+.option-uppercase:focus,
+.option-symbols:focus {
+  color: $secondary-font-color;
+  background: $primary-color;
+  box-shadow: $box-shadow-3;
+  cursor: pointer;
+  outline: none;
+}
+
+.letter {
+  list-style: none;
+  padding: 2.5px;
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
+  color: $primary-font-color;
+  text-align: center;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+
+  &:hover,
+  &:focus {
+    color: $secondary-font-color;
+    background: $primary-color;
+    box-shadow: $box-shadow-3;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.keyboard-options-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 177px;
+  height: 33px;
+  font-size: 16px;
+  background-color: $btn-secondary-background;
+  border-radius: 8px;
+  margin-bottom: 7px;
+
+  > * {
+    flex: 1;
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    border-radius: 8px;
+  }
+}
+
+.keyboard-movement {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  > * {
+    margin-right: 1em;
+  }
+
+  *:last-child {
+    margin-right: 0;
+  }
+}

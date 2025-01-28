@@ -1,0 +1,145 @@
+@import '_variables';
+
+.header-root {
+  background-color: #fff;
+  $scaling-font-size: 3.3vmin;
+  height: $header-height;
+  box-shadow: $box-shadow;
+
+  .active-route {
+    background-color: $btn-active;
+    color: $secondary-font-color;
+  }
+
+  .header-left {
+    display: flex;
+    height: $header-height;
+  }
+
+  nav {
+    display: flex;
+  }
+
+  .logo-container {
+    height: $header-height;
+    width: 5.1vh;
+    display: flex;
+    align-items: center;
+    margin-left: 9px;
+    margin-right: 9px;
+
+    > .logo {
+      display: block;
+      max-height: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // slanted buttons for the menu
+  $btnSlantSkew: 20deg;
+  $horizontal-pad: 2.2vh;
+  $horizontal-border: 1.1vh;
+  $vertical-border: 0.625vw;
+
+  .slanted-nav {
+    box-sizing: border-box;
+    transition-property: background-color, border-color;
+    transition-duration: 125ms;
+    transition-timing-function: ease-in-out;
+    @mixin colorized-border($color) {
+      border-left: $color solid $vertical-border;
+      border-right: $color solid $vertical-border;
+      border-top: $color solid $horizontal-border;
+      border-bottom: $color solid $horizontal-border;
+      padding-left: $horizontal-pad - $horizontal-border;
+      padding-right: $horizontal-pad - $horizontal-border;
+      transition-duration: 125ms;
+      transition-timing-function: ease-in-out;
+    }
+    @include colorized-border($header-background); // Apply basic to root
+    &.active-route:focus,
+    &:focus {
+      outline: 0;
+      @include colorized-border($primary-color);
+    }
+
+    &.active-route {
+      color: $btn-primary-font;
+      @include colorized-border($btn-active);
+    }
+
+    color: $btn-secondary-font;
+    font-family: $book-font;
+    font-size: $scaling-font-size;
+    text-decoration: none;
+    white-space: nowrap;
+
+    // center contents horizontally
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: $header-height;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
+    -ms-transform: skewX(-$btnSlantSkew);
+    -webkit-transform: skewX(-$btnSlantSkew);
+    transform: skewX(-$btnSlantSkew);
+
+    // De-slant content
+    > * {
+      -ms-transform: skewX($btnSlantSkew);
+      -webkit-transform: skewX($btnSlantSkew);
+      transform: skewX($btnSlantSkew);
+      display: inline-block;
+    }
+
+    &.slanted-nav-right {
+      box-shadow: -2px 0 4px rgba(0, 0, 0, 0.5);
+      -ms-transform: skewX($btnSlantSkew);
+      -webkit-transform: skewX($btnSlantSkew);
+      transform: skewX($btnSlantSkew);
+      // De-slant content
+      > * {
+        -ms-transform: skewX(-$btnSlantSkew);
+        -webkit-transform: skewX(-$btnSlantSkew);
+        transform: skewX(-$btnSlantSkew);
+        display: inline-block;
+      }
+    }
+  }
+
+  .slanted-nav {
+    margin-left: 5px;
+
+    + .slanted-nav {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  bbt-heading-clock {
+    flex-grow: 1;
+    margin-left: $horizontal-pad;
+    margin-right: $horizontal-pad;
+  }
+
+  #header-search-link {
+    display: flex;
+    align-items: center;
+
+    .fas.fa-search.search-icn {
+      font-size: $scaling-font-size;
+    }
+  }
+
+  #menu-toggle {
+    box-shadow: -2px 0 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+
+    .fa.fas {
+      justify-content: center;
+      min-width: 3vh;
+    }
+  }
+}

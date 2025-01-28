@@ -1,0 +1,34 @@
+<div class="ordered-container" cdkDropListGroup #listGroup>
+  <div
+    class="placeholder"
+    cdkDropList
+    (cdkDropListEntered)="entered($event)"
+    (cdkDropListDropped)="dropped()"
+    #placeholder
+  ></div>
+
+  <div
+    cdkDropList
+    *ngFor="let item of items"
+    class="content-item dark-mode-theme"
+    (cdkDropListEntered)="entered($event)"
+    (cdkDropListDropped)="dropped()"
+  >
+    <div cdkDrag class="ordered-box" (cdkDragReleased)="dragReleased()">
+      <div
+        class="ordered-custom-placeholder"
+        #dragPlaceholder
+        *cdkDragPlaceholder
+      ></div>
+      <shared-content-info-tile
+        [itemId]="item.itemId"
+        [edit]="'EDIT' | jqueryi18n"
+        [del]="'DELETE' | jqueryi18n"
+        (update)="updateItem.emit(item)"
+        (delete)="deleteItem.emit(item)"
+      >
+        <bbt-content-card [content]="$any(item)"></bbt-content-card>
+      </shared-content-info-tile>
+    </div>
+  </div>
+</div>

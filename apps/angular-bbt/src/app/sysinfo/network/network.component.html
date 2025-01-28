@@ -1,0 +1,60 @@
+<div class="content-container">
+  <div *ngIf="!sysinfo" class="sysinfo-container-content">&nbsp;</div>
+  <div *ngIf="sysinfo" class="sysinfo-container-content">
+    <div class="net-container-label">
+      {{ 'ETHERNET' | jqueryi18n }}
+    </div>
+    <div *ngFor="let eth of sysinfo.ethernet" class="net-container">
+      <div class="net-label">
+        <div class="net-label">
+          {{ eth.interface }}
+        </div>
+        <div class="net-state">
+          <div *ngIf="eth.status === 'DOWN'" class="error-state">
+            {{ eth.status }}
+          </div>
+          <div *ngIf="eth.status !== 'DOWN'" class="success-state">
+            {{ eth.status }}
+          </div>
+        </div>
+      </div>
+      <hr class="net-divider" />
+      <div class="center-inline">
+        <div class="net-info">
+          <div class="net-info-label">
+            {{ 'IP_ADDR' | jqueryi18n }}
+          </div>
+          <div class="net-info-data">{{ eth.ipaddr }} ({{ eth.macaddr }})</div>
+        </div>
+      </div>
+    </div>
+    <div class="net-container-label">
+      {{ 'MORE' | jqueryi18n }}
+    </div>
+    <div class="net-container">
+      <div class="net-label">
+        <div class="net-label">
+          {{ 'GATEWAY' | jqueryi18n }}
+        </div>
+        <div *ngIf="sysinfo" class="net-state">
+          <div
+            *ngIf="sysinfo.gateway.ping.search(' ms$') != -1"
+            class="success-state"
+          >
+            {{ 'PING' | jqueryi18n }} {{ sysinfo.gateway.ping }}
+          </div>
+          <div
+            *ngIf="sysinfo.gateway.ping.search(' ms$') == -1"
+            class="error-state"
+          >
+            {{ 'PING_FAILED' | jqueryi18n }}
+          </div>
+        </div>
+      </div>
+      <hr class="net-divider" />
+      <div class="gateway-data">
+        {{ sysinfo.gateway.address_str }}
+      </div>
+    </div>
+  </div>
+</div>

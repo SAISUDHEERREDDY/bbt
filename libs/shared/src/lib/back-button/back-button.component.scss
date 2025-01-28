@@ -1,0 +1,30 @@
+@import 'variables';
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vmax;
+  color: $btn-secondary-font;
+  width: 3.5vmax;
+  height: 3.5vmax;
+
+  background-color: $btn-secondary-background;
+  border-radius: 50%;
+  border: 0.5vmax solid transparent;
+  text-decoration: none;
+}
+
+.back-button > a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5vmax;
+}
+
+.back-button:hover,
+.back-button:active,
+.back-button:focus {
+  cursor: pointer;
+  outline: none;
+  border: 0.5vmax solid $primary-color;
+}

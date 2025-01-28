@@ -1,0 +1,59 @@
+app-i18n-description-input {
+  .description-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    .description-form {
+      flex-grow: 1;
+      .description-textarea {
+        flex-grow: 2;
+        border: none;
+      }
+    }
+
+    .mat-form-field-infix {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    // Set the width of language select drop down
+    .mat-select {
+      width: inherit;
+      padding-left: 10px;
+    }
+    .mat-select-value {
+      color: rgb(101, 107, 121);
+    }
+
+    .add-delete-button {
+      display: inline;
+      padding-top: 3px;
+    }
+
+    .add-lang-button {
+      line-height: 1.6em;
+      font-style: normal;
+      font-size: 0.8em;
+      font-weight: normal;
+      color: rgb(27, 107, 200);
+      padding: 3px 0px;
+      margin-left: 10px;
+    }
+
+    .add_lang {
+      font-size: x-small;
+      vertical-align: middle;
+    }
+    .icon-display {
+      transform: scale(1.5);
+    }
+
+    .delete-lang-button {
+      margin-left: 10px;
+      height: 4.1em;
+    }
+  }
+}

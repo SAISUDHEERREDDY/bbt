@@ -1,0 +1,10 @@
+<div class="sticky">
+  <mat-toolbar *ngIf="show || showIfMobile">
+    <ng-content select="[left]"></ng-content>
+
+    <span class="spacer"></span>
+    <ng-content select="[title]"></ng-content>
+    <span class="spacer"></span>
+    <ng-content select="[right]"></ng-content>
+  </mat-toolbar>
+</div>

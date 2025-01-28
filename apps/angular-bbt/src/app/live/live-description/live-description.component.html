@@ -1,0 +1,25 @@
+<div class="split-info">
+  <span *ngIf="program">
+    <span data-i18n>{{
+      (playingNow ? 'Playing Now' : 'Coming Up') | jqueryi18n
+    }}</span>
+  </span>
+  <span>{{ channel?.name }}</span>
+</div>
+<h1 class="program-title">{{ program?.name }}</h1>
+<div class="split-info time-info">
+  <span>
+    {{ program?.startTime | date: 'shortTime' }}
+    <span *ngIf="program?.endTime"
+      >- {{ program?.endTime | date: 'shortTime' }}</span
+    >
+  </span>
+  <span class="duration-info">
+    <span *ngIf="program?.duration"
+      >{{ program?.duration }} {{ 'min' | jqueryi18n }}</span
+    >
+  </span>
+</div>
+<div class="event-description">
+  {{ program?.description }}
+</div>

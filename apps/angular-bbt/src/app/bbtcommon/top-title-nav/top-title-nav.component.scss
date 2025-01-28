@@ -1,0 +1,41 @@
+@import '_variables';
+
+.main-container {
+  margin-right: 18px;
+  margin-left: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // TODO: JG feels like we need 18px of spacing between the
+  // content and the title but won't do it unless approved
+}
+
+.bbt-title {
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #646464;
+}
+
+.back-button {
+  font-size: 35px;
+  color: #4c4c4c;
+}
+
+.back-color {
+  color: #4c4c4c;
+}
+
+.back-button > a,
+.back-button > a:visited {
+  text-decoration: none;
+  color: inherit;
+  border: 5px solid transparent;
+  padding: 5px;
+}
+.back-button > a:hover,
+.back-button > a:active,
+.back-button > a:focus {
+  cursor: pointer;
+  outline: none;
+  border: 5px solid $primary-color;
+}

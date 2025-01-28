@@ -1,0 +1,178 @@
+<bbt-navigable-container
+  [parentOverride]="parentNav"
+  [representativeChild]="representativeChild"
+  verticalStrategy="delegate"
+  horizontalStrategy="delegate"
+  #rowNav
+  [priority]="priority"
+>
+  <div class="keypad">
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-1"
+        #num1="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(1)"
+        (keydown.enter)="newPress.emit(1)"
+        [targets]="{ left: num1, right: num2, down: num4 }"
+        >1</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-2"
+        #num2="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(2)"
+        (keydown.enter)="newPress.emit(2)"
+        [targets]="{ left: num1, right: num3, down: num5 }"
+        >2</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-3"
+        #num3="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(3)"
+        (keydown.enter)="newPress.emit(3)"
+        [targets]="{ left: num2, down: num6, right: num3 }"
+        >3</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-4"
+        #num4="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(4)"
+        (keydown.enter)="newPress.emit(4)"
+        [targets]="{ up: num1, left: num4, right: num5, down: num7 }"
+        >4</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-5"
+        #num5="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(5)"
+        (keydown.enter)="newPress.emit(5)"
+        [targets]="{ up: num2, left: num4, right: num6, down: num8 }"
+        >5</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-6"
+        #num6="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(6)"
+        (keydown.enter)="newPress.emit(6)"
+        [targets]="{ up: num3, right: num6, left: num5, down: num9 }"
+        >6</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-7"
+        #num7="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(7)"
+        (keydown.enter)="newPress.emit(7)"
+        [targets]="{ up: num4, left: num7, right: num8, down: decimal }"
+        >7</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-8"
+        #num8="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(8)"
+        (keydown.enter)="newPress.emit(8)"
+        [targets]="{ up: num5, left: num7, right: num9, down: num0 }"
+        >8</span
+      >
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        data-cy="keypad-9"
+        #num9="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(9)"
+        (keydown.enter)="newPress.emit(9)"
+        [targets]="{ up: num6, left: num8, right: num9, down: backspace }"
+        >9</span
+      >
+    </div>
+    <div class="keypad-key key-container">
+      <span
+        #decimal="navigable"
+        tabindex="0"
+        class="keypad-key-button"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (keydown.enter)="newPress.emit('decimal')"
+        (click)="newPress.emit('decimal')"
+        [targets]="{ up: num7, left: decimal, right: num0 }"
+      >
+        <i class="fa fas fa-square decimal"></i>
+      </span>
+    </div>
+    <div class="keypad-key keypad-number">
+      <span
+        #num0="navigable"
+        tabindex="0"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (whenInitEl)="setRepresentativeChild($event)"
+        (click)="newPress.emit(0)"
+        (keydown.enter)="newPress.emit(0)"
+        [targets]="{ up: num8, left: decimal, right: backspace }"
+        >0
+      </span>
+    </div>
+    <div class="keypad-key keypad-container">
+      <span
+        #backspace="navigable"
+        tabindex="0"
+        class="keypad-key keypad-key-button keypad-backspace"
+        bbtDeferringNavigable
+        [parent]="rowNav"
+        (keydown.enter)="newPress.emit('backspace')"
+        (click)="newPress.emit('backspace')"
+        [targets]="{ up: num9, left: num0, right: backspace }"
+      >
+        <i class="fa fas fa-backspace"></i>
+      </span>
+    </div>
+  </div>
+</bbt-navigable-container>

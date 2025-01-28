@@ -1,0 +1,46 @@
+<div class="content-description">
+  <div class="content-description-text" *ngIf="locale$ | async as locale">
+    <div class="parent-name">
+      {{ parent?.name }}
+    </div>
+    <div class="name">
+      {{ content.titles | translateToLocale: locale:content.title }}
+    </div>
+    <div class="preview-meta-info">
+      <ng-container [ngSwitch]="content?.type">
+        <span class="preview-meta-fact" *ngSwitchCase="'Video'"
+          ><i class="fa fa-film"></i>
+          {{ $any(content).duration | secondsByMagnitude }}</span
+        >
+        <span class="preview-meta-fact" *ngSwitchCase="'Presentation'"
+          ><i class="far fa-clone"></i> {{ $any(content)?.files?.length }}
+          <span bbti18n="ITEMS"></span
+        ></span>
+        <span *ngSwitchDefault><i class="fa fa-bug"></i></span>
+      </ng-container>
+      <span class="preview-meta-fact">
+        <i class="fa fa-globe-americas"></i>
+        <span *ngFor="let track of audioTracks | slice: 0:3; let last = last">
+          <span bbti18n="{{ track | uppercase | jqueryi18n }}"></span>
+          <span *ngIf="!last">/</span>
+        </span>
+        <span *ngIf="audioTracks?.length > 3">
+          + {{ audioTracks?.length - 3 }}</span
+        >
+        <span *ngIf="audioTracks?.length === 0" bbti18n="NONE"></span>
+      </span>
+      <span class="preview-meta-fact">
+        <i class="far fa-closed-captioning"></i>
+        <span *ngFor="let caption of captions | slice: 0:3; let last = last">
+          <span bbti18n="{{ caption | uppercase }}"></span>
+          <span *ngIf="!last">/</span>
+        </span>
+        <span *ngIf="captions?.length === 0" bbti18n="NONE"></span>
+        <span *ngIf="captions?.length > 3"> +{{ captions?.length - 3 }}</span>
+      </span>
+    </div>
+    <div class="long-description">
+      {{ content.descriptions | translateToLocale: locale:content.description }}
+    </div>
+  </div>
+</div>

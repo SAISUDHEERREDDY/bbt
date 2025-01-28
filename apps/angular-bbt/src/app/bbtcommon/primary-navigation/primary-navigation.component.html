@@ -1,0 +1,415 @@
+<bbt-heading-navigation
+  (hamburgerHit)="toggleSideNav()"
+  [sideNavOpen]="sideNavOpen"
+  *ngIf="!hideOnDesktop && !isMobile && !(isFullscreen$ | async)"
+>
+</bbt-heading-navigation>
+
+<div id="router-container" *ngIf="!isMobile">
+  <mat-sidenav-container>
+    <mat-sidenav-content>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </mat-sidenav-content>
+    <mat-sidenav
+      mode="over"
+      position="end"
+      #sidenav
+      [(opened)]="sideNavOpen"
+      [disableClose]="true"
+    >
+      <ng-container *ngTemplateOutlet="menu"></ng-container>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>
+<div id="bottom-router-container" *ngIf="isMobile">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+  <div class="bottom-nav">
+    <bbt-footer-navigation
+      (hamburgerHit)="toggleSideNav()"
+      [bottomNavOpen]="bottomNavOpen"
+      *ngIf="isMobile"
+    >
+      <div fullmenu>
+        <ng-container *ngTemplateOutlet="menu"></ng-container>
+      </div>
+    </bbt-footer-navigation>
+  </div>
+</div>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
+
+<!--Large MENU TEMPLATE-->
+<ng-template #menu>
+  <div class="side-menu" *ngIf="sideNavOpen && !inLanguage && !inSettings">
+    <div class="primary-title" bbti18n="MENU"></div>
+    <div class="line">
+      <hr />
+    </div>
+    <bbt-navigable-container
+      #sideTrap="navigableGroup"
+      horizontalStrategy="none"
+      verticalStrategy="self"
+    >
+      <div class="sub-navs">
+        <div
+          data-18n="LANGUAGE"
+          class="sub-nav-selection"
+          (click)="inLanguage = true"
+          (keydown.enter)="inLanguage = true"
+          (keydown.escape)="cancel()"
+          bbtDeferringNavigable
+          #sideMenuStart="navigable"
+          (whenInit)="focusMainSideNav($event)"
+          tabindex="0"
+          [parent]="sideTrap"
+          [priority]="2"
+        >
+          {{ 'LANGUAGE' | jqueryi18n }}
+        </div>
+        <!--
+                The *ngIf in the MANAGECONTENT anchor was removed.  It was
+                causing issues with bbt arrow navigation and
+                would skip the element with *ngIf until after the non *ngIf elements
+                had been traversed.  Putting a *ngIf="true" in trailing menu
+                items fixes the issue.  Moving MANAGECONTENT to the bottom of
+                the menu ITEMS would also work but is not the order specified
+                in the design.  Not elegant but the best I can do for now.
+             -->
+        <a
+          *bbtFeatureIsOn="'ManageContent'"
+          class="sub-nav-selection"
+          routerLink="/local/manage"
+          (click)="toggleSideNav(false)"
+          data-18n="MANAGECONTENT"
+          bbtDeferringNavigable
+          [parent]="sideTrap"
+          [tabIndex]="0"
+          [priority]="2"
+        >
+          {{ 'MANAGECONTENT' | jqueryi18n }}
+        </a>
+        <div
+          *bbtFeatureIsOn="'Admin'"
+          data-18n="SETTINGS"
+          class="sub-nav-selection"
+          (click)="openDialog()"
+          (keydown.enter)="openDialog()"
+          (keydown.escape)="cancel()"
+          bbtDeferringNavigable
+          #sideMenuStart="navigable"
+          tabIndex="0"
+          [parent]="sideTrap"
+          [priority]="3"
+        >
+          {{ 'SETTINGS' | jqueryi18n }}
+        </div>
+        <a
+          *bbtFeatureIsOn="'Admin'"
+          routerLink="sysinfo"
+          (click)="toggleSideNav(false)"
+          class="sub-nav-selection"
+          bbtDeferringNavigable
+          [parent]="sideTrap"
+          data-18n="SYSINFO"
+          [tabIndex]="0"
+          [priority]="4"
+        >
+          {{ 'SYSINFO' | jqueryi18n }}
+        </a>
+        <div
+          data-18n="CLOSE"
+          class="sub-nav-selection"
+          (click)="cancel()"
+          (keydown.enter)="cancel()"
+          (keydown.escape)="cancel()"
+          bbtDeferringNavigable
+          #sideMenuStart="navigable"
+          tabindex="0"
+          [parent]="sideTrap"
+          [priority]="5"
+        >
+          {{ 'CLOSE' | jqueryi18n }}
+        </div>
+      </div>
+    </bbt-navigable-container>
+  </div>
+
+  <div class="side-menu" *ngIf="inLanguage">
+    <div class="primary-title">
+      <span bbti18n="Language"></span>
+    </div>
+    <div class="line">
+      <hr />
+    </div>
+    <bbt-navigable-container
+      #langTrap="navigableGroup"
+      horizontalStrategy="none"
+      verticalStrategy="self"
+    >
+      <div class="sub-navs">
+        <div
+          class="sub-nav-selection"
+          *ngFor="
+            let pair of i18nService.languages | keyvalue;
+            index as index;
+            first as isFirst
+          "
+          bbtDeferringNavigable
+          [priority]="index"
+          [tabIndex]="0"
+          [parent]="langTrap"
+          [stealFocusOnInit]="isFirst"
+          (keydown.enter)="changeLang($any(pair.key))"
+          (click)="changeLang($any(pair.key))"
+        >
+          <span class="nav-label">{{ $any(pair.value) | jqueryi18n }}</span>
+          <mat-icon
+            *ngIf="pair.key === i18nService.currentLang"
+            fontSet="fa"
+            fontIcon="fa-check-circle"
+          ></mat-icon>
+        </div>
+        <div
+          data-18n="CLOSE"
+          class="sub-nav-selection"
+          (click)="cancel()"
+          (keydown.enter)="cancel()"
+          (keydown.escape)="cancel()"
+          bbtDeferringNavigable
+          #sideMenuStart="navigable"
+          tabindex="0"
+          [priority]="100000"
+          [parent]="langTrap"
+        >
+          {{ 'CLOSE' | jqueryi18n }}
+        </div>
+      </div>
+    </bbt-navigable-container>
+  </div>
+  <div *ngIf="inSettingsAuth">
+    <bbt-login></bbt-login>
+  </div>
+  <div class="side-menu" *ngIf="inSettings">
+    <div class="primary-title">
+      <span bbti18n="Settings"></span>
+    </div>
+    <div class="line">
+      <hr />
+    </div>
+    <bbt-navigable-container
+      #settingsTrap="navigableGroup"
+      horizontalStrategy="none"
+      verticalStrategy="self"
+    >
+      <div class="sub-navs">
+        <a
+          routerLink="config/timezone"
+          (click)="toggleSideNav(false)"
+          class="sub-nav-selection"
+          bbtDeferringNavigable
+          [parent]="settingsTrap"
+          data-18n="TIMEZONE"
+        >
+          {{ 'TIMEZONE' | jqueryi18n }}
+        </a>
+        <a
+          routerLink="config"
+          (click)="toggleSideNav(false)"
+          class="sub-nav-selection"
+          bbtDeferringNavigable
+          [parent]="settingsTrap"
+          data-18n="NETWORK"
+        >
+          {{ 'NETWORK' | jqueryi18n }}
+        </a>
+      </div>
+    </bbt-navigable-container>
+  </div>
+</ng-template>
+
+<!--
+
+
+  <bbt-navigable-root
+  [ngClass]="{
+    fullscreen: fullscreen,
+    'activity-disabled': !active.enabled,
+    'activity-enabled': active.enabled
+  }"
+>
+  <bbt-heading-navigation
+    (hamburgerHit)="toggleSideNav()"
+    [sideNavOpen]="sideNavOpen"
+  >
+  </bbt-heading-navigation>
+  <div id="router-container">
+    <mat-sidenav-container>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+      <mat-sidenav
+        mode="over"
+        position="end"
+        [(opened)]="sideNavOpen"
+        [disableClose]="true"
+      >
+        <div
+          class="side-menu"
+          *ngIf="sideNavOpen && !inLanguage && !inSettings"
+        >
+          <div class="primary-title" bbti18n="MENU"></div>
+          <div class="line">
+            <hr />
+          </div>
+          <bbt-navigable-container
+            #sideTrap="navigableGroup"
+            horizontalStrategy="none"
+            verticalStrategy="self"
+          >
+            <div class="sub-navs">
+              <div
+                data-18n="LANGUAGE"
+                class="sub-nav-selection"
+                (click)="inLanguage = true"
+                (keydown.enter)="inLanguage = true"
+                (keydown.escape)="cancel()"
+                bbtDeferringNavigable
+                #sideMenuStart="navigable"
+                (whenInit)="focusMainSideNav($event)"
+                tabindex="0"
+                [parent]="sideTrap"
+              >
+                {{ 'LANGUAGE' | jqueryi18n }}
+              </div>
+
+             <a
+             *bbtFeatureIsOn="'ManageContent'"
+             class="sub-nav-selection"
+             routerLink="local/manage"
+             (click)="toggleSideNav(false)"
+             data-18n="MANAGECONTENT"
+             bbtDeferringNavigable
+             [parent]="sideTrap"
+             [tabIndex]="0"
+           >
+             {{ 'MANAGECONTENT' | jqueryi18n }}
+           </a>
+           <div
+             *bbtFeatureIsOn="'Admin'"
+             data-18n="SETTINGS"
+             class="sub-nav-selection"
+             (click)="openDialog()"
+             (keydown.enter)="openDialog()"
+             (keydown.escape)="cancel()"
+             bbtDeferringNavigable
+             #sideMenuStart="navigable"
+             tabIndex="0"
+             [parent]="sideTrap"
+           >
+             {{ 'SETTINGS' | jqueryi18n }}
+           </div>
+           <a
+             *bbtFeatureIsOn="'Admin'"
+             routerLink="sysinfo"
+             (click)="toggleSideNav(false)"
+             class="sub-nav-selection"
+             bbtDeferringNavigable
+             [parent]="sideTrap"
+             data-18n="SYSINFO"
+             [tabIndex]="0"
+           >
+             {{ 'SYSINFO' | jqueryi18n }}
+           </a>
+         </div>
+       </bbt-navigable-container>
+     </div>
+
+     <div class="side-menu" *ngIf="inLanguage">
+       <div class="primary-title">
+         <span bbti18n="Language"></span>
+       </div>
+       <div class="line">
+         <hr />
+       </div>
+       <bbt-navigable-container
+         #langTrap="navigableGroup"
+         horizontalStrategy="none"
+         verticalStrategy="self"
+       >
+         <div class="sub-navs">
+           <div
+             class="sub-nav-selection"
+             *ngFor="
+               let pair of i18nService.languages | keyvalue;
+               first as isFirst
+             "
+             bbtDeferringNavigable
+             [tabIndex]="0"
+             [parent]="langTrap"
+             [stealFocusOnInit]="isFirst"
+             (keydown.enter)="changeLang($any(pair.key))"
+             (click)="changeLang($any(pair.key))"
+           >
+             <span class="nav-label">{{
+               $any(pair.value) | jqueryi18n
+             }}</span>
+             <mat-icon
+               *ngIf="pair.key === i18nService.currentLang"
+               fontSet="fa"
+               fontIcon="fa-check-circle"
+             ></mat-icon>
+           </div>
+         </div>
+       </bbt-navigable-container>
+     </div>
+     <div *ngIf="inSettingsAuth">
+       <bbt-login></bbt-login>
+     </div>
+     <div class="side-menu" *ngIf="inSettings">
+       <div class="primary-title">
+         <span bbti18n="Settings"></span>
+       </div>
+       <div class="line">
+         <hr />
+       </div>
+       <bbt-navigable-container
+         #settingsTrap="navigableGroup"
+         horizontalStrategy="none"
+         verticalStrategy="self"
+       >
+         <div class="sub-navs">
+           <a
+             routerLink="config/timezone"
+             (click)="toggleSideNav(false)"
+             class="sub-nav-selection"
+             bbtDeferringNavigable
+             [parent]="settingsTrap"
+             data-18n="TIMEZONE"
+           >
+             {{ 'TIMEZONE' | jqueryi18n }}
+           </a>
+           <a
+             routerLink="config"
+             (click)="toggleSideNav(false)"
+             class="sub-nav-selection"
+             bbtDeferringNavigable
+             [parent]="settingsTrap"
+             data-18n="NETWORK"
+           >
+             {{ 'NETWORK' | jqueryi18n }}
+           </a>
+         </div>
+       </bbt-navigable-container>
+     </div>
+   </mat-sidenav>
+ </mat-sidenav-container>
+</div>
+</bbt-navigable-root>
+
+
+
+
+-->

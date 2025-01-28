@@ -1,0 +1,102 @@
+$book-font: 'Gotham Book', Helvetica, sans-serif;
+$bold-font: 'Gotham Bold', Helvetica, sans-serif;
+
+$image-height: 191px;
+$caption-height: 75px;
+$default-background-color: #4d4d4d;
+
+[style*='--aspect-ratio'] > :first-child {
+  width: 100%;
+}
+[style*='--aspect-ratio'] > img {
+  height: auto;
+}
+@supports (--custom: property) {
+  [style*='--aspect-ratio'] {
+    position: relative;
+  }
+  [style*='--aspect-ratio']::before {
+    content: '';
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio, '16/9')));
+  }
+  [style*='--aspect-ratio'] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+/* the content info card now expands to fill it's container so size were moved
+out the card. need to create this container here to size it. Still not responsive yet.
+Need to fix the horizontal slider to get there */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16/9;
+  //height: 266px; /* this was the height of the image + caption in thumb card*/
+  //width: 314px; /* this was the width of the content card */
+  width: 340px;
+  //height: 191px;
+  // fallback
+  @supports not (aspect-ratio: auto) {
+    // version 53 (slow tv version) of chrome doesn't support aspect ratio
+    // setting a 16:9 card size here matching the original height
+    width: 340px;
+    height: 191.25px;
+  }
+}
+
+.card-thumb-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.card-gradient-container {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1)
+  );
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-header-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header-button {
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.name {
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+bbt-content-card .fa-grip-lines {
+  color: transparent;
+  font-size: 0.5em;
+}
+
+bbt-content-card:hover .fa-grip-lines {
+  color: #ccc;
+  font-size: 0.5em;
+}

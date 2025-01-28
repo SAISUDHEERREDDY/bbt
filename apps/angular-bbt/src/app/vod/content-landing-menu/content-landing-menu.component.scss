@@ -1,0 +1,114 @@
+@use 'sass:math';
+@import '_variables';
+
+.landing-top-nav {
+  display: flex;
+  max-height: 39vh;
+}
+
+.back-button,
+.landing-buttons > .button {
+  font-size: math.div(32, 10.8) * 1vh;
+}
+
+.landing-buttons {
+  width: 100%;
+  text-align: center;
+
+  > .button {
+    font-family: $bold-font;
+    font-size: math.div(32, 10.8) * 1vh;
+    line-height: math.div(59, 10.8) * 1vh;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0 math.div(15, 10.8) * 1vh;
+    min-width: math.div(280, 10.8) * 1vh;
+  }
+}
+
+$preview-grid-height: math.div(208, 10.8) * 1vh;
+$preview-grid-width: math.div(370, 19.2) * 1vw;
+
+/*
+.presentation-preview-images {
+  display: grid;
+  grid-column-gap: ((24 /19.2) * 1vw);
+  grid-row-gap: ((21 / 10.8) * 1vh);
+  grid-template-rows: repeat(2, $preview-grid-height);
+  grid-template-columns: repeat(2, $preview-grid-width);
+
+  > img {
+    object-fit: cover;
+    height: 100%;
+    max-width: 100%;
+  }
+}
+*/
+
+/*----------Removed grid because it doesn't work with less on chrom less than 54----------*/
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// the 33.333 seems to keep a better looking item. Could switch to 50 but it gives
+// a stretched look
+.grid-col {
+  min-width: $preview-grid-width;
+  flex: 0 0 33.3333%;
+}
+
+.grid-item {
+  & img {
+    width: 100%;
+    min-width: $preview-grid-width;
+    height: $preview-grid-height;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+.presentation-grid-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 494px;
+  margin: -8px;
+}
+
+.presentation-grid-item-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  max-height: 130px;
+  max-width: 230px;
+  padding: 8px;
+}
+
+.presentation-grid-item {
+  width: auto;
+
+  padding: 8px;
+  height: 130px;
+}
+
+// this keeps dangling items from stretching to then end
+.grid-col::after {
+  content: '';
+  flex: auto;
+}
+/*--------------------*/
+
+.landing-buttons {
+  margin: auto;
+}
+
+.video-preview-image {
+  height: math.div(370, 10.8) * 0.5vh;
+}
+
+.bbt-navigable-container:focus {
+  outline: none;
+}

@@ -1,0 +1,104 @@
+@use 'sass:math';
+@import '_variables';
+
+.presentation-video-overlay {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+
+  > .full-capture.full-capture-dark.full-capture-safe-body {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.landing-top-nav {
+  display: flex;
+  max-height: 39vh;
+}
+
+#back-button,
+.landing-buttons > .button {
+  font-size: math.div(32, 10.8) * 1vh;
+}
+
+.video-preview-image {
+  height: math.div(370, 10.8) + 1vh;
+}
+
+.content-options-top-menu {
+  display: flex;
+  justify-content: space-between;
+
+  .i18n-options > * {
+    margin-left: math.div(40, 19.2) * 1vw;
+  }
+}
+
+.bbt-navigable-container:focus {
+  outline: none;
+}
+
+// Rework styles
+.media-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  > .individual-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    > button.button.button-clear.button-bordered.media-button {
+      font-size: math.div(39, 10.8) * 1vh;
+      min-width: math.div(200, 19.2) * 1vh;
+      min-height: math.div(64, 10.8) * 1vh;
+      margin: 0 math.div(15, 10.8) * 1vh;
+    }
+  }
+
+  > button.next-slide-button,
+  > button.previous-slide-button {
+    padding: 0;
+    min-width: auto;
+    > i {
+      font-size: math.div(90, 10.8) * 1vh;
+    }
+
+    &:focus {
+      background-color: rgba(0, 0, 0, 0);
+      color: $primary-color;
+    }
+  }
+
+  > button.previous-slide-button {
+    justify-self: flex-start;
+  }
+
+  > button.next-slide-button {
+    justify-self: flex-end;
+  }
+}
+
+.back-button {
+  font-size: math.div(32, 10.8) * 1vh;
+}
+
+.presentation-progress .ratio {
+  text-align: end;
+}
+
+.presentation-progress > .ratio {
+  margin-bottom: calc((math.div((24 + 64), 10.8) * 1vh) + 4px);
+}
+
+.thumbs {
+  margin-top: math.div(32, 10.8) * 1vh;
+}
+
+.ratio {
+  font-size: math.div(24, 10.8) * 1vh;
+}

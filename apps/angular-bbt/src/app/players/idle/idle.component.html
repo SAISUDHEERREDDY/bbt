@@ -1,0 +1,9 @@
+<div class="idle-screen fit-plyr">
+  <bbt-hls-plyr
+    *ngIf="video"
+    (ended)="next()"
+    [m3u8Url]="video"
+    [controls]="controls"
+    #playerComponent
+  ></bbt-hls-plyr>
+</div>

@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "nrwl.angular-console",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "esbenp.prettier-vscode",
+    "angular.ng-template",
+    "firsttris.vscode-jest-runner",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "dbaeumer.vscode-eslint"
+  ]
+}

@@ -1,0 +1,89 @@
+@import '_variables';
+
+.jumbotron {
+  height: 45.4vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  background-color: black;
+  color: $secondary-font-color;
+
+  > .description-slot {
+    display: flex;
+    height: 100%;
+    width: 50%;
+    background-color: black;
+    color: $secondary-font-color;
+  }
+
+  > .preview-slot {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+  }
+
+  &.fade {
+    > .preview-slot:before {
+      content: '';
+      background: transparent
+        linear-gradient(
+          to right,
+          #000000,
+          #000000 0%,
+          #000000 5%,
+          transparent 85%
+        );
+      position: relative;
+      height: inherit;
+      width: 261px;
+      margin-right: -260px;
+      z-index: 10;
+    }
+  }
+
+  &.preview-only {
+    height: 100%;
+    width: 100%;
+
+    .preview-slot {
+      width: 100%;
+      .jumbotron-preview {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Old
+.contentDescription {
+  width: auto;
+  height: 451px;
+  background-color: black;
+  color: $secondary-font-color;
+  padding-left: 50px;
+  padding-top: 39px;
+}
+
+.contentDate {
+  display: inline-block;
+  font-family: $book-font;
+  font-size: 28.8px;
+}
+
+.contentThumb {
+  display: flex;
+  width: 871px;
+  height: 100%;
+  > *:before {
+    background: linear-gradient(
+      to right,
+      #111,
+      #dd1144 0%,
+      #000000 0%,
+      transparent 25%
+    );
+  }
+  float: right;
+}

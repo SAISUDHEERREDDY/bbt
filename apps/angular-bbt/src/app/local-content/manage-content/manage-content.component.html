@@ -1,0 +1,77 @@
+<div class="contentContainer">
+  <mat-toolbar>
+    <a class="top-back fas fa-arrow-left" bbtDeferringNavigable routerLink="/">
+    </a>
+
+    <span fxFlex></span>
+    <span data-i18n="MANAGELOCALCONTENT">{{
+      'MANAGELOCALCONTENT' | jqueryi18n
+    }}</span>
+    <span fxFlex></span>
+    <span>
+      <input
+        id="upload-content"
+        #mediaUpload
+        type="file"
+        hidden="true"
+        [disabled]="isUploading"
+        tabIndex="0"
+        [focus]="true"
+        onclick="this.value=null"
+        accept="video/mp4,video/quicktime,video/m4v,audio/mp3"
+        (change)="uploadContent($any($event.target).files[0])"
+      />
+      <button
+        mat-flat-button
+        color="accent"
+        data-i18n="UPLOAD"
+        (click)="mediaUpload.click()"
+      >
+        {{ 'UPLOAD' | jqueryi18n }}
+      </button>
+    </span>
+  </mat-toolbar>
+  <div class="orderd-list-container">
+    <div class="local-upload-container">
+      <div *ngIf="data$ | async as data; else emptyTmpl">
+        <div #raw>
+          <bbt-orderable-list
+            (deleteItem)="deleteContent($event)"
+            (updateItem)="updateContent($event)"
+            (reorderItem)="reorderContent($event)"
+            [items]="data"
+          ></bbt-orderable-list>
+        </div>
+      </div>
+      <ng-template #emptyTmpl>
+        <div *ngIf="!isLoading">
+          <div class="empty-container">
+            <div class="empty-content-container">
+              <div>
+                <mat-icon class="empty" color="accent">movie</mat-icon>
+              </div>
+              <div class="mat-title mat-accent">Empty</div>
+              <div class="mat-accent">Click "Upload" to add content.</div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div *ngIf="message" class="info-message-container">
+        <div class="info-message">
+          <div class="info-message-icon">
+            <span *ngIf="!isUploading">
+              <i class="fa fas fa-bell"></i>
+            </span>
+            <mat-progress-spinner
+              *ngIf="isUploading"
+              [value]="progress"
+              diameter="25"
+            >
+            </mat-progress-spinner>
+          </div>
+          {{ message }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

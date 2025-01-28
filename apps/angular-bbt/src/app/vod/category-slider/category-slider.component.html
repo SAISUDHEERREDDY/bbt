@@ -1,0 +1,163 @@
+<div
+  class="horizontal-slider"
+  bbtNavigableRow
+  #navRow="navRow"
+  (deactivated)="panner.shiftToIndex(0, '350ms 150ms ease-in-out')"
+  [id]="'category-id-' + category?.id"
+  *ngIf="locale$ | async as locale"
+  
+>
+  <div class="horizontal-slider-header">
+    <shared-horizontal-header>
+      <ng-container *ngIf="breadcrumbPath?.length; else noBreadcrumbs">
+        <ul class="breadcrumbs listing-breadcrumbs">
+          <li *ngFor="let crumb of breadcrumbPath; let i = index">
+            <a
+              *ngIf="i < breadcrumbPath.length - 1"
+              [routerLink]="['/vod', crumb.id, 'menu', category.id, 'selection']"
+              [fragment]="'menu-' + crumb.id + '-folder-' + category.id"
+            >
+              {{ crumb.name }}
+            </a>
+            <span *ngIf="i === breadcrumbPath.length - 1">
+              {{ crumb.name }}
+            </span>
+          </li>
+        </ul>
+      </ng-container>
+      
+      <ng-template #noBreadcrumbs>
+        <span>No breadcrumb path available.</span>
+      </ng-template>
+      <!-- <ng-container
+        *ngIf="!category?.breadcrumbs?.length; else folderHeader"
+        [ngSwitch]="category?.id"
+      >
+        <ng-container *ngSwitchCase="0"
+          ><span bbti18n="LocalContent"></span
+        ></ng-container>
+        <ng-container *ngSwitchDefault>{{
+          category.names | translateToLocale: locale:category.name
+        }}</ng-container>
+      </ng-container>
+      <ng-template #folderHeader>
+        <ul class="breadcrumbs listing-breadcrumbs">
+          <li *ngFor="let crumb of category?.breadcrumbs; first as isFirst">
+            <a
+              *ngIf="!isFirst; else categoryCrumb"
+              tabindex="-1"
+              [routerLink]="[
+                '/vod',
+                crumb.id,
+                'menu',
+                category.id,
+                'selection'
+              ]"
+              [fragment]="'menu-' + crumb.id + '-folder-' + category.id"
+            >
+              {{ crumb.names | translateToLocale: locale:crumb.name }}
+            </a>
+            <ng-template #categoryCrumb>
+              <a
+                [routerLink]="'/vod'"
+                [fragment]="'menu-' + crumb.id + '-folder-' + category.id"
+              >
+                {{ crumb.names | translateToLocale: locale:crumb.name }}
+              </a>
+            </ng-template>
+          </li>
+          <li>
+            <span>
+              {{ category.names | translateToLocale: locale:category.name }}
+            </span>
+          </li>
+        </ul>
+      </ng-template> -->
+    </shared-horizontal-header>
+  </div>
+
+  <div class="pager-warpper"></div>
+  <div class="horizontal-slider-container">
+    <!-- <div class="pager-container">
+      <button mat-button class="backwards-pager" (click)="panner?.page(-1)">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-button class="forward-pager" (click)="panner?.page(1)">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div> -->
+
+    <panning-container #panner="panning-container">
+      <ng-container
+        *ngFor="
+          let content of category?.menuItems;
+          first as isFirstContent;
+          index as priority
+        "
+      >
+        <ng-container [ngSwitch]="content.type" *panningItem>
+          <a
+          #linkElement  
+            class="vod-card-link"
+            *ngSwitchCase="'Folder'"
+            [id]="'menu-' + category.id + '-folder-' + $any(content)?.id"
+            [bbtPasskeyProtectedLink]="[
+              '/vod',
+              $any(content)?.id,
+              'menu',
+              category.id,
+              'selection'
+            ]"
+            [ngClass]="{
+              'vod-card-link-focused': $any(content)?.id === currentCategoryId || $any(content)?.itemId === currentCategoryId
+            }"
+            [content]="content"
+            [categoryId]="$any(category).type ? null : category.id"
+            [folderId]="$any(category).type ? category.id : null"
+            (ngOnChanges)="contentFocused.emit(content)"
+            (activated)="selectFocusAndPan(content, panner, priority)"
+            bbtDeferringNavigable
+            #navigable="navigable"
+            [stealFocusOnInit]="$any(content)?.shouldScroll"
+            (initialFocusOnInitComplete)="panner.shiftToIndex(priority, '0ms')"
+            [parent]="navRow"
+            [priority]="priority"
+          >
+            <bbt-content-card [content]="$any(content)"></bbt-content-card>
+          </a>
+
+          <a
+            #linkElement            
+            class="vod-card-link"           
+            [ngClass]="{
+              'vod-card-link-focused': $any(content)?.id === currentCategoryId || $any(content)?.itemId === currentCategoryId
+            }"
+            [priority]="priority"
+            *ngSwitchDefault
+            [id]="'menu-' + category.id + '-item-' + $any(content)?.itemId"
+            [bbtPasskeyProtectedLink]="[
+              '../..',
+              category.id,
+              'content',
+              $any(content)?.itemId,
+              'access',
+              category?.id === 0 ? 'local' : 'content',
+              'menu'
+            ]"
+            [content]="content"
+            [categoryId]="$any(category).type ? null : category.id"
+            [folderId]="$any(category).type ? category.id : null"
+            (activated)="selectFocusAndPan(content, panner, priority)"
+            bbtDeferringNavigable
+            #nav="navigable"
+            [stealFocusOnInit]="$any(content)?.shouldScroll"
+            (initialFocusOnInitComplete)="panner.shiftToIndex(priority, '0ms')"
+            [parent]="navRow"
+          >
+            <bbt-content-card [content]="$any(content)"></bbt-content-card>
+          </a>
+        </ng-container>
+      </ng-container>
+    </panning-container>
+  </div>
+</div>

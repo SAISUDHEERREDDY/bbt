@@ -1,0 +1,103 @@
+@import '_variables';
+
+$sub-nav-border-width: 10px;
+
+.menu-content-container,
+bbt-navigable-container {
+  height: 100%;
+}
+
+.sysinfo-menu {
+  $menu-width: 387px;
+
+  margin-top: 0px;
+  padding-top: 0px;
+  float: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: $menu-width;
+  align-items: center;
+
+  box-shadow: 2px 2px 4px #00000080;
+
+  $vertical-margin: 18px;
+  $left-padding: 104px;
+  $right-padding: 125px;
+
+  .sub-nav-selection {
+    width: $menu-width;
+    box-sizing: border-box;
+    padding-left: $left-padding;
+    padding-right: $left-padding;
+    padding: 10px $right-padding 10px $left-padding;
+    text-decoration: none;
+    margin-top: $vertical-margin;
+    margin-bottom: $vertical-margin;
+    display: flex;
+    align-items: center;
+
+    font-size: 30px;
+    line-height: 30px;
+    font-family: $book-font;
+
+    border: $sub-nav-border-width solid $btn-primary-font;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      padding-left: $left-padding - $sub-nav-border-width;
+      padding-right: $right-padding - $sub-nav-border-width;
+      border-color: $primary-color;
+      border-width: $sub-nav-border-width;
+      margin-top: $vertical-margin;
+      margin-bottom: $vertical-margin;
+    }
+  }
+}
+
+.side-menu {
+  $side-menu-base-indent: 13px;
+  height: 100%;
+  margin-top: 0px;
+  padding-top: 0px;
+
+  font-size: 28px;
+  .primary-title {
+    padding-top: 19px;
+    padding-left: $side-menu-base-indent;
+    font-family: $medium-font;
+    width: 100%;
+  }
+  .line {
+    padding-left: $side-menu-base-indent;
+    padding-right: $side-menu-base-indent;
+  }
+}
+
+.menu-content-container {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.menu-item {
+  background-color: inherit;
+  color: $primary-font-color;
+}
+
+.menu-item-selected.menu-item,
+.menu-item-selected {
+  background-color: black;
+  color: white !important;
+  font-family: $medium-font;
+}
+
+a:visited,
+a:hover,
+a:active {
+  color: $primary-font-color;
+}

@@ -1,0 +1,160 @@
+{
+  "name": "Menu2",
+  "id": 2,
+  "orgId": 1,
+  "categories": [
+    {
+      "id": 1,
+      "name": "Category1",
+      "displayOrder": 1,
+      "menuItems": [
+        {
+          "itemId": 10,
+          "title": "Presentation1",
+          "description": "Presentation1 Description",
+          "type": "Presentation",
+          "iconType": "default",
+          "displayOrder": 0,
+          "passKey": false,
+          "goldMaster": false,
+          "startDate": "",
+          "endDate": "",
+          "items": [
+            {
+              "itemId": 1,
+              "title": "Charade Image",
+              "description": null,
+              "type": "Image",
+              "pifId": 1,
+              "filePath": "/lms/content/1/charade1.png",
+              "iconType": "custom",
+              "customIcon": "/lms/content/1/charade1.png",
+              "displayOrder": 0,
+              "passKey": false
+            },
+            {
+              "itemId": 2,
+              "title": "Big Buck Bunny",
+              "description": null,
+              "type": "Image",
+              "pifId": 2,
+              "filePath": "/lms/content/2/big-buck-bunny-4k1.png",
+              "iconType": "custom",
+              "customIcon": "/lms/content/2/big-buck-bunny-4k1.png",
+              "displayOrder": 1,
+              "passKey": false
+            },
+            {
+              "itemId": 1,
+              "title": "Charade Video",
+              "description": null,
+              "type": "Video",
+              "pifId": 1,
+              "duration": 127,
+              "filePath": "/lms/content/1/charade.m3u8",
+              "iconType": "custom",
+              "customIcon": "/lms/content/1/charade1.png",
+              "displayOrder": 2,
+              "tracks": [
+                {
+                  "kind": "audio",
+                  "label": "English",
+                  "srclang": "en",
+                  "subtype": "stereo"
+                }
+              ],
+              "passKey": false
+            }
+          ]
+        },
+        {
+          "itemId": 7,
+          "title": "revolution.mp4",
+          "description": "Revolution",
+          "type": "Video",
+          "pifId": 7,
+          "duration": 127,
+          "filePath": "/lms/content/7/revolution.m3u8",
+          "customIconId": 1,
+          "iconType": "custom",
+          "customIcon": "/lms/content/7/revolution1.png",
+          "displayOrder": 1,
+          "passKey": false,
+          "goldMaster": false,
+          "startDate": "",
+          "endDate": "",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Category2",
+      "displayOrder": 1,
+      "menuItems": [
+        {
+          "id": 1,
+          "name": "Folder1",
+          "description": "This is a folder in a category with no icon.",
+          "type": "Folder_L1",
+          "displayOrder": 1,
+          "iconType": "default",
+          "color": "#FF8B94",
+          "passKey": 12345,
+          "startDate": "2021-05-25T02:54:00Z",
+          "endDate": "2021-11-21T02:54:00Z"
+        },
+        {
+          "itemId": 95,
+          "title": "Home Depot 19005",
+          "description": "19005_tsp_EEFS.mp4",
+          "type": "Video",
+          "pifId": 11,
+          "filePath": "/lms/content/11/19005_tsp_EEFS.m3u8",
+          "customIconId": 76,
+          "iconType": "custom",
+          "customIcon": "/lms/content/11/19005_tsp_EEFS1.png",
+          "displayOrder": 3,
+          "passKey": true,
+          "goldMaster": false,
+          "startDate": "2021-05-25T02:54:00Z",
+          "endDate": "2021-11-21T02:54:00Z",
+          "duration": 127,
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            },
+            {
+              "kind": "audio",
+              "label": "French",
+              "srclang": "fr",
+              "subtype": "mono"
+            },
+            {
+              "kind": "captions",
+              "label": "English",
+              "srclang": "en",
+              "src": "/lms/content/11/19005_tsp_eng.vtt"
+            },
+            {
+              "kind": "captions",
+              "label": "Spanish",
+              "srclang": "es",
+              "src": "/lms/content/11/19005_tsp_spa.vtt"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

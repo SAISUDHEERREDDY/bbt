@@ -1,0 +1,49 @@
+@import '_variables';
+
+.thumbContainer {
+  text-decoration: none;
+  display: flex;
+  max-width: 340px;
+  max-height: 270px;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.thumbStill {
+  height: 191px;
+  width: 340px;
+  margin: 0;
+  padding: 0;
+}
+
+.thumbFooter {
+  height: 79px;
+  width: 340px;
+  background-color: black;
+  margin: -2px 0 0; /* TODO: Please remove asap */
+  padding: 0;
+  color: white;
+}
+
+.thumbDescName {
+  font-size: 24px;
+  font-family: $bold-font;
+  height: 40px;
+  line-height: 55px;
+  padding-left: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumbIconDuration {
+  font-size: 20px;
+  font-family: $book-font;
+  height: 39px;
+  line-height: 39px;
+  color: #cccccc;
+}
+.thumbDuration {
+  float: right;
+  padding-right: 15px;
+  font-size: 18px;
+}

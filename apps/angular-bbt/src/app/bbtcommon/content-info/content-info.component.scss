@@ -1,0 +1,101 @@
+@import '_variables';
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 600px;
+}
+
+$name-height: 6.85vh;
+.descName {
+  font-size: 4vmin;
+  width: auto;
+  font-family: $bold-font;
+
+  &.text-ellipsis {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  // This webkit based solution works everywhere I have tested it
+  // (Chromium, Firefox, Edge, and Chrome)
+  // I don't love it, but it works.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}
+
+$text-height: 5.5vh;
+.dateDuration {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.8vmin;
+  width: auto;
+  font-family: $book-font;
+  height: $text-height;
+  line-height: $text-height;
+}
+
+.contentDate {
+  display: flex;
+}
+
+.duration {
+  display: flex;
+  font-family: $book-font;
+}
+
+.contentInfo {
+  height: 45vmin;
+  width: 100%;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.contentRating {
+  height: 75px;
+  line-height: 75px;
+  font-size: 22px;
+  font-family: $medium-font;
+  color: white;
+}
+
+.contentLongDesc {
+  font-size: 2vmin;
+  margin-top: 2.5vh;
+  height: 35%;
+  font-family: $book-font;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.contentType {
+  height: 10%;
+}
+
+.info-container {
+  .fa,
+  .fas {
+    font-size: 3vmin;
+  }
+}
+
+.content-description-container {
+  height: 100%;
+  flex: 1;
+  padding-left: 50px;
+  padding-top: 39px;
+}
+
+.info-container {
+  display: flex;
+  flex: 3;
+}
+
+.content-lock {
+  padding-left: 2vw;
+}

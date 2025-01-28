@@ -1,0 +1,17 @@
+@import '_variables';
+
+.logo-container {
+  height: $header-height;
+  width: 5.1vh;
+  display: flex;
+  align-items: center;
+  margin-left: 9px;
+  margin-right: 9px;
+
+  > .logo {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,106 @@
+<bbt-navigable-container
+  #trap="navigableGroup"
+  horizontalStrategy="none"
+  verticalStrategy="self"
+  overflowStrategy="none"
+  underflowStrategy="none"
+>
+  <div
+    *ngIf="content$ | async as content"
+    class="full-capture full-capture-dark full-capture-safe-body"
+    [style.backgroundImage]="
+      (thumbUrl$ | async) || content?.customIcon
+        ? 'linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), ' +
+          (thumbUrl$ | async)
+        : 'none'
+    "
+  >
+    <bbt-vodoptions-bar
+      [parent]="trap"
+      [backRoute]="backRoute"
+      [fragment]="fragment"
+      [audioOptions]="audioTracks$ | async"
+      [audioControl]="preferredAudio"
+      [captionOptions]="captions$ | async"
+      [captionsControl]="preferredCaptions"
+    ></bbt-vodoptions-bar>
+
+    <div class="full-capture-content">
+      <div class="content-preview" [ngSwitch]="content?.type">
+        <img
+          *ngSwitchCase="'Video'"
+          class="video-preview-image"
+          [src]="$any(content)?.customIcon"
+          alt="preview thumbnail"
+        />
+        <div *ngSwitchCase="'Presentation'" class="presentation-preview-images">
+          <div class="presentation-grid-container">
+            <div
+              class="presentation-grid-item-container"
+              *ngFor="let file of $any($any(content)?.items) | slice: 0:4"
+            >
+              <img
+                *ngIf="$any(file)?.type === 'Image'"
+                class="presentation-grid-item"
+                [src]="$any(file)?.filePath"
+                alt="presentation preview "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <bbt-content-description
+        [content]="content"
+        [audioTracks]="audioTrackLabels$ | async"
+        [captions]="captionsLabels$ | async"
+      >
+      </bbt-content-description>
+    </div>
+
+    <div class="gutter">
+      <bbt-navigable-container
+        [parentOverride]="trap"
+        #navContainer="navigableGroup"
+        [priority]="300"
+      >
+        <div class="landing-buttons">
+          <ng-container [ngSwitch]="content?.type">
+            <a
+              #playVideoButton
+              id="playVideoButton"
+              *ngSwitchCase="'Video'"
+              [parent]="navContainer"
+              class="button button-clear button-bordered"
+              routerLink="../play"
+              bbtDeferringNavigable
+              [stealFocusOnInit]="true"
+              bbti18n="PLAY"
+            ></a>
+            <p style="color:white">Url : {{$any(content)?.filePath}}</p>
+            <a
+              #presentationButton
+              id="presentationButton"
+              *ngSwitchCase="'Presentation'"
+              class="button button-clear button-bordered"
+              routerLink="../presentation"
+              bbtDeferringNavigable
+              [parent]="navContainer"
+              bbti18n="PRESENTATION"
+              [stealFocusOnInit]="true"
+            ></a>
+          </ng-container>
+          <a
+            #loginButton
+            id="loginButton"
+            *bbtFeatureIsOn="'Login'"
+            class="button button-clear button-bordered"
+            routerLink="../login"
+            bbtDeferringNavigable
+            [parent]="navContainer"
+            bbti18n="LOGIN"
+          ></a>
+        </div>
+      </bbt-navigable-container>
+    </div>
+  </div>
+</bbt-navigable-container>

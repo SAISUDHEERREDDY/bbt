@@ -1,0 +1,572 @@
+{
+	"categories": [
+	  {
+		"name": "Category-2",
+		"menuItems": [
+		  {
+			"name": "Folder_Level_2",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/rhpsp8xv3f086uiwhpi7aslfl3d1?response-content-disposition=attachment%3B%20filename%3D%22folder_level_2.jpg%22%3B%20filename%2A%3DUTF-8%27%27folder_level_2.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a15c24161f9e6a281b0f314a7cba3fcf7887ea6fbf9c537d88f5807394fd59a8",
+			"menuItems": [
+			  {
+				"name": "Folder_Level_3",
+				"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/usddzgb0gw9nyaet7ejm6x5cc6kj?response-content-disposition=attachment%3B%20filename%3D%22folder_level_3.jpg%22%3B%20filename%2A%3DUTF-8%27%27folder_level_3.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=dca225cb868ae9923770bffd01320268395dd34cf5a8dadae04151eae805dea4",
+				"menuItems": [
+				  {
+					"name": "Folder_Level_4",
+					"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/l6r3dltl8i7a8hgs11ws3tx2xn95?response-content-disposition=attachment%3B%20filename%3D%22folder_level_4.jpg%22%3B%20filename%2A%3DUTF-8%27%27folder_level_4.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=22e4a68b8c045303c5e316aabde4090c25e7a2ea7036e664d2b7c016462a01a7",
+					"menuItems": [
+					  {
+						"name": "Folder_Level_5",
+						"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/wm9ztecxxc4u4rbms7hkfxylgral?response-content-disposition=attachment%3B%20filename%3D%22folder_level_5.jpg%22%3B%20filename%2A%3DUTF-8%27%27folder_level_5.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7e07c9dc3fe6b2134ff832f1ce8107a78865a9682b9f5c052b3162324d42ef9c",
+						"menuItems": [
+						  {
+							"name": "Folder_Level_6",
+							"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/0qasabh7bwc3xo0brjxjm4qg54qh?response-content-disposition=attachment%3B%20filename%3D%22folder_level_6.jpg%22%3B%20filename%2A%3DUTF-8%27%27folder_level_6.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c17a4746c12047f0d141b1ad73eef8c16dd8afe0c761c58909d748b5acd876d7",
+							"menuItems": [
+							  {
+								"name": "Folder_Level_7",
+								"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/23bsa5iro11bkmn2p5oyetpjq5n4?response-content-disposition=attachment%3B%20filename%3D%22folder_level_7.jpg%22%3B%20filename%2A%3DUTF-8%27%27folder_level_7.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=4741e9f86384e55fb408feccbb5ef19317fd00a470c0240d278fc0f5c3eb4efc",
+								"menuItems": [
+								  {
+									"title": "the-cup-2360104_640",
+									"description": "",
+									"type": "Image",
+									"duration": 10,
+									"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/238ajjbupumpct0oqns4lc781cji?response-content-disposition=attachment%3B%20filename%3D%22the-cup-2360104_640.png%22%3B%20filename%2A%3DUTF-8%27%27the-cup-2360104_640.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=052e6bd11cbc1e3da2c8849a8592fdeaab70e839c5037604bbe0772f86c31f88",
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/238ajjbupumpct0oqns4lc781cji?response-content-disposition=attachment%3B%20filename%3D%22the-cup-2360104_640.png%22%3B%20filename%2A%3DUTF-8%27%27the-cup-2360104_640.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=052e6bd11cbc1e3da2c8849a8592fdeaab70e839c5037604bbe0772f86c31f88",
+									"passkey": "",
+									"startDate": "2025-01-05T00:00:00.000-05:00",
+									"endDate": null,
+									"displayOrder": 0,
+									"itemId": 11111111
+								  },
+								  {
+									"title": "city06",
+									"description": "",
+									"type": "Image",
+									"duration": 10,
+									"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/ilo42ocqgq9o327cpcozo07vblqc?response-content-disposition=attachment%3B%20filename%3D%22city06.png%22%3B%20filename%2A%3DUTF-8%27%27city06.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=8235f2252362b8c026396af9c8cb507d14804b048b37c596a655672a89532045",
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/ilo42ocqgq9o327cpcozo07vblqc?response-content-disposition=attachment%3B%20filename%3D%22city06.png%22%3B%20filename%2A%3DUTF-8%27%27city06.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=8235f2252362b8c026396af9c8cb507d14804b048b37c596a655672a89532045",
+									"passkey": "",
+									"startDate": "2021-11-18T00:00:00.000-05:00",
+									"endDate": null,
+									"displayOrder": 1,
+									"itemId": 11111112
+								  },
+								  {
+									"title": "DigitalCountdown",
+									"description": "",
+									"type": "Video",
+									"duration": 23,
+									"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/h8mla0hfqh6unz0dr4zwftxpj2ux?response-content-disposition=attachment%3B%20filename%3D%22DigitalCountdown.mov%22%3B%20filename%2A%3DUTF-8%27%27DigitalCountdown.mov&response-content-type=video%2Fquicktime&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b75749bd10a2f803c41958eb091ca826d1b87f8155abb5b9217322b2d76805d3",
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/0dzjbwydfabyigl93p4k6spl6yxg?response-content-disposition=attachment%3B%20filename%3D%22DigitalCountdown.jpg%22%3B%20filename%2A%3DUTF-8%27%27DigitalCountdown.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=493dcc8390352d4aa7e3f7a301a26ee95f5bf491d16dbdfb899ed361afcd1958",
+									"passkey": "",
+									"startDate": "2024-12-26T00:00:00.000-05:00",
+									"endDate": null,
+									"displayOrder": 2,
+									"itemId": 11111113
+								  },
+								  {
+									"title": "CrazyCountdown",
+									"description": "",
+									"type": "Video",
+									"duration": 11,
+									"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/eawingztdqh3qho6dcl09ji7ztxt?response-content-disposition=attachment%3B%20filename%3D%22CrazyCountdown.mp4%22%3B%20filename%2A%3DUTF-8%27%27CrazyCountdown.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=04849712a6e579f202117a0a4b3d03c68c6e9ad9a52e30159f1a2ddfd0497410",
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/1k5krgy5tvjgyt2crdwutmj1arix?response-content-disposition=attachment%3B%20filename%3D%22CrazyCountdown.jpg%22%3B%20filename%2A%3DUTF-8%27%27CrazyCountdown.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e306319a8746f3b06499569f84083f7ba7c7c3a2623df9c82625776efa36103b",
+									"passkey": "",
+									"startDate": "2024-12-23T00:00:00.000-05:00",
+									"endDate": null,
+									"displayOrder": 3,
+									"itemId": 11111114
+								  },
+								  {
+									"title": "Presentation-3",
+									"description": "",
+									"type": "Presentation",
+									"duration": 48,
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/ngjbjeo89fknmk2zyae80ia8roci?response-content-disposition=attachment%3B%20filename%3D%22Presentation-3.png%22%3B%20filename%2A%3DUTF-8%27%27Presentation-3.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9ec528a104e8ce4d81ffae53ad8aa9b461d5e93b857562b7d98f5cd860a86ea6",
+									"passkey": "",
+									"num_of_items": 1,
+									"displayOrder": 4,
+									"items": [
+									  {
+										"title": "River",
+										"description": "",
+										"type": "Video",
+										"duration": 48,
+										"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3qx64s5c4a25i4j8ma82ewqiozi?response-content-disposition=attachment%3B%20filename%3D%22River.mp4%22%3B%20filename%2A%3DUTF-8%27%27River.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b89f0eea0d341d594ce13eb23d9e2516482f24a1fc50d0e7bfc38f9584edb755",
+										"customIcon": null,
+										"passkey": "",
+										"startDate": "2024-12-26T00:00:00.000-05:00",
+										"endDate": null,
+										"displayOrder": 0
+									  }
+									],
+									"itemId": 11111115
+								  },
+								  {
+									"title": "Presentation-2",
+									"description": "",
+									"type": "Presentation",
+									"duration": 169,
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/kqgijf916vnlbuv8awmzbhq6umxa?response-content-disposition=attachment%3B%20filename%3D%22Presentation-2.png%22%3B%20filename%2A%3DUTF-8%27%27Presentation-2.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=046a6e7f819c2be281419c6db40b986ed90c7667d0e1fb0c46867c10623ac2df",
+									"passkey": "",
+									"num_of_items": 2,
+									"displayOrder": 5,
+									"items": [
+									  {
+										"title": "angrybirds-tlr3_h480p",
+										"description": "",
+										"type": "Video",
+										"duration": 159,
+										"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/i1vwr90vp3pcyzxsvexcqcdpw214?response-content-disposition=attachment%3B%20filename%3D%22angrybirds-tlr3_h480p.mp4%22%3B%20filename%2A%3DUTF-8%27%27angrybirds-tlr3_h480p.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=91536183f1ce14b486f59fe00c329d7e58e5990eb804df70c130393da448c635",
+										"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/ou2zakzijlx2az8yesiwpglx0gs3?response-content-disposition=attachment%3B%20filename%3D%22AngryBirdsCustomIcon.png%22%3B%20filename%2A%3DUTF-8%27%27AngryBirdsCustomIcon.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a0f00627ce43f2209eef6900bdba218c1557fd86aab18b330f26c75b9956d876",
+										"passkey": "",
+										"startDate": "2024-12-26T00:00:00.000-05:00",
+										"endDate": null,
+										"displayOrder": 0
+									  },
+									  {
+										"title": "city03",
+										"description": "",
+										"type": "Image",
+										"duration": 10,
+										"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+										"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+										"passkey": "",
+										"startDate": "2021-11-18T00:00:00.000-05:00",
+										"endDate": null,
+										"displayOrder": 1
+									  }
+									],
+									"itemId": 11111116
+								  },
+								  {
+									"title": "Presentation-1",
+									"description": "",
+									"type": "Presentation",
+									"duration": 10,
+									"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/36v5xvmmlfbk9smmy1tqyg19g29f?response-content-disposition=attachment%3B%20filename%3D%22Presentation-1.png%22%3B%20filename%2A%3DUTF-8%27%27Presentation-1.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b51e0244c3df2b80c77fce311bd9a62a0e3585d0e63c2809aeb64a6f72ca07a7",
+									"passkey": "",
+									"num_of_items": 1,
+									"displayOrder": 6,
+									"items": [
+									  {
+										"title": "city03",
+										"description": "",
+										"type": "Image",
+										"duration": 10,
+										"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+										"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+										"passkey": "",
+										"startDate": "2021-11-18T00:00:00.000-05:00",
+										"endDate": null,
+										"displayOrder": 0
+									  }
+									],
+									"itemId": 11111117
+								  }
+								],
+								"type": "Folder",
+								"id": 1111111
+							  }
+							],
+							"type": "Folder",
+							"id": 111111
+						  }
+						],
+						"type": "Folder",
+						"id": 11111
+					  }
+					],
+					"type": "Folder",
+					"id": 1111
+				  }
+				],
+				"type": "Folder",
+				"id": 111
+			  }
+			],
+			"type": "Folder",
+			"id": 11
+		  },
+		  {
+			"title": "pexels-naushil-ansari-638738",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/3bl2hz7vriric8plx402f8cqcwv0?response-content-disposition=attachment%3B%20filename%3D%22pexels-naushil-ansari-638738.jpg%22%3B%20filename%2A%3DUTF-8%27%27pexels-naushil-ansari-638738.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=11e6a52a38d498962719b49e4dbe73463dd73ed213cead3cbc45e31c9fa2b4bb",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/3bl2hz7vriric8plx402f8cqcwv0?response-content-disposition=attachment%3B%20filename%3D%22pexels-naushil-ansari-638738.jpg%22%3B%20filename%2A%3DUTF-8%27%27pexels-naushil-ansari-638738.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=11e6a52a38d498962719b49e4dbe73463dd73ed213cead3cbc45e31c9fa2b4bb",
+			"passkey": "",
+			"startDate": "2025-01-22T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 0,
+			"itemId": 12
+		  },
+		  {
+			"title": "pexels-good-free-photoscom-63330",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/m15wczd9s2c4nzhzphdvz3q8imay?response-content-disposition=attachment%3B%20filename%3D%22pexels-good-free-photoscom-63330.jpg%22%3B%20filename%2A%3DUTF-8%27%27pexels-good-free-photoscom-63330.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e44c6631ca45f080bd63d5c23bbefbb8dbbb20b5edf5647f13492c4957b10b47",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/m15wczd9s2c4nzhzphdvz3q8imay?response-content-disposition=attachment%3B%20filename%3D%22pexels-good-free-photoscom-63330.jpg%22%3B%20filename%2A%3DUTF-8%27%27pexels-good-free-photoscom-63330.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e44c6631ca45f080bd63d5c23bbefbb8dbbb20b5edf5647f13492c4957b10b47",
+			"passkey": "",
+			"startDate": "2025-01-22T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 1,
+			"itemId": 13
+		  },
+		  {
+			"title": "pexels-george-lebada-567540",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/qw8lhjelx7amhgeavz0ju6qaz790?response-content-disposition=attachment%3B%20filename%3D%22pexels-george-lebada-567540.jpg%22%3B%20filename%2A%3DUTF-8%27%27pexels-george-lebada-567540.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a0b9591301a698a83918c942a7b3b3b601740dda37d6d80eebe01dd33e905329",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/qw8lhjelx7amhgeavz0ju6qaz790?response-content-disposition=attachment%3B%20filename%3D%22pexels-george-lebada-567540.jpg%22%3B%20filename%2A%3DUTF-8%27%27pexels-george-lebada-567540.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a0b9591301a698a83918c942a7b3b3b601740dda37d6d80eebe01dd33e905329",
+			"passkey": "",
+			"startDate": "2025-01-22T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 2,
+			"itemId": 14
+		  },
+		  {
+			"title": "Penguins",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/tjanakcir0ioa3uj0huc4mv69hfe?response-content-disposition=attachment%3B%20filename%3D%22Penguins.jpg%22%3B%20filename%2A%3DUTF-8%27%27Penguins.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f9f0087bce6ab62a321685e1d6e1dd9e2ed000eb6e58f59c03f83d37fb74ba07",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/tjanakcir0ioa3uj0huc4mv69hfe?response-content-disposition=attachment%3B%20filename%3D%22Penguins.jpg%22%3B%20filename%2A%3DUTF-8%27%27Penguins.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f9f0087bce6ab62a321685e1d6e1dd9e2ed000eb6e58f59c03f83d37fb74ba07",
+			"passkey": "",
+			"startDate": "2025-01-22T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 3,
+			"itemId": 15
+		  },
+		  {
+			"title": "Parrots",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/ou1wd9nxjxkizwkxflwd51mklv1n?response-content-disposition=attachment%3B%20filename%3D%22Parrots.jpg%22%3B%20filename%2A%3DUTF-8%27%27Parrots.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a6146ed84280469a44f54a6969629c2f5993ba2c8b85a8765f7af6e37aa5d413",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/ou1wd9nxjxkizwkxflwd51mklv1n?response-content-disposition=attachment%3B%20filename%3D%22Parrots.jpg%22%3B%20filename%2A%3DUTF-8%27%27Parrots.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a6146ed84280469a44f54a6969629c2f5993ba2c8b85a8765f7af6e37aa5d413",
+			"passkey": "",
+			"startDate": "2025-01-22T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 4,
+			"itemId": 16
+		  },
+		  {
+			"title": "city02",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/kfr0mlsujttb1o0riw5umfkzqqgr?response-content-disposition=attachment%3B%20filename%3D%22city02.png%22%3B%20filename%2A%3DUTF-8%27%27city02.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9216731347aa52e762d847ba0b389c631433dfecdba0340aca1c8df57c7df269",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/kfr0mlsujttb1o0riw5umfkzqqgr?response-content-disposition=attachment%3B%20filename%3D%22city02.png%22%3B%20filename%2A%3DUTF-8%27%27city02.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9216731347aa52e762d847ba0b389c631433dfecdba0340aca1c8df57c7df269",
+			"passkey": "",
+			"startDate": "2021-11-18T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 5,
+			"itemId": 17
+		  }
+		],
+		"type": "Folder",
+		"id": 1,
+		"displayOrder": 1
+	  },
+	  {
+		"name": "Category_1",
+		"menuItems": [
+		  {
+			"title": "city03",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+			"passkey": "",
+			"startDate": "2021-11-18T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 0,
+			"itemId": 21
+		  },
+		  {
+			"title": "Presentation-2",
+			"description": "",
+			"type": "Presentation",
+			"duration": 169,
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/kqgijf916vnlbuv8awmzbhq6umxa?response-content-disposition=attachment%3B%20filename%3D%22Presentation-2.png%22%3B%20filename%2A%3DUTF-8%27%27Presentation-2.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=046a6e7f819c2be281419c6db40b986ed90c7667d0e1fb0c46867c10623ac2df",
+			"passkey": "",
+			"num_of_items": 2,
+			"displayOrder": 1,
+			"items": [
+			  {
+				"title": "angrybirds-tlr3_h480p",
+				"description": "",
+				"type": "Video",
+				"duration": 159,
+				"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/i1vwr90vp3pcyzxsvexcqcdpw214?response-content-disposition=attachment%3B%20filename%3D%22angrybirds-tlr3_h480p.mp4%22%3B%20filename%2A%3DUTF-8%27%27angrybirds-tlr3_h480p.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=91536183f1ce14b486f59fe00c329d7e58e5990eb804df70c130393da448c635",
+				"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/ou2zakzijlx2az8yesiwpglx0gs3?response-content-disposition=attachment%3B%20filename%3D%22AngryBirdsCustomIcon.png%22%3B%20filename%2A%3DUTF-8%27%27AngryBirdsCustomIcon.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a0f00627ce43f2209eef6900bdba218c1557fd86aab18b330f26c75b9956d876",
+				"passkey": "",
+				"startDate": "2024-12-26T00:00:00.000-05:00",
+				"endDate": null,
+				"displayOrder": 0
+			  },
+			  {
+				"title": "city03",
+				"description": "",
+				"type": "Image",
+				"duration": 10,
+				"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+				"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+				"passkey": "",
+				"startDate": "2021-11-18T00:00:00.000-05:00",
+				"endDate": null,
+				"displayOrder": 1
+			  }
+			],
+			"itemId": 22
+		  },
+		  {
+			"title": "Bennu-4k_29.970fps_10.8Mbs_h264",
+			"description": "",
+			"type": "Video",
+			"duration": 360,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/cykhnkp06qcugt1qfyqzgv2itxgw?response-content-disposition=attachment%3B%20filename%3D%22Bennu-4k_29.970fps_10.8Mbs_h264.mp4%22%3B%20filename%2A%3DUTF-8%27%27Bennu-4k_29.970fps_10.8Mbs_h264.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3b84963b39a0165a4b4b9690e296be4f62743df6d6c773247af982e66794e1ca",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/5fr4d0a1ggshy4sjt1kn6nt041f2?response-content-disposition=attachment%3B%20filename%3D%22Bennu.png%22%3B%20filename%2A%3DUTF-8%27%27Bennu.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=ce9de6dc5bde4fd9e07910d045f5c07918604386471d24e47ed37dfe4b3bccca",
+			"passkey": "",
+			"startDate": "2024-12-26T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 2,
+			"itemId": 23
+		  }
+		],
+		"type": "Folder",
+		"id": 2,
+		"displayOrder": 2
+	  },
+	  {
+		"name": "Category_3",
+		"menuItems": [
+		  {
+			"name": "Sub-Category-1",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/8cdy4doz7qa4z4hlzh89kvq94y2k?response-content-disposition=attachment%3B%20filename%3D%22Sub-Cat-1.jpg%22%3B%20filename%2A%3DUTF-8%27%27Sub-Cat-1.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=aa6b02e9c3faaee6ae866cd91e0d595a7a900b0da032917af809d02d1a25c74f",
+			"menuItems": [
+			  {
+				"name": "Sub-A",
+				"menuItems": [
+				  {
+					"title": "hd0061",
+					"description": "",
+					"type": "Video",
+					"duration": 9,
+					"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/cyvuifix5enpbu8plleu62c3altj?response-content-disposition=attachment%3B%20filename%3D%22hd0061.mp4%22%3B%20filename%2A%3DUTF-8%27%27hd0061.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=df9a4c47d116350a8d22ff27bf246ad52550d3a23bfb68af1fee81c39a0c5911",
+					"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/9g34i5w4y9zp587vv3e4a01cjf52?response-content-disposition=attachment%3B%20filename%3D%22hd0061.jpg%22%3B%20filename%2A%3DUTF-8%27%27hd0061.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7aa4008258dafa00dae4e4e9bd77e6c2a537383eeb91c3115c866c9bbbe1ffce",
+					"passkey": "",
+					"startDate": "2024-12-26T00:00:00.000-05:00",
+					"endDate": null,
+					"displayOrder": 0,
+					"itemId": 3111
+				  }
+				],
+				"type": "Folder",
+				"id": 311
+			  },
+			  {
+				"title": "HDCountdown",
+				"description": "",
+				"type": "Video",
+				"duration": 9,
+				"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/1h8jru878yihg8b2wyeajqov59xm?response-content-disposition=attachment%3B%20filename%3D%22HDCountdown.mov%22%3B%20filename%2A%3DUTF-8%27%27HDCountdown.mov&response-content-type=video%2Fquicktime&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c0ffa523fa1efb23cb85c10052dfb1799f934b8f73013883047e2318cae96606",
+				"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/2k06rn0jdp6taeskd94bnczrxoij?response-content-disposition=attachment%3B%20filename%3D%22HDCountdown.jpg%22%3B%20filename%2A%3DUTF-8%27%27HDCountdown.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=8d9a957cf4821842a734a8b9dd4ba323fd8474725425adb57f824577e13a1210",
+				"passkey": "",
+				"startDate": "2024-12-26T00:00:00.000-05:00",
+				"endDate": null,
+				"displayOrder": 0,
+				"itemId": 312
+			  }
+			],
+			"type": "Folder",
+			"id": 31
+		  },
+		  {
+			"name": "Sub-Category-2",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/zuo8ngjrz87t9vnch3tefvuslfgx?response-content-disposition=attachment%3B%20filename%3D%22Sub-Cat-2.jpg%22%3B%20filename%2A%3DUTF-8%27%27Sub-Cat-2.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e9c19e5f561e0d84c1728f1f121fa4dfea53e786f5d8495a1ad7a55e0dd4f0f1",
+			"menuItems": [
+			  {
+				"title": "DressCode_KTVSpot",
+				"description": "",
+				"type": "Video",
+				"duration": 21,
+				"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/volqltuoe7dbdrzf4qu9jhm11fcs?response-content-disposition=attachment%3B%20filename%3D%22DressCode_KTVSpot.mov%22%3B%20filename%2A%3DUTF-8%27%27DressCode_KTVSpot.mov&response-content-type=video%2Fquicktime&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=eb1bbf69cc704fee83b2d9fb5fa0d174a112936c395f773b9f4ffb8ebea78455",
+				"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/3rujw7rto3zheb44tqwlb99rlsks?response-content-disposition=attachment%3B%20filename%3D%22DressCode_KTVSpot.jpg%22%3B%20filename%2A%3DUTF-8%27%27DressCode_KTVSpot.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b452b809628b43da3a748ddf827f52fa519936288f79ab5e02a46d0ae79708fc",
+				"passkey": "",
+				"startDate": "2024-12-26T00:00:00.000-05:00",
+				"endDate": null,
+				"displayOrder": 0,
+				"itemId": 321
+			  },
+			  {
+				"title": "Presentation-3",
+				"description": "",
+				"type": "Presentation",
+				"duration": 48,
+				"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/ngjbjeo89fknmk2zyae80ia8roci?response-content-disposition=attachment%3B%20filename%3D%22Presentation-3.png%22%3B%20filename%2A%3DUTF-8%27%27Presentation-3.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9ec528a104e8ce4d81ffae53ad8aa9b461d5e93b857562b7d98f5cd860a86ea6",
+				"passkey": "",
+				"num_of_items": 1,
+				"displayOrder": 1,
+				"items": [
+				  {
+					"title": "River",
+					"description": "",
+					"type": "Video",
+					"duration": 48,
+					"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3qx64s5c4a25i4j8ma82ewqiozi?response-content-disposition=attachment%3B%20filename%3D%22River.mp4%22%3B%20filename%2A%3DUTF-8%27%27River.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b89f0eea0d341d594ce13eb23d9e2516482f24a1fc50d0e7bfc38f9584edb755",
+					"customIcon": null,
+					"passkey": "",
+					"startDate": "2024-12-26T00:00:00.000-05:00",
+					"endDate": null,
+					"displayOrder": 0
+				  }
+				],
+				"itemId": 322
+			  }
+			],
+			"type": "Folder",
+			"id": 32
+		  },
+		  {
+			"title": "Sky",
+			"description": "",
+			"type": "Video",
+			"duration": 28,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/58hcv8zi17tahin3hse027i2fky5?response-content-disposition=attachment%3B%20filename%3D%22Sky.mp4%22%3B%20filename%2A%3DUTF-8%27%27Sky.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=30d3f81c8a94d3e1a2e2dba55f423ff6566a58be826bf7ac2fb51b305a9cac06",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/mim5ym0dwjq817i6ya1inerrq9iz?response-content-disposition=attachment%3B%20filename%3D%22Screenshot%202025-01-03%20at%2012.23.10%253FPM.png%22%3B%20filename%2A%3DUTF-8%27%27Screenshot%25202025-01-03%2520at%252012.23.10%25E2%2580%25AFPM.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6e53397f34a115daa7187b4892206fb27651e00adcc0e9d44dd427e7df126f9c",
+			"passkey": "",
+			"startDate": "2024-12-26T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 0,
+			"itemId": 33
+		  }
+		],
+		"type": "Folder",
+		"id": 3,
+		"displayOrder": 3
+	  },
+	  {
+		"title": "CrazyCountdown",
+		"description": "",
+		"type": "Video",
+		"duration": 11,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/eawingztdqh3qho6dcl09ji7ztxt?response-content-disposition=attachment%3B%20filename%3D%22CrazyCountdown.mp4%22%3B%20filename%2A%3DUTF-8%27%27CrazyCountdown.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=04849712a6e579f202117a0a4b3d03c68c6e9ad9a52e30159f1a2ddfd0497410",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/1k5krgy5tvjgyt2crdwutmj1arix?response-content-disposition=attachment%3B%20filename%3D%22CrazyCountdown.jpg%22%3B%20filename%2A%3DUTF-8%27%27CrazyCountdown.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e306319a8746f3b06499569f84083f7ba7c7c3a2623df9c82625776efa36103b",
+		"passkey": "",
+		"startDate": "2024-12-23T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 0,
+		"itemId": 4
+	  },
+	  {
+		"title": "city01",
+		"description": "",
+		"type": "Image",
+		"duration": 10,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/wwxhrs4fdhsel16txs73ea5tx28v?response-content-disposition=attachment%3B%20filename%3D%22city01.png%22%3B%20filename%2A%3DUTF-8%27%27city01.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9cdb7459f584b054d57cda742bf1d053497045c1683bb187cc4942717e39b506",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/e6ekow02iwwsub28cosqkniklnt5?response-content-disposition=attachment%3B%20filename%3D%22CityThumbnailCustom.jpg%22%3B%20filename%2A%3DUTF-8%27%27CityThumbnailCustom.jpg&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=af79fedf4ad45496bcdaab8485bcc2b12587c6e4f05d9abde5f6729461acbf83",
+		"passkey": "",
+		"startDate": "2021-11-18T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 1,
+		"itemId": 5
+	  },
+	  {
+		"title": "Costa_Rica_4K_60fps",
+		"description": "",
+		"type": "Video",
+		"duration": 313,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/i41p8f3gb0rjx215i2dm4exo2idz?response-content-disposition=attachment%3B%20filename%3D%22Costa_Rica_4K_60fps.mp4%22%3B%20filename%2A%3DUTF-8%27%27Costa_Rica_4K_60fps.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9da1f02c63203a957ff14546bf27cb762ac8de32740daeff5778498db36ce57d",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/l4mrpll1t3lh6k30n55isij6657u?response-content-disposition=attachment%3B%20filename%3D%22Costa_Rica_4K_60fps.jpg%22%3B%20filename%2A%3DUTF-8%27%27Costa_Rica_4K_60fps.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=46ad5674dfe2afe8a812f67ef7e9e634014720da16287d7ed857ff26aeb11925",
+		"passkey": "",
+		"startDate": "2024-12-26T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 2,
+		"itemId": 6
+	  },
+	  {
+		"title": "Clouds",
+		"description": "",
+		"type": "Video",
+		"duration": 11,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/3nuopg9049r9ihuvkgbr2d9m2f6g?response-content-disposition=attachment%3B%20filename%3D%22Clouds.mp4%22%3B%20filename%2A%3DUTF-8%27%27Clouds.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d46746735a1adbd7918be3d896997a5eb5af7c0599f85a7adbbc45b8153737e0",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/2z0fmfzqfcoh3b4y6klft22blhge?response-content-disposition=attachment%3B%20filename%3D%22Clouds.jpg%22%3B%20filename%2A%3DUTF-8%27%27Clouds.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=16b4d3963ea2a5acd26753461d1daf59c9807673c36c25fdb363c2bbc02eb5fd",
+		"passkey": "",
+		"startDate": "2024-12-26T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 3,
+		"itemId": 7
+	  },
+	  {
+		"title": "HD Set1 1080p60_5Mbps",
+		"description": "",
+		"type": "Video",
+		"duration": 171,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/vddzuz6g2ygsfkbcibia3h73xgcf?response-content-disposition=attachment%3B%20filename%3D%22HD%20Set1%201080p60_5Mbps.mp4%22%3B%20filename%2A%3DUTF-8%27%27HD%2520Set1%25201080p60_5Mbps.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=5f50678a4a0b85821901d3250829c0553b7dc797c461e4a9c890d487ab020177",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/20k1srvgg8rg4v7gw4t2p9yehe3s?response-content-disposition=attachment%3B%20filename%3D%22HD%20Set1%201080p60_5Mbps.jpg%22%3B%20filename%2A%3DUTF-8%27%27HD%2520Set1%25201080p60_5Mbps.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f829d3bbb996d2a1c86617eeabb973518a5f9630b7d1b45d143c7b54facc27c2",
+		"passkey": "",
+		"startDate": "2024-12-26T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 4,
+		"itemId": 8
+	  },
+	  {
+		"title": "OaklandAs",
+		"description": "",
+		"type": "Video",
+		"duration": 300,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/pycip596ah2qmp5ajz5gvpz9n2qk?response-content-disposition=attachment%3B%20filename%3D%22OaklandAs.mov%22%3B%20filename%2A%3DUTF-8%27%27OaklandAs.mov&response-content-type=video%2Fquicktime&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f98765c6071812d387addaef06580227266b0d003a77ef1739b61ba01b847679",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/17zgn50y6csbq0xkjdahqsfi00vp?response-content-disposition=attachment%3B%20filename%3D%22OaklandAs.jpg%22%3B%20filename%2A%3DUTF-8%27%27OaklandAs.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b6354c773bedd987512740077b9334be07ada4326bccffc131a9d4eb0b0c8917",
+		"passkey": "",
+		"startDate": "2024-12-26T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 5,
+		"itemId": 9
+	  },
+	  {
+		"title": "HDCountdown",
+		"description": "",
+		"type": "Video",
+		"duration": 9,
+		"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/1ztzymdhozkrtw1hsvep83fwr8k9?response-content-disposition=attachment%3B%20filename%3D%22HDCountdown.mov%22%3B%20filename%2A%3DUTF-8%27%27HDCountdown.mov&response-content-type=video%2Fquicktime&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=793ee157160c79a16674dabd86eb9a431295ba5ec42628263c21bed5b253a6af",
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/857rbivf3h70eiiurkjabr8z87kz?response-content-disposition=attachment%3B%20filename%3D%22HDCountdown.jpg%22%3B%20filename%2A%3DUTF-8%27%27HDCountdown.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9812d8b197052a72b44c6c4c85a88c84bda04b6faf269200ddaa23b9805bd9b7",
+		"passkey": "",
+		"startDate": "2024-12-23T00:00:00.000-05:00",
+		"endDate": null,
+		"displayOrder": 6,
+		"itemId": 10
+	  },
+	  {
+		"title": "Presentation-1",
+		"description": "",
+		"type": "Presentation",
+		"duration": 10,
+		"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/36v5xvmmlfbk9smmy1tqyg19g29f?response-content-disposition=attachment%3B%20filename%3D%22Presentation-1.png%22%3B%20filename%2A%3DUTF-8%27%27Presentation-1.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211204Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b51e0244c3df2b80c77fce311bd9a62a0e3585d0e63c2809aeb64a6f72ca07a7",
+		"passkey": "",
+		"num_of_items": 1,
+		"displayOrder": 7,
+		"items": [
+		  {
+			"title": "city03",
+			"description": "",
+			"type": "Image",
+			"duration": 10,
+			"filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+			"customIcon": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250122T211203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35b278b709aa9c29174b8bfb345d7983b4eae90c4be7c0686cee7ce0cab4c3fb",
+			"passkey": "",
+			"startDate": "2021-11-18T00:00:00.000-05:00",
+			"endDate": null,
+			"displayOrder": 0
+		  }
+		],
+		"itemId": 11
+	  }
+	]
+  }

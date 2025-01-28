@@ -1,0 +1,11 @@
+<div
+  class="jumbotron"
+  [ngClass]="{ fade: showFade, 'preview-only': previewOnly }"
+>
+  <div class="description-slot" *ngIf="!previewOnly">
+    <ng-content select=".jumbotron-description"></ng-content>
+  </div>
+  <div class="preview-slot">
+    <ng-content select=".jumbotron-preview"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="keypad">
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-1"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(1)"
+      (keydown.enter)="newPress.emit(1)"
+      >1</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-2"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(2)"
+      (keydown.enter)="newPress.emit(2)"
+      >2</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-3"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(3)"
+      (keydown.enter)="newPress.emit(3)"
+      >3</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-4"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(4)"
+      (keydown.enter)="newPress.emit(4)"
+      >4</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-5"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(5)"
+      (keydown.enter)="newPress.emit(5)"
+      >5</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-6"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(6)"
+      (keydown.enter)="newPress.emit(6)"
+      >6</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-7"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(7)"
+      (keydown.enter)="newPress.emit(7)"
+      >7</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-8"
+      tabindex="0"
+      bbtDeferringNavigable
+      (click)="newPress.emit(8)"
+      (keydown.enter)="newPress.emit(8)"
+      >8</span
+    >
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      data-cy="keypad-9"
+      tabindex="0"
+      (click)="newPress.emit(9)"
+      (keydown.enter)="newPress.emit(9)"
+      >9</span
+    >
+  </div>
+  <div class="keypad-key key-container">
+    <span
+      tabindex="0"
+      class="keypad-key-button"
+      (keydown.enter)="newPress.emit('decimal')"
+      (click)="newPress.emit('decimal')"
+    >
+      <i class="fa fas fa-square decimal"></i>
+    </span>
+  </div>
+  <div class="keypad-key keypad-number">
+    <span
+      tabindex="0"
+      (click)="newPress.emit(0)"
+      (keydown.enter)="newPress.emit(0)"
+      >0
+    </span>
+  </div>
+  <div class="keypad-key keypad-container">
+    <span
+      tabindex="0"
+      class="keypad-key keypad-key-button keypad-backspace"
+      (keydown.enter)="newPress.emit('backspace')"
+      (click)="newPress.emit('backspace')"
+    >
+      <i class="fa fas fa-backspace"></i>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+@import '_variables';
+
+.button {
+  width: 80px;
+  text-align: center;
+  font-size: 18px;
+  vertical-align: middle;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 15px;
+  margin-right: 30px;
+  border-width: 0px;
+  float: right;
+  padding: 0px;
+  min-width: 80px;
+  opacity: 0;
+}
+
+.button:focus,
+.button:focus:hover {
+  background-color: $primary-color;
+  opacity: 1;
+}
+
+.net-container {
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 3px;
+  padding: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 30px;
+  color: $date-color;
+}
+
+.space {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.net-container-heading {
+  width: 100%;
+}
+
+.net-divider {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-width: 3px;
+  color: $date-color;
+}
+
+.net-label {
+  font-family: $medium-font;
+  font-size: 31px;
+  float: left;
+}
+
+.net-container-label {
+  font-family: $medium-font;
+  font-size: 31px;
+  width: 100%;
+  color: $date-color;
+}
+
+.net-info {
+  display: inline-block;
+  font-size: 24px;
+  width: 100%;
+  margin-top: 10px;
+  border-style: solid;
+  border-color: $date-color;
+  border-width: 3px;
+  padding: 10px 0px 10px 0px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.net-info:hover {
+  .button {
+    background-color: $date-color;
+    opacity: 1;
+  }
+  .button:focus {
+    background-color: $primary-color;
+    opacity: 1;
+  }
+}
+
+.net-info:focus-within {
+  border-color: $primary-color;
+  border-width: 5px;
+}
+
+.net-info-label {
+  font-family: $medium-font;
+  float: left;
+  width: 35%;
+  text-align: right;
+}
+
+.net-info-data {
+  float: left;
+}
+
+.net-state {
+  font-family: $medium-font;
+  font-size: 26px;
+  color: red;
+  float: right;
+}
+
+.center-inline {
+  text-align: center;
+}
+
+.success-state {
+  color: #2bb487;
+}
+
+.error-state {
+  color: #d75762;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-size: 50px;
+}
+
+.net-content {
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: 30px;
+}
+
+.net-content-label {
+  text-align: center;
+}
+
+.bbt-title {
+  font-family: $medium-font;
+  font-size: 18px;
+}

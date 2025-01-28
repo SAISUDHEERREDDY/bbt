@@ -1,0 +1,124 @@
+@import '_variables';
+
+.dev-warning {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: red;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.search-container {
+  //display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 2.7vmin 55px 0;
+}
+
+.search-results-cards {
+  margin-left: 38px;
+  margin-right: 38px;
+}
+
+.top-header {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  a {
+    position: absolute;
+    left: 3vw;
+  }
+}
+
+.search-text-input {
+  width: 95%;
+  height: 70px;
+  border: none;
+  text-align: center;
+  font-size: 36px;
+  background-color: $header-background;
+  caret-color: $primary-color;
+}
+
+input[type='text']::-ms-clear,
+input[type='text']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+/*--Search Input - start--*/
+.search-input-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  max-width: 1000px;
+  height: 77px;
+  border: 2px solid $input-container;
+  border-radius: 100px;
+  background-color: $header-background;
+  align-items: center;
+
+  .search-icon {
+    font-size: 1.5em;
+    padding-left: 1em;
+  }
+
+  .search-text-input {
+    width: 95%;
+    height: 70px;
+    border: none;
+    text-align: center;
+    font-size: 36px;
+    background-color: $header-background;
+    caret-color: $primary-color;
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &::placeholder {
+      color: rgba(76, 76, 76, 0.5);
+    }
+
+    &:focus {
+      /*color: rgba(76, 76, 76, .5);*/
+      outline: none !important;
+      border: none;
+    }
+  }
+
+  .button-search-delete-all {
+    border: 5px solid transparent;
+    &:hover {
+      border: 5px solid $primary-color;
+      border-radius: 100%;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.keyboard-container {
+  display: flex;
+  flex: 1;
+  font-family: 'SansPro-Regular', 'monospace';
+  font-size: 37px;
+  max-width: 795px;
+  align-self: center;
+  padding-top: 55px;
+}
+
+.search-message {
+  width: 100%;
+  text-align: center;
+}

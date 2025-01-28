@@ -1,0 +1,54 @@
+<div class="thumb-scroller" *ngIf="files && files.length">
+  <div class="presentation-thumb-container">
+    <div
+      class="presentation-card-thumb"
+      *ngFor="let file of files; index as i"
+        [ngClass]="{ playing: i === (selectedIndex || 0) }"
+        (keydown.enter)="jumpToSlide.emit(i)" 
+        (click)="jumpToSlide.emit(i)"
+        tabindex="0"
+        #presentationThumb
+    >
+      <ng-container [ngSwitch]="file?.type">
+        <img
+          *ngSwitchCase="'Image'"
+          [src]="file?.filePath"
+          [alt]="file?.type + ' preview thumbnail'"
+          width="274"
+          height="145"
+          loading="lazy"
+        />
+
+        <ng-container *ngSwitchCase="'Video'">
+          <ng-container [ngSwitch]="file?.iconType">
+            <img
+              *ngSwitchCase="'custom'"
+              [src]="file?.customIcon"
+              [alt]="file?.type + ' preview thumbnail'"
+              width="274"
+              height="145"
+              loading="lazy"
+            />
+            <img
+              *ngSwitchCase="'default'"
+              src="assets/images/missing_thumb.png"
+              [alt]="file?.type + ' preview thumbnail'"
+              width="274"
+              height="145"
+              loading="lazy"
+            />
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <div class="thumb-type-icon">
+        <i
+          class="fas"
+          [ngClass]="{
+            'fa-film': file?.type === 'Video',
+            'fa-image': file?.type === 'Image'
+          }"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>

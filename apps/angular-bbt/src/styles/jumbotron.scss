@@ -1,0 +1,18 @@
+.jumbotron {
+  background-color: black;
+  color: white;
+}
+
+.jumbotron-description,
+.jumbotron-preview {
+  height: 100%;
+  width: 100%;
+
+  background-color: black;
+  color: white;
+}
+
+.jumbotron-preview {
+  display: flex;
+  align-items: center;
+}

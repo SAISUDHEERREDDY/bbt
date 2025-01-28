@@ -1,0 +1,25 @@
+.mat-card {
+  background-color: black;
+}
+
+.mat-subheading-2 {
+  word-break: break-all;
+}
+
+.divider-spacer {
+  padding: 0 0 8px 0;
+}
+
+.header-container {
+  position: absolute;
+  top: 1vw;
+  padding: 0 16px;
+  left: 0;
+  width: 100%;
+}
+
+.translucent-background {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2px 4px;
+  border-radius: 4px;
+}

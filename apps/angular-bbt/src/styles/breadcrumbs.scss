@@ -1,0 +1,33 @@
+@use 'sass:math';
+@import '_variables';
+
+ul.breadcrumbs {
+  font-family: $book-font;
+  font-size: math.div(18vh, 10.8);
+
+  list-style: none;
+
+  > li {
+    display: inline;
+
+    > a {
+      text-decoration: none;
+      color: inherit;
+      outline-color: $primary-color;
+      outline-width: 10px;
+
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  > li:not(:last-child)::after {
+    margin: 0 0.25em;
+    content: '/';
+  }
+
+  > li:last-child {
+    font-family: $bold-font;
+  }
+}

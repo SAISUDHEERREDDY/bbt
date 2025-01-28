@@ -1,0 +1,9 @@
+<bbt-navigable-root
+  [ngClass]="{
+    fullscreen: fullscreen,
+    'activity-disabled': !active.enabled,
+    'activity-enabled': active.enabled
+  }"
+>
+  <router-outlet></router-outlet>
+</bbt-navigable-root>

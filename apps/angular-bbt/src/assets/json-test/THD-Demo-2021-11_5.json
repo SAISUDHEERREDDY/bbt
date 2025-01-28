@@ -1,0 +1,339 @@
+{
+  "categories": [
+    {
+      "name": "Category-1",
+      "menuItems": [
+        {
+          "name": "Sub-Category-1",
+          "customIcon": "MSS189ThumbClouds.jpg",
+          "menuItems": [
+            {
+              "title": "Clouds",
+              "description": "",
+              "type": "Video",
+              "duration": 11,
+              "filePath": "MSS197CostaRica4K60fps.mp4",
+              "customIcon": "MSS189ThumbClouds.jpg",
+              "passkey": "",
+              "startDate": "2024-12-26T00:00:00.000-05:00",
+              "endDate": null,
+              "displayOrder": 0,
+              "itemId": 111
+            },
+            {
+              "title": "angrybirds-tlr3_h480p",
+              "description": "",
+              "type": "Video",
+              "duration": 159,
+              "filePath": "MSS197CostaRica4K60fps.mp4",
+              "customIcon": null,
+              "passkey": "",
+              "startDate": "2024-12-26T00:00:00.000-05:00",
+              "endDate": null,
+              "displayOrder": 1,
+              "itemId": 112
+            }
+          ],
+          "id": 11,
+          "displayOrder": 1,
+          "type": "Folder"
+        },
+        {
+          "name": "New Hire Presentation (HDT15050)",
+          "customIcon": "677/unknownName",
+          "description": "This is an example of a PowerPoint-type Presentation using the old 'New Hire Orientation' from 2020. Slides and videos can be sequentially viewed, just as faciltators used to with the New Hire DVDs. (HDT15050)",
+          "displayOrder": 10,
+          "endDate": "",
+          "itemId": 368,
+          "items":
+              [
+                  {
+                    "title": "hdt15050-01.jpg",
+                  "description": null,
+                    "type": "Image",
+                    "duration": 159,
+                  "filePath": "MSS189ThumbClouds.jpg",
+                  "customIcon": null,
+                  "iconType": "default",
+                  "itemId": 349,
+                  "displayOrder": 0
+                  },
+                  {
+                    "title": "hdt15050-01.jpg",
+                  "description": null,
+                    "type": "Video",
+                    "duration": 159,
+                  "filePath": "MSS189Clouds.mp4",
+                  "customIcon": null,
+                  "iconType": "default",
+                  "itemId": 349,
+                  "displayOrder": 0
+                  },
+                  {
+                    "title": "hdt15050-01.jpg",
+                  "description": null,
+                  "type": "Image",
+                  "duration": 159,
+                  "filePath": "MSS152ThumbHDCountdown.jpg",
+                  "customIcon": null,
+                  "iconType": "default",
+                  "itemId": 349,
+                  "displayOrder": 0
+                  }
+              ],
+        
+          "type": "Presentation"
+          },
+        {
+          "name": "Sub-Category-2",
+          "menuItems": [],
+          "id": 12,
+          "type": "Folder"
+        },
+        {
+          "title": "MicrowaveCountdown",
+          "description": "",
+          "type": "Video",
+          "duration": 24,
+          "filePath": "MSS153MicrowaveCountdown.mov",
+          "customIcon": null,
+          "passkey": "",
+          "startDate": "2024-12-23T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 0,
+          "itemId": 13
+        },
+        {
+          "title": "CrazyCountdown",
+          "description": "",
+          "type": "Video",
+          "duration": 11,
+          "filePath": "MSS150CrazyCountdown.mp4",
+          "customIcon": null,
+          "passkey": "",
+          "startDate": "2024-12-23T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 1,
+          "itemId": 14
+        },
+        {
+          "title": "HDCountdown",
+          "description": "",
+          "type": "Video",
+          "duration": 9,
+          "filePath": "MSS152HDCountdown.mov",
+          "customIcon": null,
+          "passkey": "",
+          "startDate": "2024-12-23T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 2,
+          "itemId": 15
+        },
+        {
+          "title": "DigitalCountdown",
+          "description": "Test Description - Digital Countdown",
+          "type": "Video",
+          "duration": 23,
+          "filePath": "MSS151DigitalCountdown.mov",
+          "customIcon": "MSS183CountDown.JPG",
+          "passkey": "",
+          "startDate": "2024-12-23T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 3,
+          "itemId": 16
+        }
+      ],
+      "id": 1,
+      "displayOrder": 1,
+      "type": "Folder"
+    },
+    {
+      "name": "Category-2",
+      "menuItems": [],
+      "itemId": 2,
+      "type": "Folder"
+    },
+    {
+      "title": "Bennu-4k_29.970fps_10.8Mbs_h264",
+      "description": "",
+      "type": "Video",
+      "duration": 360,
+      "filePath": "MSS196Bennu4k29.970fps10.8Mbsh264.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 0,
+      "itemId": 3
+    },
+    {
+      "title": "Sky",
+      "description": "",
+      "type": "Video",
+      "duration": 28,
+      "filePath": "MSS194Sky.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 1,
+      "itemId": 4
+    },
+    {
+      "title": "Road-4k_23.976fps_17.2Mbs",
+      "description": "",
+      "type": "Video",
+      "duration": 33,
+      "filePath": "MSS201Road4k23.976fps17.2Mbs.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 2,
+      "itemId": 5
+    },
+    {
+      "title": "River",
+      "description": "",
+      "type": "Video",
+      "duration": 48,
+      "filePath": "MSS193River.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 3,
+      "itemId": 6
+    },
+    {
+      "title": "OaklandAs",
+      "description": "",
+      "type": "Video",
+      "duration": 300,
+      "filePath": "MSS191OaklandAs.mov",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 4,
+      "itemId": 7
+    },
+    {
+      "title": "mars-curiosity-roves-again-1280x720_59.940fps_4.32Mbs",
+      "description": "",
+      "type": "Video",
+      "duration": 94,
+      "filePath": "MSS200marscuriosityrovesagain1280x72059.940fps4.32Mbs.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 5,
+      "itemId": 8
+    },
+    {
+      "title": "Kim_SmartSync_720p_60fps_2.7Mbps_4x3",
+      "description": "",
+      "type": "Video",
+      "duration": 181,
+      "filePath": "MSS199KimSmartSync720p60fps2.7Mbps4x3.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 6,
+      "itemId": 9
+    },
+    {
+      "title": "HD Set1 1080p60_5Mbps",
+      "description": "",
+      "type": "Video",
+      "duration": 171,
+      "filePath": "MSS190HDSet11080p605Mbps.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 7,
+      "itemId": 10
+    },
+    {
+      "title": "DressCode_KTVSpot",
+      "description": "",
+      "type": "Video",
+      "duration": 21,
+      "filePath": "MSS198DressCodeKTVSpot.mov",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 8,
+      "itemId": 11
+    },
+    {
+      "title": "Costa_Rica_4K_60fps",
+      "description": "",
+      "type": "Video",
+      "duration": 313,
+      "filePath": "MSS197CostaRica4K60fps.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 9,
+      "itemId": 12
+    },
+    {
+      "title": "Clouds",
+      "description": "",
+      "type": "Video",
+      "duration": 11,
+      "filePath": "MSS189Clouds.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 10,
+      "itemId": 13
+    },
+    {
+      "title": "Bennu-4k_29.970fps_10.8Mbs_h264",
+      "description": "",
+      "type": "Video",
+      "duration": 360,
+      "filePath": "MSS196Bennu4k29.970fps10.8Mbsh264.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 11,
+      "itemId": 14
+    },
+    {
+      "title": "angrybirds-tlr3_h480p",
+      "description": "",
+      "type": "Video",
+      "duration": 159,
+      "filePath": "MSS195angrybirdstlr3h480p.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 12,
+      "itemId": 15
+    },
+    {
+      "title": "space",
+      "description": "",
+      "type": "Video",
+      "duration": 36,
+      "filePath": "MSS117space.mp4",
+      "customIcon": null,
+      "passkey": "",
+      "startDate": "2024-12-12T00:00:00.000-05:00",
+      "endDate": null,
+      "displayOrder": 13,
+      "itemId": 16
+    }
+  ]
+}

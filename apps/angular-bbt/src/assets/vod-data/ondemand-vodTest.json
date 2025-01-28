@@ -1,0 +1,56 @@
+{
+    "categories": [
+      {
+        "title": "SmartPlaylist-1",
+        "description": "",
+        "type": "Playlist",
+        "duration": 21,
+        "customIcon": null,
+        "passkey": "",
+        "num_of_items": 2,
+        "displayOrder": 0,
+        "menuItems": [
+          {
+            "title": "Clouds",
+            "description": "",
+            "type": "Video",
+            "duration": 11,
+            "filePath": "MSS189Clouds.mp4",
+            "customIcon": null,
+            "passkey": "",
+            "startDate": "2024-12-26T00:00:00.000-05:00",
+            "endDate": null,
+            "displayOrder": 0,
+            "itemId": 11
+          },
+          {
+            "title": "city02",
+            "description": "",
+            "type": "Image",
+            "duration": 10,
+            "filePath": "MSS5city02.png",
+            "customIcon": null,
+            "passkey": "",
+            "startDate": "2021-11-18T00:00:00.000-05:00",
+            "endDate": null,
+            "displayOrder": 1,
+            "itemId": 12
+          }
+        ],
+        "id": 1
+      },
+      {
+        "title": "Bennu-4k_29.970fps_10.8Mbs_h264",
+        "description": "",
+        "type": "Video",
+        "duration": 360,
+        "filePath": "MSS196Bennu4k29.970fps10.8Mbsh264.mp4",
+        "customIcon": null,
+        "passkey": "",
+        "startDate": "2024-12-26T00:00:00.000-05:00",
+        "endDate": null,
+        "displayOrder": 1,
+        "itemId": 2
+      }
+    ]
+  }

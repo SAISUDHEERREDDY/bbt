@@ -1,0 +1,66 @@
+<div class="header-root">
+  <bbt-navigable-container #supernav="navigableGroup" [priority]="100">
+    <header>
+      <nav>
+        <bbt-logo-container></bbt-logo-container>
+        <a
+          routerLink="/vod"
+          routerLinkActive="active-route"
+          id="vod"
+          class="slanted-nav"
+          bbtDeferringNavigable
+          [parent]="supernav"
+          [priority]="1"
+        >
+          <span>VOD</span>
+        </a>
+        <a
+          *bbtFeatureIsOn="'Live'"
+          routerLink="/live"
+          routerLinkActive="active-route"
+          id="live"
+          class="slanted-nav"
+          bbtDeferringNavigable
+          [parent]="supernav"
+          [priority]="2"
+        >
+          <span bbti18n="LIVE">Live</span>
+        </a>
+
+        <bbt-heading-clock></bbt-heading-clock>
+
+        <!-- <a
+          id="header-search-link"
+          routerLink="/search"
+          routerLinkActive="active-route"
+          class="slanted-nav slanted-nav-right"
+          bbtDeferringNavigable
+          [parent]="supernav"
+        >
+          <span>
+            <i class="fas fa-search search-icn"></i>
+            <span data-i18n="SEARCH">Search</span>
+          </span>
+        </a> -->
+        <div
+          id="menu-toggle"
+          tabindex="0"
+          bbtDeferringNavigable
+          [parent]="supernav"
+          class="slanted-nav slanted-nav-right"
+          (click)="hamburgerHit.emit()"
+          (keydown.enter)="hamburgerHit.emit()"
+          [priority]="3"
+        >
+          <div
+            class="fa fas"
+            [ngClass]="{
+              'fa-bars': !sideNavOpen,
+              'fa-times opened': sideNavOpen
+            }"
+          ></div>
+        </div>
+      </nav>
+    </header>
+  </bbt-navigable-container>
+</div>

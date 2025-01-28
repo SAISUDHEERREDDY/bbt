@@ -1,0 +1,48 @@
+<bbt-jumbotron>
+  <div class="jumbotron-preview">
+    <ng-content></ng-content>
+  </div>
+  <div
+    class="jumbotron-description content-description"
+    *ngIf="locale$ | async as locale"
+  >
+    <div class="content-description-container">
+      <div class="descName text-ellipsis">
+        <ng-container *ngIf="content?.names || content?.name">
+          {{ content?.names | translateToLocale: locale:content?.name }}
+        </ng-container>
+        <ng-container *ngIf="content?.titles || content?.titles">
+          {{ content?.titles | translateToLocale: locale:content?.title }}
+        </ng-container>
+      </div>
+      <div class="dateDuration">
+        <!-- <div class="contentDate">
+          {{ content?.timestamp | date: 'longDate' }}
+        </div> -->
+        <div class="duration" *ngIf="content?.duration">
+          {{ content?.duration | parseInt | secondsByMagnitude }}
+        </div>
+      </div>
+      <div class="contentLongDesc">
+        {{
+          content?.descriptions | translateToLocale: locale:content?.description
+        }}
+      </div>
+      <div class="info-container">
+        <div class="contentType" [ngSwitch]="content?.type">
+          <i *ngSwitchCase="'Video'" class="fas fa-film fa-2x"></i>
+          <i *ngSwitchCase="'Folder'" class="fa fas fa-folder fa-2x"></i>
+          <i *ngSwitchCase="'doc'" class="fa fas fa-file fa-2x"></i>
+          <i
+            *ngSwitchCase="'Presentation'"
+            class="fa fas fa-ticket-alt fa-2x"
+          ></i>
+          <i *ngSwitchDefault></i>
+        </div>
+        <div class="content-lock" *ngIf="content?.passKey">
+          <i class="fa fas fa-lock fa-2x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</bbt-jumbotron>

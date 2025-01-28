@@ -1,0 +1,81 @@
+<bbt-navigable-container
+  #loginTrap="navigableGroup"
+  horizontalStrategy="none"
+  verticalStrategy="self"
+  id="top"
+>
+  <form class="login-container" [formGroup]="authForm">
+    <div class="keypad-title" bbti18n="ENTER-PASSCODE"></div>
+
+    <mat-dialog-content>
+      <input
+        #trueInput
+        type="number"
+        name="buffer"
+        formControlName="passkey"
+        class="keypad-number-text-field"
+        required
+        tabindex="-1"
+        readonly
+      />
+      <div class="code-preview" (click)="trueInput.focus()">
+        {{ trueInput.value | obfuscate }}
+        <i
+          class="input-close fa fas fa-times-circle"
+          tabindex="0"
+          bbtDeferringNavigable
+          [parent]="loginTrap"
+          [priority]="1"
+          (keydown.enter)="clear()"
+          (click)="clear()"
+        ></i>
+      </div>
+
+      <bbt-keypad
+        #keypad
+        [parentNav]="loginTrap"
+        (newPress)="handleOutput($event)"
+        [priority]="2"
+      >
+      </bbt-keypad>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <bbt-navigable-container
+        [parentOverride]="loginTrap"
+        #buttonsContainer="navigableGroup"
+        id="buttons-container"
+        class="nav-container"
+        [priority]="3"
+      >
+        <div class="login-button-container">
+          <!-- The decision to not make this a submit button is driven by the old -->
+          <!-- smartTVs not recognizing that this form submission should happen here -->
+          <!-- it is stupid but changing it break things. -->
+          <div
+            data-cy="login-button-enter"
+            class="btn-primary login-modal-button"
+            bbtDeferringNavigable
+            [parent]="buttonsContainer"
+            tabindex="0"
+            (keydown.enter)="submit()"
+            (click)="submit()"
+            (registered)="stealFocus(loginTrap)"
+            [stealFocusOnInit]="true"
+            cdkFocusInitial
+            bbti18n="ENTER"
+          ></div>
+          <div
+            class="btn-secondary login-modal-button"
+            bbti18n="CANCEL"
+            tabindex="0"
+            bbtDeferringNavigable
+            [parent]="buttonsContainer"
+            (keydown.enter)="close()"
+            (click)="close()"
+          ></div>
+        </div>
+      </bbt-navigable-container>
+    </mat-dialog-actions>
+  </form>
+</bbt-navigable-container>

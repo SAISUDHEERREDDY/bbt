@@ -1,0 +1,72 @@
+<ng-template #eventOver>
+  <bbt-idle-player></bbt-idle-player>
+</ng-template>
+
+<div class="live-container">
+  <bbt-primary-navigation>
+    <shared-title-bar [showIfMobile]="true">
+      <span title data-i18n="Live">{{ 'Live' | jqueryi18n }}</span>
+      <bbt-logo-container right></bbt-logo-container>
+    </shared-title-bar>
+    <div class="contentContainer full" [ngClass]="containerClass$ | async">
+      <bbt-jumbotron
+        [showFade]="!(isFullscreen$ | async)"
+        [previewOnly]="isFullscreen$ | async"
+      >
+        <div class="jumbotron-description">
+          <bbt-live-description
+            [program]="safePreviewProgram$ | async"
+            [channel]="safePreviewChannel$ | async"
+          ></bbt-live-description>
+        </div>
+        <div class="jumbotron-preview">
+          <div class="fit-plyr">
+            <ng-container
+              *ngIf="!(activeEvent$ | async)?.passKey || preview; else passkey"
+              [ngSwitch]="(activeEvent$ | async)?.type"
+            >
+              <ng-container *ngSwitchCase="'stream'">
+                <ng-container *ngIf="activeChannel$ | async as activeChannel">
+                  <!-- Stream Playback -->
+                  <video
+                    *ngIf="!playbackComplete; else eventOver"
+                    class="stream-playback"
+                    [bbtHlsVideo]="activeChannel.url"
+                    #player="HlsVideo"
+                    preload="auto"
+                    (loadedmetadata)="playVideo(player)"
+                    (ended)="playbackComplete = true"
+                  ></video>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngSwitchCase="'file'">
+                <ng-container *ngIf="activeEvent$ | async as event">
+                  <!-- File Playback -->
+                  <video
+                    *ngIf="!playbackComplete; else eventOver"
+                    class="file-playback"
+                    [bbtHlsVideo]="event.file"
+                    #player="HlsVideo"
+                    preload="auto"
+                    (loadedmetadata)="playVideo(player)"
+                    (ended)="playbackComplete = true"
+                  ></video>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <bbt-idle-player></bbt-idle-player>
+              </ng-container>
+            </ng-container>
+            <ng-template #passkey>
+              <div class="preview-text">Event Passkey Required</div>
+            </ng-template>
+          </div>
+        </div>
+      </bbt-jumbotron>
+
+      <bbt-program-browser
+        *ngIf="!(isFullscreen$ | async)"
+      ></bbt-program-browser>
+    </div>
+  </bbt-primary-navigation>
+</div>

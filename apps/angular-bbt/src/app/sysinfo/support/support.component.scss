@@ -1,0 +1,43 @@
+@import '_variables';
+
+.support-container {
+  font-family: $normal-font;
+  font-size: 29px;
+  color: $date-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+}
+
+.support-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 77vh; */
+  flex-grow: 9;
+}
+
+.support-purpose {
+  font-family: $medium-font;
+}
+
+.support-email {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.support-phone {
+}
+
+.hughes-logo {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px;
+  height: 48px;
+  flex-grow: 1;
+  width: 95%;
+}

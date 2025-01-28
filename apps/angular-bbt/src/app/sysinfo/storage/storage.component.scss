@@ -1,0 +1,62 @@
+@import '_variables';
+@import '../main/main.component.scss';
+
+.disk-container {
+  display: flex;
+  width: 50vw;
+  margin-bottom: 40px;
+}
+
+.disk-container-label {
+  width: 100%;
+  text-align: center;
+  font-family: $medium-font;
+  font-size: 29px;
+  margin: 30px 0 30px 0;
+}
+
+.disk-bar {
+  display: flex;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  height: 40px;
+}
+
+.disk-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.disk-icon {
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.disk-status {
+  text-align: end;
+  font-size: 19px;
+  padding-left: 30px;
+}
+
+.disk-label {
+  flex: 1;
+  font-family: $medium-font;
+  font-size: 22px;
+}
+
+.disk-info {
+  padding-left: 50px;
+  flex: 1;
+}
+
+.disk-heading-row {
+  display: flex;
+}
+
+.disk-used {
+  background-color: black;
+  border-radius: 8px 0 0 8px;
+}

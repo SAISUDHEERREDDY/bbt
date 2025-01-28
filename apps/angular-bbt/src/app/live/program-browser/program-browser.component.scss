@@ -1,0 +1,257 @@
+@import '_variables';
+
+$dark-coloring: #4c4c4c;
+$playing-lane-background-color: $dark-coloring;
+$playing-lane-color: $btn-primary-font;
+
+:host {
+  background-color: #000;
+  color: $playing-lane-color;
+}
+
+@mixin active-channel {
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  background-color: $playing-lane-background-color;
+  color: $playing-lane-color;
+}
+
+.program-browser .fc.fc-theme-standard {
+  .fc-scrollgrid.fc-scrollgrid-liquid {
+    background-color: black;
+  }
+
+  .fc-toolbar {
+    display: none;
+  }
+
+  .fc-view-container {
+    margin-top: 50px;
+  }
+
+  /** HEADER w/ Times **/
+
+  .fc-scrollgrid {
+    background-color: $header-background;
+
+    thead {
+      font-family: $book-font;
+      font-size: 28px;
+      color: $playing-lane-color;
+    }
+
+    .fc-datagrid-header .fc-scroller-harness .fc-datagrid-cell,
+    .fc-resource-timeline-divider.fc-cell-shaded,
+    .fc-timeline-slot.fc-timeline-slot-label {
+      // background-color: $header-background;
+      border: 0;
+    }
+  }
+
+  // Height style for everything in the lanes
+  .fc-timeline-event.fc-event,
+  .fc-datagrid-cell.fc-resource,
+  .fc-timeline-lane.fc-resource {
+    height: 98px;
+  }
+
+  // Border Styles for background grid
+  $border-style: 4px solid #222;
+
+  .fc-scrollgrid-section.fc-scrollgrid-section-header {
+    border-bottom: $border-style;
+  }
+
+  .fc-resource,
+  .fc-timeline-slot,
+  .fc-scrollgrid-section.fc-scrollgrid-section-body > td {
+    border: $border-style;
+  }
+
+  .fc-resource-timeline-divider.fc-cell-shaded {
+    width: 0;
+    border: 0;
+  }
+
+  // Remove extra borders
+  .fc-scrollgrid-section.fc-scrollgrid-section-header > td,
+  .fc-scrollgrid,
+  .fc-datagrid-header .fc-datagrid-cell,
+  .fc-timeline.fc-resource-timeline {
+    border: 0;
+  }
+
+  .fc-timeline-slot.fc-timeline-slot-minor,
+  .fc-scrollgrid-section > td:last-child {
+    border-left: 0;
+  }
+
+  .fc-timeline-slot.fc-timeline-slot-major {
+    border-right: 0;
+  }
+
+  // Grid background
+  .fc-timeline-body {
+    background-color: black;
+  }
+
+  // Resource (Channel) Styling
+  .fc-datagrid-cell.fc-resource {
+    font-family: $bold-font;
+    font-size: 25px;
+    color: #000000;
+
+    // Wipe out existing padding and heights of resource elements
+    // so we can control it fully
+    .fc-datagrid-cell-frame,
+    .fc-datagrid-cell-main,
+    .fc-datagrid-cell-cushion {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    // Our custom styling for the label
+    .custom-channel-container {
+      height: 100%;
+      width: 100%;
+      color: $playing-lane-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > span {
+        width: 100%;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:focus,
+      &.playing,
+      &.playing:focus {
+        outline: none;
+        @include active-channel();
+      }
+    }
+  }
+
+  // Event Styling
+  .fc-timeline-event.fc-event.fc-h-event {
+    font-family: $medium-font;
+    font-size: 18px;
+    // background: $primary-color;
+    background: #111;
+    border: 4px solid #555;
+    border-radius: 10px;
+    margin-top: 4px;
+
+    .fc-event-main {
+      overflow-x: hidden;
+      .full-calender-event-date-snippet,
+      .full-calender-event-title {
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: clip;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &.previewing-program {
+      border-color: $playing-lane-color;
+    }
+
+    &.playing-program {
+      // background: $primary-color;
+      transition: background-color 250ms;
+      background-color: #333;
+      border-color: #333;
+    }
+
+    &.previewing-program,
+    &.previewing-program.playing-program {
+      transition: border 250ms ease-in-out, background-color 250ms ease-in-out,
+        color 250ms ease-in-out;
+      &.fc-h-event .fc-event-main {
+        transition: color 250ms ease-in-out;
+        // color: $primary-font-color;
+      }
+    }
+  }
+
+  .fc-event-main {
+    height: 100%;
+
+    // Custom styling for custom rendering
+    > .program-browser-event-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+
+      padding: 2px 8px;
+
+      > .full-calender-event-date-snippet {
+        font-family: $book-font;
+        font-size: 14px;
+        overflow-x: hidden;
+      }
+    }
+  }
+}
+
+.program-browser.active .fc.fc-theme-standard {
+  .fc-timeline-event.fc-event.fc-h-event {
+    &.previewing-program,
+    &.previewing-program.playing-program {
+      border-color: $primary-color;
+    }
+  }
+}
+
+.schedule.program-browser {
+  .fc-toolbar.fc-header-toolbar {
+    position: sticky;
+    top: 70px;
+    z-index: 10;
+    background: white;
+  }
+
+  .fc-head-container.fc-widget-header {
+    position: sticky;
+    top: 108px;
+    z-index: 10;
+    background: white;
+  }
+}
+
+// .activity-disabled .program-browser .fc.fc-theme-standard {
+//   .fc-datagrid-cell.fc-resource {
+//     .custom-channel-container {
+//       border: 10px solid #f9f9f9;
+//     }
+//   }
+// }
+
+.playing-lane {
+  @include active-channel();
+}
+
+.full-calendar-event-title {
+  color: red;
+}
+
+.loading-container {
+  background-color: black;
+  color: $playing-lane-color;
+  width: 100%;
+  .channel-loading-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  mat-spinner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

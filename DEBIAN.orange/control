@@ -1,0 +1,10 @@
+Package: bbt-orange
+Version: PROD_VERSION-INCREMENT
+Architecture: all
+Section: non-free
+Maintainer: Hughes, an Echostar Company <hsgsupport@hughes.com>
+Depends: apache2
+Provides: bbt
+Conflicts: bbt
+Replaces: bbt
+Description: Hughes HS device Browser-Based Training - Orange Theme

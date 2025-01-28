@@ -1,0 +1,138 @@
+<div class="contentContainer" *ngIf="sysinfo">
+  <bbt-navigable-container
+    horizontalStrategy="none"
+    verticalStrategy="self"
+    #netcfgTrap="navigableGroup"
+  >
+    <bbt-top-title-nav title="NETWORK" class="bbt-title">
+      <a
+        class="top-back fas fa-arrow-left"
+        bbtDeferringNavigable
+        routerLink=""
+        [parent]="netcfgTrap"
+      >
+      </a>
+    </bbt-top-title-nav>
+    <div class="net-content">
+      <div class="net-container-label net-content-label">
+        {{ 'ETHERNET' | jqueryi18n }}
+      </div>
+      <div
+        *ngFor="let eth of sysinfo.ethernet; first as isFirst"
+        class="net-container"
+      >
+        <div>
+          <div class="net-container-heading net-label">
+            <div class="net-label">
+              {{ eth.interface }}
+            </div>
+            <div class="net-state">
+              <div *ngIf="eth.status === 'DOWN'" class="error-state">down</div>
+              <div *ngIf="eth.status !== 'DOWN'" class="success-state">
+                connected
+              </div>
+            </div>
+          </div>
+          <hr class="net-divider" />
+          <div class="center-inline">
+            <div>
+              <div *ngIf="ipModal">
+                <bbt-net-ip></bbt-net-ip>
+              </div>
+              <div
+                class="net-info"
+                (click)="focusChildButton(eth.interface + '_addr')"
+              >
+                <div class="net-info-label">
+                  {{ 'IP_ADDR' | jqueryi18n }}
+                </div>
+                <div class="space"></div>
+                <div class="net-info-data">{{ eth.ipaddr }}</div>
+                <a
+                  id="{{ eth.interface + '_addr' }}"
+                  class="button"
+                  bbtDeferringNavigable
+                  [parent]="netcfgTrap"
+                  [stealFocusOnInit]="isFirst"
+                  (click)="openDialog(eth.interface, eth.ipaddr, 'addr')"
+                  (keydown.enter)="
+                    $event.preventDefault();
+                    openDialog(eth.interface, eth.ipaddr, 'addr')
+                  "
+                  (focus)="buttonFocus($event, eth.interface)"
+                  (blur)="buttonBlur($event, eth.interface)"
+                  tabindex="0"
+                >
+                  {{ 'EDIT' | jqueryi18n }}
+                </a>
+              </div>
+            </div>
+            <div>
+              <div
+                class="net-info"
+                (click)="focusChildButton(eth.interface + '_mask')"
+              >
+                <div class="net-info-label">
+                  {{ 'NET_MASK' | jqueryi18n }}
+                </div>
+                <div class="space"></div>
+                <div class="net-info-data">{{ eth.mask }}</div>
+                <div class="content-button">
+                  <a
+                    id="{{ eth.interface + '_mask' }}"
+                    class="button"
+                    bbtDeferringNavigable
+                    [parent]="netcfgTrap"
+                    (click)="openDialog(eth.interface, eth.mask, 'mask')"
+                    (keydown.enter)="
+                      $event.preventDefault();
+                      openDialog(eth.interface, eth.mask, 'mask')
+                    "
+                    (focus)="buttonFocus($event, eth.interface)"
+                    tabindex="0"
+                  >
+                    {{ 'EDIT' | jqueryi18n }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="net-info"
+                (click)="focusChildButton(eth.interface + '_gw')"
+              >
+                <div class="net-info-label">
+                  {{ 'GATEWAY' | jqueryi18n }}
+                </div>
+                <div class="space"></div>
+                <div class="net-info-data">{{ eth.gwaddr }}</div>
+                <div class="content-button">
+                  <a
+                    id="{{ eth.interface + '_gw' }}"
+                    class="button"
+                    bbtDeferringNavigable
+                    [parent]="netcfgTrap"
+                    (focus)="buttonFocus($event, eth.interface)"
+                    (blur)="buttonBlur($event, eth.interface)"
+                    tabindex="0"
+                    (click)="openDialog(eth.interface, eth.gwaddr, 'gw')"
+                    (keydown.enter)="
+                      $event.preventDefault();
+                      openDialog(eth.interface, eth.gwaddr, 'gw')
+                    "
+                    (focus)="buttonFocus($event, eth.interface)"
+                  >
+                    {{ 'EDIT' | jqueryi18n }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </bbt-navigable-container>
+</div>
+<div *ngIf="!sysinfo" class="loading">
+  <div class="fas fa-spinner fa-spin"></div>
+</div>

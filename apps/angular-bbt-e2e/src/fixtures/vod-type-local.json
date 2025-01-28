@@ -1,0 +1,404 @@
+{
+  "name": "Menu2",
+  "id": 2,
+  "orgId": 1,
+  "categories": [
+    {
+      "id": 1,
+      "name": "Category1",
+      "displayOrder": 1,
+      "menuItems": [
+        {
+          "itemId": 10,
+          "title": "Presentation1",
+          "description": "Presentation1 Description",
+          "type": "Presentation",
+          "iconType": "default",
+          "displayOrder": 0,
+          "passKey": false,
+          "goldMaster": false,
+          "startDate": "",
+          "endDate": "",
+          "items": [
+            {
+              "itemId": 1,
+              "title": "Charade Image",
+              "description": null,
+              "type": "Image",
+              "pifId": 1,
+              "filePath": "/lms/content/1/charade1.png",
+              "iconType": "custom",
+              "customIcon": "/lms/content/1/charade1.png",
+              "displayOrder": 0,
+              "passKey": false
+            },
+            {
+              "itemId": 2,
+              "title": "Big Buck Bunny",
+              "description": null,
+              "type": "Image",
+              "pifId": 2,
+              "filePath": "/lms/content/2/big-buck-bunny-4k1.png",
+              "iconType": "custom",
+              "customIcon": "/lms/content/2/big-buck-bunny-4k1.png",
+              "displayOrder": 1,
+              "passKey": false
+            },
+            {
+              "itemId": 1,
+              "title": "Charade Video",
+              "description": null,
+              "type": "Video",
+              "pifId": 1,
+              "duration": 127,
+              "filePath": "/lms/content/1/charade.m3u8",
+              "iconType": "custom",
+              "customIcon": "/lms/content/1/charade1.png",
+              "displayOrder": 2,
+              "tracks": [
+                {
+                  "kind": "audio",
+                  "label": "English",
+                  "srclang": "en",
+                  "subtype": "stereo"
+                }
+              ],
+              "passKey": false
+            }
+          ]
+        },
+        {
+          "itemId": 7,
+          "title": "revolution.mp4",
+          "description": "Revolution",
+          "type": "Video",
+          "pifId": 7,
+          "duration": 127,
+          "filePath": "/lms/content/7/revolution.m3u8",
+          "customIconId": 1,
+          "iconType": "custom",
+          "customIcon": "/lms/content/7/revolution1.png",
+          "displayOrder": 1,
+          "passKey": false,
+          "goldMaster": false,
+          "startDate": "",
+          "endDate": "",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Category2",
+      "displayOrder": 1,
+      "menuItems": [
+        {
+          "id": 1,
+          "name": "Folder1",
+          "description": "This is a folder in a category with no icon.",
+          "type": "Folder_L1",
+          "displayOrder": 1,
+          "iconType": "default",
+          "color": "#FF8B94",
+          "passKey": 12345,
+          "startDate": "2021-05-25T02:54:00Z",
+          "endDate": "2021-11-21T02:54:00Z"
+        },
+        {
+          "itemId": 95,
+          "title": "Home Depot 19005",
+          "description": "19005_tsp_EEFS.mp4",
+          "type": "Video",
+          "pifId": 11,
+          "filePath": "/lms/content/11/19005_tsp_EEFS.m3u8",
+          "customIconId": 76,
+          "iconType": "custom",
+          "customIcon": "/lms/content/11/19005_tsp_EEFS1.png",
+          "displayOrder": 3,
+          "passKey": true,
+          "goldMaster": false,
+          "startDate": "2021-05-25T02:54:00Z",
+          "endDate": "2021-11-21T02:54:00Z",
+          "duration": 127,
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            },
+            {
+              "kind": "audio",
+              "label": "French",
+              "srclang": "fr",
+              "subtype": "mono"
+            },
+            {
+              "kind": "captions",
+              "label": "English",
+              "srclang": "en",
+              "src": "/lms/content/11/19005_tsp_eng.vtt"
+            },
+            {
+              "kind": "captions",
+              "label": "Spanish",
+              "srclang": "es",
+              "src": "/lms/content/11/19005_tsp_spa.vtt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Local Content",
+      "displayOrder": 3,
+      "menuItems": [
+        {
+          "itemId": 57,
+          "title": "19005_tsp_EEFS",
+          "description": "Home Depot 19005 Content",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/19005_tsp_EEFS.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/thumbnails/screenshot.png",
+          "duration": 1831,
+          "size": 959131256,
+          "mtime": "2021-11-11 03:44:43 UTC",
+          "uploadtime": "2021-11-09 00:26:30 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            },
+            {
+              "kind": "audio",
+              "label": "French",
+              "srclang": "fr",
+              "subtype": "mono"
+            }
+          ]
+        },
+        {
+          "itemId": 54,
+          "title": "badturnworse-tlr1_h720p",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/badturnworse-tlr1_h720p.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/badturnworse-tlr1_h720p1.png",
+          "duration": 117,
+          "size": 76770176,
+          "mtime": "2021-11-10 16:46:44 UTC",
+          "uploadtime": "2021-11-09 00:26:26 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 76,
+          "title": "cameo_0",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/cameo_0.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/cameo_01.png",
+          "duration": 84,
+          "size": 12760495,
+          "mtime": "2021-11-10 23:38:38 UTC",
+          "uploadtime": "2021-11-10 23:35:32 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 56,
+          "title": "exodus-tlr1w7jno_h720p",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/exodus-tlr1w7jno_h720p.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/thumbnails/screenshot.png",
+          "duration": 98,
+          "size": 62827720,
+          "mtime": "2021-11-11 05:41:06 UTC",
+          "uploadtime": "2021-11-09 00:26:29 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 78,
+          "title": "GoProHero2",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/GoProHero2.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/GoProHero21.png",
+          "duration": 312,
+          "size": 236717380,
+          "mtime": "2021-11-11 09:00:42 UTC",
+          "uploadtime": "2021-11-11 09:00:42 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 58,
+          "title": "lasthijack-clip1_h720p",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/lasthijack-clip1_h720p.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/lasthijack-clip1_h720p1.png",
+          "duration": 205,
+          "size": 154617592,
+          "mtime": "2021-11-09 00:26:31 UTC",
+          "uploadtime": "2021-11-09 00:26:31 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 74,
+          "title": "pointandshoot-tlr1_h720p",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/pointandshoot-tlr1_h720p.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/pointandshoot-tlr1_h720p1.png",
+          "duration": 135,
+          "size": 102706468,
+          "mtime": "2021-11-10 09:00:43 UTC",
+          "uploadtime": "2021-11-10 09:00:43 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 77,
+          "title": "Prometheus",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/Prometheus.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/Prometheus1.png",
+          "duration": 70,
+          "size": 49147353,
+          "mtime": "2021-11-11 05:40:42 UTC",
+          "uploadtime": "2021-11-11 05:40:42 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 55,
+          "title": "systemtest",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/systemtest.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/systemtest1.png",
+          "duration": 128,
+          "size": 64072280,
+          "mtime": "2021-11-09 00:26:27 UTC",
+          "uploadtime": "2021-11-09 00:26:27 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 71,
+          "title": "taken3-tlr1_h720p",
+          "description": "Taken 3 Trailer",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/taken3-tlr1_h720p.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/taken3-tlr1_h720p1.png",
+          "duration": 140,
+          "size": 85393802,
+          "mtime": "2021-11-10 16:35:41 UTC",
+          "uploadtime": "2021-11-10 01:13:30 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        },
+        {
+          "itemId": 75,
+          "title": "thetheoryofeverthing-tlr2_h720p",
+          "description": "",
+          "type": "Video",
+          "filePath": "/opt/VA/content/managed/thetheoryofeverthing-tlr2_h720p.m3u8",
+          "iconType": "custom",
+          "customIcon": "/opt/VA/content/managed/thumbnails/thetheoryofeverthing-tlr2_h720p1.png",
+          "duration": 150,
+          "size": 97309552,
+          "mtime": "2021-11-10 09:00:44 UTC",
+          "uploadtime": "2021-11-10 09:00:44 UTC",
+          "tracks": [
+            {
+              "kind": "audio",
+              "label": "English",
+              "srclang": "en",
+              "subtype": "stereo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

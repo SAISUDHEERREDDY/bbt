@@ -1,0 +1,17 @@
+<div class="presentation-container" *ngIf="file$ | async as f">
+  <video
+    class="presentation-item"
+    [poster]="f?.customIcon"
+    [bbtHlsVideo]="f.filePath"
+    [audioTrackId]="audioTrackId$ | async"
+    [bbtCaptionLanguage]="captionLanguage$ | async"
+    #player
+    preload="auto"
+    (play)="pauseIdleness()"
+    (pause)="resumeIdleness()"
+    (end)="resumeIdleness()"
+    (loadedmetadata)="safePlay()"
+    (manifestParsed)="manifestParsed($event.audioTracks)"
+    (ended)="returnToMenu()"
+  ></video>
+</div>

@@ -1,0 +1,178 @@
+@use '_client-vars' as client;
+
+@import '~@angular/material/theming';
+@import '~material-design-icons/iconfont/material-icons.css';
+
+/**
+Force font-face to block
+*/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-display: block;
+  font-weight: 400;
+  src: url(~material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'), local('MaterialIcons-Regular'),
+    url(~material-design-icons/iconfont/MaterialIcons-Regular.woff2)
+      format('woff2'),
+    url(~material-design-icons/iconfont/MaterialIcons-Regular.woff)
+      format('woff'),
+    url(~material-design-icons/iconfont/MaterialIcons-Regular.ttf)
+      format('truetype');
+}
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+//// Define the default theme (same as the example above).
+$client-app-primary: mat-palette(
+  client.$clientBrand,
+  client.$default,
+  client.$lighter,
+  client.$darker
+);
+$client-app-accent: mat-palette($mat-gray);
+$client-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $client-app-primary,
+      accent: $client-app-accent
+    )
+  )
+);
+
+// Include the default theme styles (color and default density)
+@include angular-material-theme($client-app-theme);
+
+$dark: rgba(black, 0.87); // based on $black-87-opacity from materials theming
+$darkBrand: (
+  50: #bbb,
+  100: white,
+  200: white,
+  300: white,
+  400: white,
+  500: white,
+  600: white,
+  700: white,
+  800: white,
+  900: white,
+  A100: white,
+  A200: white,
+  A400: white,
+  A700: white,
+  contrast: (
+    50: $dark,
+    100: $dark,
+    200: $dark,
+    300: $dark,
+    400: $dark,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $dark,
+    A200: $dark,
+    A400: $dark,
+    A700: white
+  )
+);
+
+//// Define the default theme (same as the example above).
+$dark-accent: mat-palette($darkBrand, 900, 50, 900);
+$dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $client-app-primary,
+      accent: $dark-accent
+    )
+  )
+);
+
+// we grab a copy of the config so we can use it on other client theme updates
+$config: mat-typography-config();
+
+// define the custom font family
+$custom-font-family: "'Gotham Book', sans-serif";
+
+// create a function to return the required values for a typography config entry
+@function define-typography-level(
+  $font-size,
+  $line-height: $font-size,
+  $font-weight: 400,
+  $font-family: null,
+  $letter-spacing: normal
+) {
+  @return (
+    font-size: $font-size,
+    line-height: $line-height,
+    font-weight: $font-weight,
+    font-family: $font-family,
+    letter-spacing: $letter-spacing
+  );
+}
+
+// create a responsive custom typography
+$custom-typography: mat-typography-config(
+  $font-family: $custom-font-family,
+  $display-4: define-typography-level(8rem, 8rem, 300, $letter-spacing: -0.05em),
+  $display-3: define-typography-level(4rem, 4rem, 400, $letter-spacing: -0.02em),
+  $display-2:
+    define-typography-level(3.21rem, 3.42rem, 400, $letter-spacing: -0.005em),
+  $display-1: define-typography-level(2.42rem, 2.85rem, 400),
+  $headline: define-typography-level(1.71rem, 2.28rem, 400),
+  $title: define-typography-level(1.42rem, 2.28rem, 500),
+  $subheading-2: define-typography-level(1.14rem, 2rem, 400),
+  $subheading-1: define-typography-level(1.07rem, 1.71rem, 400),
+  $body-2: define-typography-level(1rem, 1.71rem, 500),
+  $body-1: define-typography-level(1rem, 1.42rem, 400, $custom-font-family),
+  $caption: define-typography-level(0.85rem, 1.42rem, 400, $custom-font-family),
+  $button: define-typography-level(1rem, 1rem, 500),
+  $input: define-typography-level(inherit, 1.125, 400)
+);
+
+// we set the base typography settings for all components in the theme.
+// for now using the config size,height,weight so we can use gotham (medium) and
+// gotham book (light)
+$client-typography: mat-typography-config(
+  $font-family: 'Gotham Book',
+  $body-1:
+    mat-typography-level(
+      mat-font-size($config, body-1),
+      mat-line-height($config, body-1),
+      mat-font-weight($config, body-1),
+      'Gotham Book'
+    ),
+  $caption:
+    mat-typography-level(
+      mat-font-size($config, caption),
+      mat-line-height($config, caption),
+      mat-font-weight($config, caption),
+      'Gotham Book'
+    )
+);
+
+@include angular-material-typography($client-typography);
+
+.dark-mode-theme {
+  // Include the default theme styles (color and default density)
+  @include angular-material-color($dark-theme);
+}
+
+.responsive-font {
+  @include mat-core($custom-typography);
+}
+
+button {
+  &.mat-flat-button {
+    font-family: 'Gotham Book', Helvetica, sans-serif;
+    color: #f9f9f9;
+    border-radius: 3px;
+    background-color: #838383;
+    text-transform: uppercase;
+  }
+}

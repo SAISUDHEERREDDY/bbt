@@ -1,0 +1,30 @@
+@import '_variables';
+
+.top-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh;
+  color: $btn-secondary-font;
+  width: 3.5vmin;
+  height: 3.5vmin;
+  margin-top: 1vmin;
+  margin-left: 1vmin;
+  background-color: $btn-secondary-background;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  text-decoration: none;
+}
+
+.top-back:hover,
+.top-back:active,
+.top-back:focus {
+  cursor: pointer;
+  outline: none;
+  border: 5px solid $primary-color;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}

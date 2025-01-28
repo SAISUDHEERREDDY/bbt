@@ -1,0 +1,31 @@
+@import '_variables';
+
+.vod-card-link {
+  margin: 0 8px;
+  outline: none;
+  transition-duration: 125ms;
+  transition-timing-function: ease-in-out;
+  border: 12px solid transparent;
+}
+
+.thumbContainer:focus {
+  text-decoration: none;
+  border-color: $primary-color;
+  outline: none;
+  transition-property: box-shadow;
+  transition-duration: 125ms;
+  transition-timing-function: ease-in-out;
+}
+
+.wrapping-card-container {
+  padding-top: 39px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 340px);
+  justify-content: space-between;
+
+  .vod-card-link {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

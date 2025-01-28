@@ -1,0 +1,38 @@
+@import '_variables';
+
+.footer-navigation-icon-outer-container {
+  flex: 1;
+  height: 100%;
+}
+.footer-navigation-icon-inner-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  a {
+    color: $primary-font-color;
+  }
+  :hover {
+    color: $primary-color;
+  }
+}
+
+.active-route {
+  background-color: #000;
+  a {
+    color: white;
+  }
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+.mat-toolbar {
+  padding: 0;
+}
+
+a:link {
+  text-decoration: none;
+}

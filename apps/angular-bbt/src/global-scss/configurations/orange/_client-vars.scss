@@ -1,0 +1,41 @@
+// Theme generated with the color tool at
+// https://material.io/design/color/the-color-system.html#tools-for-picking-colors based on
+// less primary color of #63b95d
+
+$dark: rgba(black, 0.87); // based on $black-87-opacity from materials theming
+$primary-color: #eb870a;
+$clientBrand: (
+  50: #fdf2e0,
+  100: #faddb2,
+  200: #f7c780,
+  300: #f3b14e,
+  400: #f1a029,
+  500: #ef910c,
+  600: #eb860a,
+  700: #e57708,
+  800: #de6706,
+  900: #d44f05,
+  A100: #ffffff,
+  A200: #89cdc9,
+  A400: #41a9a2,
+  A700: #277d73,
+  contrast: (
+    50: $dark,
+    100: $dark,
+    200: $dark,
+    300: $dark,
+    400: $dark,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $dark,
+    A200: $dark,
+    A400: $dark,
+    A700: white
+  )
+);
+$default: 600;
+$lighter: 50;
+$darker: 700;

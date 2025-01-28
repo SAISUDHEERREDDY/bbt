@@ -1,0 +1,99 @@
+@use 'sass:math';
+@import '_variables';
+
+//$vertical-spacer: (62/1920);  // 62px;
+//$horizontal-spacer: (90/1080)vh; // 90px;
+
+$vertical-spacer: (math.div(62vw, 19.2)); // 62px;
+$horizontal-spacer: (math.div(90vh, 10.8)); // 90px;
+
+/**
+ * The full capture class exists to make a div capture the full screen. It should be as generic as possible to allow for
+  heavy reuse.
+ */
+.full-capture {
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+
+  &.full-capture-dark {
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &.full-capture-safe-body {
+    position: relative;
+    padding-left: $vertical-spacer;
+    padding-right: $vertical-spacer;
+    padding-top: $horizontal-spacer;
+    padding-bottom: $horizontal-spacer;
+  }
+
+  > .full-capture-content {
+    padding: (math.div(29vh, 10.8)) 0;
+  }
+
+  /**
+   * Gutter is a lower portion of the screen used for buttons and things that are relative to the bottom rather than the
+   * top.
+   */
+  > .gutter {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 $horizontal-spacer $vertical-spacer $horizontal-spacer;
+    width: 100%;
+
+    &.gutter-no-right-pad {
+      padding-right: 0;
+    }
+
+    > .with-right-pad {
+      padding-right: $vertical-spacer;
+    }
+  }
+}
+
+.full-capture {
+  overflow: hidden;
+  &.full-capture-safe-body {
+    padding: $vertical-spacer $horizontal-spacer;
+  }
+
+  > .gutter {
+    padding: 0 $horizontal-spacer $vertical-spacer $horizontal-spacer;
+  }
+
+  > .full-capture-content {
+    padding: (math.div(29vh, 10.8)) (math.div(185vw, 19.2));
+  }
+
+  .button {
+    padding: (math.div(12vh, 10.8)) (math.div(20vw, 19.2));
+    //line-height: (28vh / 10.8vh);
+    font-size: math.div(28vh, 10.8);
+    min-width: math.div(140vh, 10.8);
+
+    &.button-bordered {
+      border: math.div(2vh, 10.8) solid #000;
+      border-radius: math.div(8vh, 10.8);
+    }
+
+    &.button-clear {
+      color: #fff;
+      &.button-bordered {
+        border-color: #fff;
+      }
+
+      &.button-bordered:focus {
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+bbt-rounded-dropdown-picker {
+  outline: none;
+}

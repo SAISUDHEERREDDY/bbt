@@ -1,0 +1,15 @@
+<div class="presentation-card">
+  <img
+    [src]="thumb"
+    default="/assets/images/missing_thumb.png"
+    alt="thumbnail"
+  />
+  <ng-container [ngSwitch]="type">
+    <span class="presentation-card-icon" *ngSwitchCase="'Video'">
+      <i class="fa far fa-film"></i>
+    </span>
+    <span class="presentation-card-icon" *ngSwitchCase="'still'">
+      <i class="fa far fa-image"></i>
+    </span>
+  </ng-container>
+</div>

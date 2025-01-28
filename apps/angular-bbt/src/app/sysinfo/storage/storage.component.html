@@ -1,0 +1,31 @@
+<div class="content-container">
+  <div *ngIf="!sysinfo" class="sysinfo-container-content">&nbsp;</div>
+  <div *ngIf="sysinfo" class="sysinfo-container-content">
+    <div class="disk-container-label">
+      {{ 'DISK_USAGE' | jqueryi18n }}
+    </div>
+    <div class="disk-container-top">
+      <div *ngFor="let disk of sysinfo.filesystem" class="disk-container">
+        <div class="disk-icon">
+          <div class="fas fa-database"></div>
+        </div>
+        <div class="disk-info">
+          <div class="disk-heading-row">
+            <div class="disk-label">
+              {{ disk.mount }}
+            </div>
+            <div class="disk-status">
+              {{ disk.available }} {{ 'AVAILABLE_OF' | jqueryi18n }}
+              {{ disk.size }}
+            </div>
+          </div>
+          <div class="disk-row">
+            <div class="disk-bar">
+              <div class="disk-used" [ngStyle]="{ width: disk.used }"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

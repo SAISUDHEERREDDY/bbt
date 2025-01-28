@@ -1,0 +1,83 @@
+@import '_variables';
+@import '../main/main.component.scss';
+
+.content-container {
+  color: $date-color;
+  display: flex;
+  justify-content: space-around;
+}
+
+.net-container {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $primary-font-color;
+  padding: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 30px;
+}
+
+.net-divider {
+  display: block;
+  border-style: solid;
+  border-top-width: 2px;
+  border-color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.net-label {
+  font-family: $medium-font;
+  font-size: 31px;
+  float: left;
+}
+
+.net-container-label {
+  font-family: $medium-font;
+  font-size: 31px;
+}
+
+.net-info {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.net-info-label {
+  font-family: $medium-font;
+  float: left;
+  padding-right: 70px;
+}
+
+.net-info-data {
+  font-family: $normal-font;
+  float: left;
+}
+
+.gateway-data {
+  font-size: 24px;
+  text-align: center;
+  font-family: $normal-font;
+}
+
+.net-state {
+  font-family: $medium-font;
+  font-size: 26px;
+  color: red;
+  float: right;
+}
+
+.center-inline {
+  text-align: center;
+}
+
+.success-state {
+  color: green;
+}
+
+.error-state {
+  color: red;
+}

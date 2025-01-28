@@ -1,0 +1,66 @@
+@import '_variables';
+
+.categories-error,
+.categories-loading {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vod-listing {
+  transition: background-color 300ms linear;
+}
+
+.vod-listing.loading {
+  background-color: #ccc;
+}
+
+.vod-listing.loaded {
+  background-color: inherit;
+}
+
+.vod-listing.error {
+  background-color: rgb(231, 172, 172);
+}
+
+.contentContainer.playerContentContainer {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.vertical-slider-container {
+  width: 100%;
+  height: 400px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+$folders-vertical-margin: 1vh;
+
+.vod-listing {
+  height: 100vh - $header-height;
+  overflow-y: hidden;
+  $space-after-header: 51.8vh;
+
+  .vertical-slider-container {
+    height: 48.2vh;
+  }
+}
+
+.vod-listing.single-slider {
+  height: auto;
+
+  .vertical-slider-container {
+    height: auto;
+  }
+}
+
+.horizontal-slider-container:last-child {
+  padding-bottom: 190px;
+}
+
+.jumbo-thumb {
+  width: 100%;
+  height: auto;
+}

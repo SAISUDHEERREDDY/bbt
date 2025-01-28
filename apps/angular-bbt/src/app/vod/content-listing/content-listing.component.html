@@ -1,0 +1,60 @@
+<bbt-primary-navigation>
+  <shared-title-bar [showIfMobile]="true" class="sticky">
+    <span title data-i18n="VOD">{{ 'VOD' | jqueryi18n }}</span>
+    <bbt-logo-container right></bbt-logo-container>
+  </shared-title-bar>
+
+  <div
+    class="vod-listing"
+    [ngSwitch]="categoryState$ | async"
+    [ngClass]="categoryState$ | async"
+  >
+    <bbt-content-info [content]="focused">
+      <img
+        *ngIf="focused?.customIcon"
+        [src]="focused?.customIcon"
+        class="jumbo-thumb"
+        alt=""
+      />
+    </bbt-content-info>
+    <div
+      *ngSwitchCase="'loading'"
+      class="categories-loading vertical-slider-container"
+    >
+      <mat-progress-spinner
+        mode="indeterminate"
+        color="primary"
+      ></mat-progress-spinner>
+    </div>
+    <div *ngSwitchCase="'error'" class="categories-error">Error</div>
+    <ng-container *ngSwitchCase="'loaded'">
+      <div
+        class="vertical-slider-container"
+        *ngIf="categories$ | async as categories"
+        #verticalSlider
+        @categories
+      >
+        <div
+          class="horizontal-slider-container"
+          #categorySliderContainer
+          @category
+          *ngFor="let category of categories;  let rowIndex = index; first as isFirstRow"
+          [id]="'category-row-' + rowIndex" 
+          [ngClass]="{'focused-row': rowIndex === currentRowIndex}"
+        >
+          <bbt-category-slider
+            [rowIndex]="rowIndex"
+            [isFocused]="rowIndex === currentRowIndex"
+            [ngClass]="{'focused_row': rowIndex === currentRowIndex}"
+            bbtScrollParentOnFocus="vertical"
+            sharedScrollTo
+            [shouldScrollTo]="category?.shouldScroll"
+            [category]="category"
+            (contentFocused)="selectAndSetFocused($event)"
+            (contentActivated)="triggerParentScroll(categorySliderContainer)"
+          ></bbt-category-slider>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</bbt-primary-navigation>

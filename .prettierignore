@@ -1,0 +1,9 @@
+# Add files here to ignore them from prettier formatting
+.vscode
+tools
+coverage
+dist
+DEBIAN
+DEBIAN.blue
+DEBIAN.orange
+apps/angular-bbt/src/assets

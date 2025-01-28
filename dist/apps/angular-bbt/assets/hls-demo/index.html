@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <title>Hls.js demo - Hughes Check</title>
+</head>
+
+<body>
+<script src="//cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<center>
+  <h1>Hls.js demo</h1>
+  <h2 id="url"></h2>
+  <video height="600" id="video" controls></video>
+  <div><span>Settings: </span> Min <span id="min"></span> Max <span id="max"></span> Size <span id="size"></span></div>
+</center>
+
+<script>
+  /**
+   * Get the URL parameters
+   * source: https://css-tricks.com/snippets/javascript/get-url-variables/
+   * @param  {String} url The URL
+   * @return {Object}     The URL parameters
+   */
+  function getParams(url) {
+    var params = {};
+    var query = url.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      params[pair[0]] = decodeURIComponent(pair[1]);
+    }
+    return params;
+  }
+
+  var params = getParams(document.location.search);
+  var queryParam = params.path;
+  var minBuffer = Number.parseInt(params.minBuffer, 10);
+  var maxBuffer = Number.parseInt(params.maxBuffer, 10);
+
+  function assignIfExists(obj, key, value) {
+    if (value) {
+      obj[key] = value;
+    }
+  }
+
+  var localSrc = queryParam ?
+    queryParam :
+    '/opt/VA/cmscontent/20007_HDTVSpecialMessageV2720p_EE.m3u8';
+
+  var video = document.getElementById('video');
+  if (Hls.isSupported()) {
+    var config = {
+      //debug: true,
+      // maxBuffer: minBuffer,
+      // maxMaxBufferLength: maxBuffer
+    };
+
+    assignIfExists(config, 'maxBuffer', minBuffer);
+    assignIfExists(config, 'maxMaxBufferLength', maxBuffer);
+
+    console.log('[DEMO] using hls.js with config', config);
+    var hls = new Hls(config);
+    hls.loadSource(localSrc);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+      video.muted = true;
+      video.play();
+    });
+  }
+    // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+    // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
+  // This is using the built-in support of the plain video element, without using hls.js.
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    console.log('[DEMO] No MSE, using native');
+    video.src = localSrc;
+    video.addEventListener('canplay', function() {
+      video.play();
+    });
+  }
+
+  document.querySelector('#url').innerHTML = localSrc;
+  document.querySelector('#min').innerHTML = minBuffer.toString(10);
+  document.querySelector('#max').innerHTML = maxBuffer.toString(10);
+  document.querySelector('#size').innerHTML = maxBufferSize.toString(10);
+</script>
+</body>
+</html>
+
+

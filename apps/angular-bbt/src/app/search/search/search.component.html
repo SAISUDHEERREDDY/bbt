@@ -1,0 +1,106 @@
+<bbt-primary-navigation
+  ><bbt-navigable-container
+    #trap="navigableGroup"
+    horizontalStrategy="none"
+    verticalStrategy="none"
+    underflowStrategy="none"
+    overflowStrategy="none"
+  >
+    <div class="search-container">
+      <!-- header of the page -->
+      <div class="top-header">
+        <!-- back button -->
+        <bbt-navigable-container
+          #navTop="navigableGroup"
+          [parentOverride]="trap"
+        >
+          <a
+            class="top-back fas fa-arrow-left"
+            bbtDeferringNavigable
+            [parent]="navTop"
+            routerLink="/vod/root/selection"
+          >
+          </a>
+        </bbt-navigable-container>
+        <!-- search input -->
+        <label class="search-input-container">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            class="search-text-input"
+            [(ngModel)]="searchField"
+            type="search"
+            id="search"
+            (keydown.enter)="getData()"
+            placeholder="{{ 'inputPlaceHolder' | jqueryi18n }}"
+            data-i18n="[placeholder]inputPlaceHolder"
+          />
+          <img
+            tabindex="0"
+            alt="delete"
+            class="button-search-delete-all"
+            src="assets/images/deleteIcon.png"
+            (click)="searchField = ''"
+            (keydown.enter)="searchField = ''"
+          />
+        </label>
+      </div>
+      <!-- Keyboard -->
+      <div class="keyboard-container">
+        <bbt-keyboard
+          (outputKey)="onKeySend($event)"
+          [parentOverride]="trap"
+        ></bbt-keyboard>
+      </div>
+      <div class="dev-warning">Search Functionality Under Development</div>
+    </div>
+    <!--  search results -->
+    <ng-container *ngIf="data$ | async as data">
+      <bbt-navigable-container
+        #navContent="navigableGroup"
+        [representativeChild]="representativeChild"
+        [parentOverride]="trap"
+      >
+        <div class="search-results-cards wrapping-card-container">
+          <ng-container *ngFor="let content of data; first as isFirst">
+            <ng-container [ngSwitch]="content.type">
+              <a
+                class="vod-card-link"
+                bbtDeferringNavigable
+                [parent]="navContent"
+                [stealFocusOnInit]="isFirst"
+                #card
+                *ngSwitchCase="'Video'"
+                [content]="$any(content)"
+                [bbtPasskeyProtectedLink]="[
+                  '/',
+                  'vod',
+                  $any(content).path | removeXPathLayer | encodeURI,
+                  'content',
+                  $any(content).path | encodeURI,
+                  'play'
+                ]"
+              >
+                <bbt-content-card [content]="$any(content)"></bbt-content-card>
+              </a>
+              <a
+                class="vod-card-link"
+                bbtDeferringNavigable
+                [parent]="navContent"
+                [stealFocusOnInit]="isFirst"
+                #card
+                *ngSwitchCase="'folder'"
+                [routerLink]="['selection', $any(content).path]"
+              >
+                <bbt-content-card [content]="$any(content)"></bbt-content-card>
+              </a>
+            </ng-container>
+          </ng-container>
+        </div>
+      </bbt-navigable-container>
+
+      <div class="search-message" *ngIf="data && data.length === 0">
+        No data found
+      </div>
+    </ng-container>
+  </bbt-navigable-container>
+</bbt-primary-navigation>

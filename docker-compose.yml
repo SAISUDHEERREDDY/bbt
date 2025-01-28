@@ -1,0 +1,25 @@
+# variables will be auto-populated if docker-compose commands are run using the build-context/platform-builds.mk targets
+
+version: '3'
+services:
+  # base platform os build env
+  platform-build:
+    image: ${build_image}
+    volumes:
+      - ./:/mnt/src
+    environment:
+      DOCKER_CONTAINER: 1
+    working_dir: /mnt/src
+    user: ${user_id}:${group_id}
+    stop_signal: SIGKILL
+    entrypoint: 'sleep infinity'
+
+  # debian utilities image for packaging
+  deb-utils:
+    image: ${docker_registry}/${debutils_docker_image}
+    volumes:
+      - ./:/mnt/src
+    working_dir: /mnt/src
+    user: ${user_id}:${group_id}
+    stop_signal: SIGKILL
+    entrypoint: 'sleep infinity'

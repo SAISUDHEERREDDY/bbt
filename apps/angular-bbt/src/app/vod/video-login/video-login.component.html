@@ -1,0 +1,195 @@
+<bbt-navigable-container
+  id="trap"
+  horizontalStrategy="self"
+  verticalStrategy="none"
+  overflowStrategy="none"
+  underflowStrategy="none"
+>
+  <div class="contentContainer">
+    <div>
+      <bbt-navigable-container
+        horizontalStrategy="none"
+        #navTop="navigableGroup"
+        overflowStrategy="none"
+        underflowStrategy="none"
+      >
+        <bbt-top-title-nav title="LOGIN">
+          <a
+            class="top-back fas fa-arrow-left"
+            bbtDeferringNavigable
+            [parent]="navTop"
+            routerLink="../menu"
+          >
+          </a>
+        </bbt-top-title-nav>
+      </bbt-navigable-container>
+    </div>
+
+    <div class="video-login-container">
+      <!-- Left Column -->
+      <div class="video-login-left">
+        <bbt-navigable-container
+          horizontalStrategy="delegate"
+          verticalStrategy="self"
+          overflowStrategy="none"
+          underflowStrategy="parent-previous"
+        >
+          <!-- Video Preview -->
+          <bbt-navigable-container
+            #navMain="navigableGroup"
+            overflowStrategy="parent-right"
+          >
+            <div class="video-login-video">
+              <img
+                [src]="content.thumbpath"
+                default="/assets/images/missing_thumb.png"
+                alt="thumbnail"
+              />
+              <a
+                bbtDeferringNavigable
+                [parent]="navMain"
+                class="btn-secondary"
+                routerLink="../play"
+                bbti18n="PLAY"
+              ></a>
+              <div class="descriptive-name-container">
+                <div class="descriptive-name">{{ content.descname }}</div>
+              </div>
+            </div>
+          </bbt-navigable-container>
+          <!-- End Video Preview -->
+
+          <!-- User login -->
+          <label class="video-login-input">
+            <input
+              tabindex="-1"
+              [(ngModel)]="loginId"
+              (keyup.enter)="login(loginId)"
+              placeholder="{{ 'EMPLOYEEPASSCODE' | jqueryi18n }}"
+              data-i18n="[placeholder]EMPLOYEEPASSCODE"
+              class="video-login-input-text"
+            />
+          </label>
+          <bbt-navigable-container
+            #navKeys="navigableGroup"
+            underflowStrategy="none"
+            overflowStrategy="parent-right"
+          >
+            <div class="video-login-keyboard">
+              <div
+                *ngFor="
+                  let num of ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+                  first as isFirst
+                "
+                tabindex="0"
+                bbtDeferringNavigable
+                [parent]="navKeys"
+                [stealFocusOnInit]="isFirst"
+                (keydown.enter)="writeNumber($any(num))"
+                (click)="writeNumber($any(num))"
+                class="keypad-number-container"
+              >
+                <div class="keypad-number">{{ num }}</div>
+              </div>
+            </div>
+          </bbt-navigable-container>
+          <bbt-navigable-container
+            #navButtons="navigableGroup"
+            overflowStrategy="parent-right"
+          >
+            <div class="video-login-buttons">
+              <button
+                bbtDeferringNavigable
+                [parent]="navButtons"
+                class="btn-primary video-login-button"
+                (click)="login(loginId)"
+                data-i18n="LOGIN"
+              >
+                {{ 'LOGIN' | jqueryi18n }}
+              </button>
+              <button
+                bbtDeferringNavigable
+                [parent]="navButtons"
+                class="btn-secondary video-login-button"
+                (click)="deleteInput()"
+                data-i18n="backspace"
+              >
+                {{ 'backspace' | jqueryi18n }}
+              </button>
+              <button
+                bbtDeferringNavigable
+                [parent]="navButtons"
+                class="btn-secondary video-login-button"
+                (click)="clear()"
+                data-i18n="CLEAR"
+              >
+                {{ 'CLEAR' | jqueryi18n }}
+              </button>
+            </div>
+          </bbt-navigable-container>
+          <!-- End user login -->
+        </bbt-navigable-container>
+      </div>
+      <!-- End Left Column -->
+
+      <!-- Right Column -->
+      <div class="video-login-right">
+        <div class="video-login-usr-title">
+          <label data-i18n="LOGINLIST">{{ 'LOGINLIST' | jqueryi18n }} </label>
+          <div>
+            <span data-i18n="TOTAL">{{ 'TOTAL' | jqueryi18n }}</span>
+            <span class="video-login-usr-count">
+              {{ (users$ | async)?.length }}
+            </span>
+          </div>
+        </div>
+
+        <div class="video-login-usr">
+          <div class="video-login-usr-name">
+            <label data-i18n="NAME">{{ 'NAME' | jqueryi18n }}</label>
+            <hr />
+          </div>
+          <bbt-navigable-container
+            horizontalStrategy="delegate"
+            verticalStrategy="self"
+            overflowStrategy="none"
+            underflowStrategy="parent-previous"
+            #usersGroup="navigableGroup"
+          >
+            <div
+              class="video-login-usr-names"
+              *ngFor="let employee of users$ | async"
+            >
+              <div class="video-login-employee">
+                <span>{{ employee }}</span>
+                <img
+                  tabindex="0"
+                  bbtDeferringNavigable
+                  [parent]="usersGroup"
+                  (keydown.enter)="removeUser(employee)"
+                  (click)="removeUser(employee)"
+                  class="button-search-delete-all"
+                  src="assets/images/deleteIcon.png"
+                  alt
+                />
+              </div>
+              <hr />
+            </div>
+          </bbt-navigable-container>
+        </div>
+      </div>
+      <!-- End Right Column -->
+    </div>
+
+    <!-- Notification pop-up. Should be moved into an overlaying reusable service (like material snackbar) -->
+    <div *ngIf="message" class="info-message-container">
+      <div class="info-message">
+        <div class="info-message-icon">
+          <i class="fa fas fa-bell"></i>
+        </div>
+        {{ message }}
+      </div>
+    </div>
+    <!-- End notification pop-up -->
+  </div>
+</bbt-navigable-container>

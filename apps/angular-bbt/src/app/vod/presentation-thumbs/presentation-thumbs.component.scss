@@ -1,0 +1,69 @@
+@use 'sass:math';
+@import '_variables';
+
+// Bottom Thumbs
+.thumb-scroller {
+  // this gets rid of residual white lines that can be left
+  // over on the right or left of the thumb
+  background-color: transparent;
+  > .presentation-thumb-container {
+    display: flex;
+    overflow-x: auto;
+    align-items: center;
+    scroll-behavior: smooth;
+
+    > .presentation-card-thumb {
+      flex: 0 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: border 300ms, background-color 300ms;
+      box-sizing: border-box;
+      outline: none;
+      margin-right: math.div(40, 19.2) * 1vw;
+      width: math.div(314, 19.2) * 1vw;
+
+      $padding-size: math.div(10, 10.8) * 1vmin;
+      padding: $padding-size;
+      filter: brightness(50%);
+
+      &.playing {
+        background-color: #fff;
+        border-color: #fff;
+        border-width: 0;
+        filter: brightness(100%);
+      }
+
+      > img {
+        width: 100%;
+        max-width: math.div(304, 19.2) * 1vw;
+        height: auto;
+      }
+
+      .thumb-type-icon {
+        border-radius: math.div(4.5, 10.8) * 1vh;
+        position: absolute;
+        background-color: black;
+        bottom: math.div(11, 10.8) * 1vh;
+        left: (math.div(10, 10.8) * 1vw) + (math.div(8, 19.2) * 1vw);
+        width: math.div(34, 10.8) * 1vh;
+        height: math.div(34, 10.8) * 1vh;
+        font-size: math.div(21, 10.8) * 1vh;
+        line-height: math.div(34, 10.8) * 1vh;
+        text-align: center;
+      }
+
+      .thumb-type-icon.fa,
+      .thumb-type-icon.fas {
+        color: #fff;
+      }
+    }
+
+    > .presentation-card-thumb:focus,
+    > .presentation-card-thumb.playing:focus {
+      background-color: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+}

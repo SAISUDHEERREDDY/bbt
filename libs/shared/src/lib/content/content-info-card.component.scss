@@ -1,0 +1,37 @@
+$book-font: 'Gotham Book', Helvetica, sans-serif;
+$bold-font: 'Gotham Bold', Helvetica, serif;
+
+.translucent-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.name {
+  color: #fff;
+  padding-top: 11px;
+  font-family: $bold-font;
+  font-size: 24px;
+
+  // This webkit based solution works everywhere I have tested it
+  // (Chromium, Firefox, Edge, and Chrome)
+  // I don't love it, but it works.
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.secondary-info {
+  color: #ccc;
+  font-size: 16px;
+  font-family: $book-font;
+  overflow-x: ellipsis;
+  .fa.fas {
+    font-size: 20px;
+  }
+
+  &.variable-info > * ~ * {
+    margin-left: 8px;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="clock" *bbtFeatureIsOn="'Clock'">
+  <div class="clock-date">
+    <div>{{ now | date: 'EEE':undefined:locale }}&nbsp;</div>
+    <div class="emphasis">{{ now | date: 'mediumDate':undefined:locale }}</div>
+  </div>
+  <div class="clock-time">
+    <div class="emphasis">{{ now | date: 'shortTime':undefined:locale }}</div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<bbt-navigable-container
+  #netcfgTrap="navigableGroup"
+  horizontalStrategy="none"
+  verticalStrategy="self"
+  id="top"
+>
+  <form class="login-container" [formGroup]="ipForm" (ngSubmit)="submit()">
+    <div class="keypad-title">
+      <span class="spacing">{{ data.iface }}</span>
+      <span *ngIf="data.type === 'addr'" bbti18n="IP_ADDR"></span>
+      <span *ngIf="data.type === 'mask'" bbti18n="NET_MASK"></span>
+      <span *ngIf="data.type === 'gw'" bbti18n="GATEWAY_ADDR"></span>
+    </div>
+    <mat-dialog-content>
+      <div class="keypad-input">
+        <div class="ip-input">
+          <input
+            [(ngModel)]="data.addr"
+            type="text"
+            pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+            name="buffer"
+            formControlName="ipAddr"
+            class="net-keypad-number-text"
+            maxlength="15"
+            tabindex="-1"
+            value="data.addr"
+            required
+            readonly
+          />
+          <span (key.enter)="clearIp()">
+            <i
+              class="input-close fa fas fa-times-circle"
+              tabindex="0"
+              bbtDeferringNavigable
+              [parent]="netcfgTrap"
+              [priority]="1"
+              (click)="clearIp()"
+              (keydown.enter)="clearIp()"
+            ></i>
+          </span>
+        </div>
+      </div>
+      <div class="keypad-input">
+        <bbt-keypad
+          #keypad
+          (newPress)="handleOutput($event)"
+          [parentNav]="netcfgTrap"
+          class="keypad"
+          [priority]="2"
+        >
+        </bbt-keypad>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <bbt-navigable-container
+        [parentOverride]="netcfgTrap"
+        #buttonsContainer="navigableGroup"
+        id="buttons-container"
+        class="nav-container"
+        [priority]="3"
+      >
+        <div class="login-button-container">
+          <button
+            class="btn-primary ip-button"
+            bbtDeferringNavigable
+            [parent]="buttonsContainer"
+            [stealFocusOnInit]="true"
+            cdkFocusInitial
+            type="submit"
+            bbti18n="SAVE"
+          ></button>
+          <button
+            class="btn-secondary ip-button"
+            bbti18n="CANCEL"
+            bbtDeferringNavigable
+            [parent]="buttonsContainer"
+            [mat-dialog-close]="false"
+          ></button>
+        </div>
+      </bbt-navigable-container>
+    </mat-dialog-actions>
+  </form>
+</bbt-navigable-container>

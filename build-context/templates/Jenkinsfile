@@ -1,0 +1,39 @@
+node {
+
+    // -remove me-  NOTE the addition of the cleanup closure to run 'make down' to stop the docker-container services. It will be called no matter the build result.
+    catchBuild([], ['engineering'], cleanup: { sh 'make down' }) {
+
+        stage('pre-build') {
+            // -remove me-  This shared library call from docker.productbuilds will auto-checkout the build-context submodule
+            resetWs()
+        }
+
+        stage('build') {
+            // -remove me- No direct docker stuff (other than specifying registry access) is done here because it's all handled through Make
+            def registry_url = sh(script: 'make get-build-var var=docker_registry_url', returnStdout: true)
+            def registry_creds = sh(script: 'make get-build-var var=docker_registry_credentials', returnStdout: true)
+
+            docker.withRegistry(registry_url, registry_creds) {
+                sh 'make down'  // make sure not running from a previous build that broke
+                sh 'make up'    // bring up docker-compose services for this specific application build
+                sh 'make'
+            }
+        }
+
+        stage('package') {
+            // -remove me- WARNING: You MUST use this method utilizing shared library calls from docker.productbuilds
+            // -remove me-          to properly publish Debian packages out where the imaging tools can see them.
+            // -remove me-          The Make driven package builds from build-context/platform-builds.mk
+            // -remove me-          does NOT have the access to properly increment package versions or publish.
+            debutilsDocker(product) {
+                createDebPackage(debContext, 'DEBIAN') {
+                    sh "make install DESTDIR=${destdir}"
+                }
+                publishDebPackages(debContext)
+            }
+        }
+
+    }
+}
+
+// vim: sts=4 sw=4 syntax=groovy expandtab:

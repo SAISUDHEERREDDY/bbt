@@ -1,0 +1,36 @@
+<bbt-navigable-container
+  #sysinfoTrap="navigableGroup"
+  horizontalStrategy="none"
+  verticalStrategy="self"
+  id="top"
+>
+  <div *ngIf="sysinfo" class="sysinfo-container">
+    <bbt-top-title-nav title="SYSINFORMATION" class="sysinfo-title">
+      <!-- <div class="top-back">
+        <a routerLink="">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+      </div> -->
+      <a
+        class="top-back fas fa-arrow-left"
+        bbtDeferringNavigable
+        routerLink=""
+        [parent]="sysinfoTrap"
+        [priority]="1"
+        tabindex="0"
+      >
+      </a>
+    </bbt-top-title-nav>
+    <hr class="sysinfo-hr" />
+    <!-- <div
+      bbtDeferringNavigable
+      [parent]="sysinfoTrap"
+    > -->
+    <bbt-sysinfo-menu #sysinfomenu [parentNav]="sysinfoTrap" [priority]="2">
+    </bbt-sysinfo-menu>
+    <!-- </div> -->
+  </div>
+  <div *ngIf="!sysinfo" class="loading">
+    <div class="fas fa-spinner fa-spin"></div>
+  </div>
+</bbt-navigable-container>

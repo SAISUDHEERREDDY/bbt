@@ -1,0 +1,28 @@
+<div class="menu-content-container">
+  <div class="side-menu sysinfo-menu">
+    <bbt-navigable-container
+      [parentOverride]="parentNav"
+      #sideTrap="navigableGroup"
+      horizontalStrategy="none"
+      verticalStrategy="self"
+      underflowStrategy="parent-previous"
+      overflowStrategy="parent-previous"
+      class="sysinfo-menu"
+      [priority]="priority"
+    >
+      <a
+        *ngFor="let link of links; first as isFirst"
+        [routerLink]="link.route"
+        routerLinkActive="menu-item-selected"
+        class="sub-nav-selection menu-item"
+        bbtDeferringNavigable
+        [stealFocusOnInit]="isFirst"
+        tabindex="0"
+        [parent]="sideTrap"
+      >
+        <span>{{ link.label | jqueryi18n }}</span>
+      </a>
+    </bbt-navigable-container>
+  </div>
+  <router-outlet></router-outlet>
+</div>

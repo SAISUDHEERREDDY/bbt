@@ -1,0 +1,49 @@
+
+# variables will be auto-populated if docker-compose commands are run using the build-context/platform-builds.mk targets
+
+version: "3"
+services:
+
+# -remove me- USE THIS service definition WHEN: there are build dependencies added to the base platform os build image
+# -remove me-   * replace the MY-SERVICE and MY-BUILD keywords to customize for a specific app build (the rest can usually stay as-is)
+  # # application build env
+  # MY-SERVICE:
+  #   image: 127.0.0.1/${product}/MY-BUILD:${product_version}
+  #   build:
+  #     context: .
+  #     args:
+  #       build_image: ${build_image}
+  #   volumes:
+  #     - ./:/mnt/src
+  #   environment:
+  #     DOCKER_CONTAINER: 1
+  #   working_dir: /mnt/src
+  #   user: ${user_id}:${group_id}
+  #   stop_signal: SIGKILL
+  #   entrypoint: 'sleep infinity'
+
+# -remove me- USE THIS service definition WHEN: only the base platform os build image is required
+# -remove me-   * no user changes are required to use this definition as-is (other than to uncomment it!)
+  # # base platform os build env
+  # platform-build:
+  #   image: ${build_image}
+  #   volumes:
+  #     - ./:/mnt/src
+  #   environment:
+  #     DOCKER_CONTAINER: 1
+  #   working_dir: /mnt/src
+  #   user: ${user_id}:${group_id}
+  #   stop_signal: SIGKILL
+  #   entrypoint: 'sleep infinity'
+
+  # debian utilities image for packaging
+  deb-utils:
+    image: ${docker_registry}/${debutils_docker_image}
+    volumes:
+      - ./:/mnt/src
+    environment:
+      DEBUTILS_CONTAINER: 1
+    working_dir: /mnt/src
+    user: ${user_id}:${group_id}
+    stop_signal: SIGKILL
+    entrypoint: 'sleep infinity'

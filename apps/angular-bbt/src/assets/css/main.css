@@ -1,0 +1,1355 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+	font-size: 1em;
+	line-height: 1.4;
+	min-height: 200px;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* latin-ext */
+@font-face {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(/fonts.gstatic.com/s/yanonekaffeesatz/v7/YDAoLskQQ5MOAgvHUQCcLaa0P60JZGaCMFbL3N9v4H0.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(/fonts.gstatic.com/s/yanonekaffeesatz/v7/YDAoLskQQ5MOAgvHUQCcLWjF_m7mVnhXExjNED3rUtY.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Yanone Kaffeesatz Bold'), local('YanoneKaffeesatz-Bold'), url(/fonts.gstatic.com/s/yanonekaffeesatz/v7/We_iSDqttE3etzfdfhuPRRX-JRbUdQPdhHf_PancrjIU24FapfJwyacJ6xNu5rm9.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Yanone Kaffeesatz Bold'), local('YanoneKaffeesatz-Bold'), url(/fonts.gstatic.com/s/yanonekaffeesatz/v7/We_iSDqttE3etzfdfhuPRWOaRr2aRL0G9SOCibVUDmr3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+/* ========================================== 
+Page CSS
+========================================== */	
+
+/* ----------------------------------------- 
+Colors
+----------------------------------------- */
+
+/* #415e86 Banner Top Left */
+/* #153767 Banner Top Right */
+/*  Banner Bottom Left */
+/* #0e274a Banner Bottom Right */
+/* #FF8B0F HughesNet Orange */
+/* #656464 Video Title and text */
+/* #192231 Nav bar background */
+
+/* ----------------------------------------- 
+Fonts 
+----------------------------------------- */
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('OpenSans-Regular-webfont.eot');
+    src: url('OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Regular-webfont.woff') format('woff'),
+         url('OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'yanone_kaffeesatzregular';
+    src: url('yanonekaffeesatz-regular-webfont.eot');
+    src: url('yanonekaffeesatz-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('yanonekaffeesatz-regular-webfont.woff2') format('woff2'),
+         url('yanonekaffeesatz-regular-webfont.woff') format('woff'),
+         url('yanonekaffeesatz-regular-webfont.ttf') format('truetype'),
+         url('yanonekaffeesatz-regular-webfont.svg#yanone_kaffeesatzregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sans_condensedbold';
+    src: url('OpenSans-CondBold-webfont.eot');
+    src: url('OpenSans-CondBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-CondBold-webfont.woff') format('woff'),
+         url('OpenSans-CondBold-webfont.ttf') format('truetype'),
+         url('OpenSans-CondBold-webfont.svg#open_sans_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('OpenSans-Bold-webfont.eot');
+    src: url('OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Bold-webfont.woff') format('woff'),
+         url('OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'open_sansitalic';
+    src: url('OpenSans-Italic-webfont.eot');
+    src: url('OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Italic-webfont.woff') format('woff'),
+         url('OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('OpenSans-Italic-webfont.svg#open_sansitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'open_sanssemibold';
+    src: url('OpenSans-Semibold-webfont.eot');
+    src: url('OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Semibold-webfont.woff') format('woff'),
+         url('OpenSans-Semibold-webfont.ttf') format('truetype'),
+         url('OpenSans-Semibold-webfont.svg#open_sanssemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Generated by Font Squirrel (/www.fontsquirrel.com) on January 2, 2015 */
+
+
+/* ---------------------------------------- 
+	Page Structure                          
+---------------------------------------- */
+
+#wrapper { 
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	font-family:open_sansregular; /* Embedded Font Family*/
+} /* Contains: header, #content, and footer*/
+
+/* ========================================== 
+Header - Contains: #banner, nav, and #breadcrumbs
+========================================== */	
+
+
+/* ========================================== 
+Header - Contains: #banner, nav, and #breadcrumbs
+========================================== */	
+
+
+/* ----------------------------------------- 
+Banner
+----------------------------------------- */
+
+#banner{
+	background-image: url(../images/banner_bg_1000x85.png);
+	height: 85px;
+	position: relative;
+}/* Contains: a logo and a search area */
+		
+#banner #search {
+float: right;
+}
+
+/* 
+Search Form in Banner
+ */
+
+#alert span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
+
+#alert {
+    font-size: 14px;
+	font-family: open_sansbold;
+	/* Center the text vertically and horizontally. */
+	text-align:center;
+
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-bottomleft: 4px;
+
+  	line-height: 14px;      
+	vertical-align: middle;
+	background-color: #FF8080;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	width: 290px;
+	height: 50px;
+	line-height: 50px;
+	padding-top: 20px;
+}
+
+header #banner #search {
+	width: 362px;
+	height: 29px;
+	background-color: #FFFFFF;
+	margin-right: 33px;
+	margin-bottom: 0px;
+	position: absolute;
+	top: 27px;
+	left: 603px;
+}
+#search form #searchBtn {
+	float: none;
+	margin-top: 6px;
+}
+#search form #searchTxt {
+	border-width: 0px;
+	width: 250px;
+	margin-left: 10px;
+	font-size: 19px;
+	margin-top: 7px;
+}
+#banner #search form {
+
+}
+/* ----------------------------------------- 
+Nav Bar
+----------------------------------------- */
+
+nav{
+	background-color: #192231;
+	font-family: open_sansbold;
+	height:30px;	
+}
+nav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+/* Video OnDemand and Training Materials float left */
+nav #video {
+	float: left;
+}
+nav #live {
+	float: left;
+}
+nav #training {
+	float: left;
+}
+
+nav li a {
+	display: block;	/* Give the links box properties; so 
+		that we can set (including a square background). */
+	text-decoration: none; /*Remove the default underline*/
+	padding: 3px 20px 2px 20px; /*Put padding inside the A tag box */
+	font-size: 12px; 
+	font-family: open_sansbold;
+	color: #fff; 
+	/* Center the text vertically and horizontally. */
+	text-align:center; 
+	line-height: 25px;/* And make it tall so the bottom
+	of the button bleeds into the content
+	section's white background. */
+	margin-right: 0.5em; /*Put spacing between the A-tag boxes*/
+}
+nav li a.current, nav li a.current:hover, nav li a.current:active {
+	background: #FFF;
+	color: #FF8B0F;
+	cursor: default;
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+
+/* Admin button floats right */
+nav #admin {
+	float: right;
+	width: 75px;
+	margin-right: 26px;
+}
+
+/* employeeLogin div */
+#employeeLogin {
+	display:none;
+}
+
+nav #admin a {
+    margin-top:6px;
+	color: black;
+	line-height: 14px;
+    height:13px;
+	padding-left: 13px; /* Override nav li a padding
+	to center the ADMIN text on the button. */
+    background-color:#e3e4e4;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+}
+
+nav #admin a.current {
+    margin-top:5px;
+	color: black;
+	line-height: 14px;
+    height:10px;
+	padding-left: 13px; /* Override nav li a padding
+	to center the ADMIN text on the button. */
+    background-color:#6fa650;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+}
+
+#extrabuttons a.current {
+/*	display: block;*/	/* Give the links box properties; so 
+		that we can set (including a square background). */
+	text-decoration: none; /*Remove the default underline*/
+	padding: 3px 20px 2px 20px; /*Put padding inside the A tag box */
+	font-size: 12px; 
+	font-family: open_sansbold;
+	/* Center the text vertically and horizontally. */
+	text-align:center; 
+	margin-right: 0.5em; /*Put spacing between the A-tag boxes*/
+
+    margin-top:5px;
+	color: black;
+	line-height: 14px;
+    height:10px;
+	padding-left: 13px; /* Override nav li a padding
+	to center the ADMIN text on the button. */
+    background-color:#6fa650;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+}
+
+/* ----------------------------------------- 
+Breadcrumbs
+----------------------------------------- */
+
+	#breadcrumbs{
+		padding-top:24px;
+		margin-left:6px;
+		background-color: #FFFFFF;
+		font-size:13px;
+		color:#005dab;
+		margin-bottom:24px;
+	}
+	#breadcrumbs .semi {
+	font-family: open_sanssemibold;
+	}
+	
+/* ========================================== 
+Content
+========================================== */	
+body #wrapper #content {
+	padding: 0 20px 0 20px;
+	min-width: 0px;
+	min-height: 300px;
+}
+
+/* ----------------------------------------- 
+Home Page - two column
+----------------------------------------- */
+body #wrapper #content #left {
+	width: 640px;
+	height: auto;
+	float: left;
+	background-color: #FFFFFF;
+	position: relative;
+}
+#wrapper #content #right {
+	width: 300px;
+	float: right;
+	background-color: #FFFFFF;
+	min-height: 360px;
+	position: relative;
+}
+/*----------------------------------------------------
+Local Content 
+------------------------------------------------------*/
+#wrapper #content .contentFolders {
+/*
+    	background-image: url(../img/content_folders217x25.gif);
+    	background-repeat: no-repeat;
+*/
+	width: auto;
+	height: auto;
+	margin-top: 6px;
+}
+
+	
+.contentFolders .folderPackage .folderIcon {
+	width: 120px;
+	height: 114px;
+	background-image: url(image/folder_icon_120x114.gif);
+    margin-top:10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 6px;
+}
+#content .contentFolders .folderPackage {
+	width: 220px;
+	margin-left: 0px;
+	margin-right: 12px;
+    margin-bottom:15px;
+	float: left;
+}
+.playicon1 {
+    position:relative;
+    margin-top:-50px;
+    margin-left:55px;
+    margin-bottom:28px;
+    width:29px;
+    height:22px;
+    background-image: url(images/small_play_icon.png);
+}
+
+.playicon2 {
+    position:relative;
+    margin-top:-70px;
+    margin-left:95px;
+    margin-bottom:48px;
+    width:29px;
+    height:22px;
+    background-image: url(images/small_play_icon.png);
+}
+.videoThumbnailDuration {
+    float:right;
+	font-family:open_sansregular;
+    color:#656565;
+    margin-top:-22px;
+}
+.contentFolders .folderPackage .folderLabel {
+	width: 190px;
+	height: 24px;
+	font-family: open_sansbold;
+	font-size: 13px;
+	color: #005dab;
+	background-image: url(../img/folder_label_home_200x27.gif);
+	text-align: center;
+	line-height: 20px;
+	padding-top: 2px;
+	overflow:hidden;
+	white-space:nowrap;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.folderPackage .folderLabel .folderTxt {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#wrapper #content .localContentVideosBlock {
+	margin-top: 12px;
+}
+#content .localContentVideosBlock .contentVideos.clearfix {
+	margin-top: 12px;
+}
+.localContentVideosBlock .contentVideos.clearfix .videoThumbnailPackage { 
+	float: left;
+	text-align: left;
+	margin-right: 12px;
+	margin-top: 20px;
+    position:relative;
+}
+.contentVideos.clearfix .videoThumbnailPackage .videoThumbnailLabel { 
+	font-family: open_sansbold;
+    overflow:hidden;
+    width:155px;
+    white-space:nowrap;
+}
+.contentVideos.clearfix .videoThumbnailPackage .videoThumbnailNoDurLabel { 
+	font-family: open_sansbold;
+    overflow:hidden;
+    width:200px;
+    white-space:nowrap;
+}
+#content div.headingTxt {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#extrabuttons {
+	float: right;
+}
+
+#content #left .videoPlayer {
+	width: 640px;
+	height: 410px;
+	background-color: #ffffff;
+}
+#content #left .homeContentFoldersBlock {
+	position: absolute;
+	/*position: absolute; */
+	top: 430px; 
+	left: 0;
+	width: 640px;
+	background-color: #ffffff;
+}
+#content #right .trainingMaterialsBlock {
+	position: absolute;
+	left: 0px;
+	width:300px;
+/*	background-color: #FBC3C4;  */
+}
+#content #right .featuredVideosBlock {
+	background-color: #FFFFFF;
+    min-height:430px;
+}
+.homeHeadingTxt {
+	margin-bottom: 12px;
+}
+.homeContentFoldersBlock .homeContentFoldersArea .homeContentFoldersPackage {
+	margin-right: 10px;
+    margin-bottom:10px;
+    width:200px;
+	float: left;
+}
+.homeContentFoldersArea .homeContentFoldersPackage .homeFolderLabel {
+	background-image: url(../img/folder_label_home_200x27.gif);
+	width: 200px;
+	height: 27px;
+	background-repeat: no-repeat;
+}
+.homeContentFoldersArea .homeContentFoldersPackage .homeFolderLabel {
+	color: #284773;
+	font-family: open_sansbold;
+	font-size: 12.5px;
+	line-height: 27px;
+	padding-left:10px;
+}
+.featuredVideosBlock .featuredVideoPackageFL {
+	float: left;
+    min-height:115px;
+    max-height:115px;
+    width:140px;
+    min-width:140px;
+}
+.featuredVideosBlock  .featuredVideoPackageFR {
+	float: right;
+    min-height:115px;
+    max-height:115px;
+    width:140px;
+}
+#right .featuredVideosBlock .homeHeadingTxt {
+	margin-bottom: 10px;
+}
+.featuredVideoPackage {
+}
+ .featuredVideoTitle {
+	font-family: open_sansbold;
+    width:140px;
+    overflow:hidden;
+    white-space: nowrap;
+   font-size: 12.5px;
+}
+#FeaturedVideosWrapper {
+}
+.featuredVideoDescription {
+    color:#656565;
+   font-size: 12.5px;
+   line-height:14px;
+    width:150px;
+    white-space:nowrap;
+    max-width:140px;
+    max-height:20px;
+    overflow:hidden;
+}
+.trainingMaterialsBlock {
+	position: absolute;
+	width: 300px;
+	background-color: #FFFFFF;
+}
+.fileList {
+	height: 216px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.trainingMaterialsBlock .fileList table, .trainingMaterialsBlock .fileList th, .trainingMaterialsBlock .fileList td {
+	border: 1px solid #dddddd;
+}
+.trainingMaterialsBlock .fileList td {
+	color:#5595CD;
+	font-family:open_sansregular;
+	font-size:14px;
+	line-height:18px;
+	padding-left:12px;
+	height:36px;
+}
+tbody tr:nth-child(odd) {
+   background-color: #F9F9F9;
+}
+
+#liveTbl tbody tr {
+    padding: 3px 20px 2px 20px; /*Put padding inside the A tag box */
+    font-size: 14px;
+    font-family: open_sansbold; 
+}
+
+#liveTbl tbody tr:nth-child(1) {
+	/* background-color: #0000ff; */
+	background-color: rgb(43,72,114);
+}
+
+/*  TrainingMaterials Page stuff*/
+#trainingTbl tbody tr th,  #trainingTbl thead tr th{
+	text-align: left;
+	padding-left: 20px;
+	font-family: open_sansbold;
+	font-size:12.5px;
+}
+#trainingTbl tbody tr td {
+	padding-left: 20px;
+	font-size:12.5px;
+}
+#trainingTbl {
+
+}
+#trainingTbl .nameCol {
+	font-family:open_sansbold;
+	width: 500px;
+	height:50px;
+	color: #5596ce;	
+	vertical-align:middle;
+	border: thin solid #dddddd;	
+}
+#trainingTbl .sizeCol, #trainingTbl .typeCol, #trainingTbl .dateCol {
+	width: 100px;
+	height: 50px;
+	vertical-align: middle;
+	border: thin solid #dddddd;
+}
+#trainingTbl tbody tr .dateCol {
+	width: 150px;
+}
+#trainingTbl tbody tr:nth-child(odd) {
+   background-color: #fafafa;
+}
+
+/* sortable table PAGER buttons */
+.pagedisplay {
+    width:50px;
+    height:16px;
+    margin:6px 0px;
+    padding:0px 0px 0px 0px;
+    vertical-align:top;
+}
+.pagesize {
+    width:50px;
+    height:20px;
+    margin:6px 0px;
+    padding:0px 0px 0px 0px;
+    vertical-align:top;
+}
+
+
+/* login.html stuff */
+.managerTop {
+    margin-top:45px;
+}
+.managerBottom {
+    margin-top:45px;
+}
+
+/* added by bvh */
+.managerTop .logonContainer {
+	width: 289px;
+	height: 61px;
+	background-color: #F5F5F5;
+	border: 0px none #000000;
+	position: relative;
+}
+.managerTop .managerBottom .logonContainer {
+	width: 289px;
+	height: 61px;
+	background-color: #F5F5F5;
+	border: 0px none #000000;
+	position: relative;
+}
+.managerTop .logonContainer .insetWhite {
+	width: 259px;
+	background-color: #FFFFFF;
+	position: absolute;
+	height: 31px;
+	top: 15px;
+	left: 15px;
+}
+.managerBottom .logonContainer .insetWhite {
+	width: 259px;
+	background-color: #FFFFFF;
+	position: absolute;
+	height: 31px;
+	top: 15px;
+	left: 15px;
+}
+.insetWhite form input {
+	float: left;
+	border-width: 0px;
+	border-style: none;
+	margin-bottom: 0px;
+}
+.logonContainer .insetWhite form {
+}
+.insetWhite form #searchBtn {
+}
+.insetWhite form #loginBtn {
+	float: right;
+}
+#search form .inputContainer input {
+	vertical-align: top;
+}
+.logonContainer .insetWhite #pw {
+	position: absolute;
+	top: 3px;
+	left: 4px;
+	width: 170px;
+}
+.logonContainer .insetWhite #loginBtn {
+	position: absolute;
+	left: 179px;
+	top: 3px;
+}
+
+.logonContainer .insetWhite #epg_password {
+	position: absolute;
+	top: 3px;
+	left: 4px;
+	width: 170px;
+}
+.logonContainer .insetWhite #loadManagedContent {
+	position: absolute;
+	left: 179px;
+	top: 3px;
+}
+
+/******  MANAGER PAGE   *******/
+.uploadBar .text {
+	font-family:open_sansregular;
+	position:absolute;
+    top:0;
+    left:0px;
+	margin-right: 6px;
+    width:275px;
+}
+#progressbar {
+    width:210px;
+    height:15px;
+	margin-right: 10px;
+    margin-left:10px;
+    margin-top:4px;
+    background:#ccc;
+    position:absolute;
+    left:370px;
+}
+#progressBar img{
+    padding-right:50px;
+}
+.uploadBar {
+    position:relative;
+    margin-top:15px;
+}
+.uploadBar .percentCompleteTxt {
+	font-family:open_sansregular;
+	float: left;
+    position:absolute;
+    left:605px;
+}
+
+/*  browse file button */
+div.custom_file_upload {
+	font-family:open_sansregular;
+	width: 830px;
+	height: 20px;
+}
+
+input.file {
+	font-family:open_sansregular;
+	width: 165px;
+	height: 20px;
+	border: 1px solid #BBB;
+	border-right: 0;
+	color: #888;
+	padding: 5px;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	
+	outline: none;
+}
+
+div.file_upload {
+	font-family:open_sansregular;
+	width: 90px;
+	height: 18px;
+	background-color: #f68124;
+	position: absolute;
+    left: 277px;
+	cursor: pointer;
+	color: #FFF;
+	text-align: center;
+	padding-top: 8px;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+div.file_upload:before {
+	font-family:open_sansregular;
+	content: 'BROWSE';
+	position: absolute;
+    left: 18px;
+    font-size: 12.5px;
+    line-height: 10px;
+	cursor: pointer;
+}
+
+div.file_upload input {
+	height: 30px;
+	width: 60px;
+	display: inline;
+	cursor: pointer;
+	opacity: 0;
+	font-family:open_sansregular;
+}
+
+.folderBar {
+    position:relative;
+    margin-bottom:3px;
+}
+
+.folderBar select {
+    position:absolute;
+    left:230px;
+    top:0;
+}
+
+/* icon div for error/missing videos */
+.erroricon {
+    position:relative;
+    /*margin-top:-70px;
+    margin-left:95px;
+    margin-bottom:48px; */
+    margin-top:-75px;
+    margin-left:95px;
+    margin-bottom:43px;
+    width:35px;
+    height:32px;
+    background-image: url(images/error_button.png);
+}
+
+/* icon div for deleting videos */
+.deleteicon {
+    position:absolute;
+    top:10px;
+    left:180px;
+    width:21px;
+    height:21px;
+    z-index:10;
+	background-image: url(images/delete_icon.png);
+    background-repeat:no-repeat;
+
+}
+
+/* every page search in banner */
+form #search #searchBtn {
+	position: absolute;
+	top: 2px;
+	left: 268px;
+}
+form #search #searchTxt {
+	width: 260px; 
+	/* width: 248px; // for iPad
+	height: 15px; */
+	position: absolute;
+	border: 0;
+	top: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+.PlayerImages { position: relative; overflow: auto; }
+.PlayerImages li { list-style: none; }
+.PlayerImages ul li { float: left; }
+
+#VideoPlayerWrapper {
+   width: 640px;
+   height: 410px;
+}
+
+
+#MainVideoTitle {
+	font-family: open_sans_condensedbold;
+	font-size: 33px;
+	line-height: 34px; 
+	max-width:640px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#MainPlayerWrapper {
+    color: #656565;	    color: #656565;	
+}
+
+#MainVideoDescription  {
+    max-width:640px;
+	margin-bottom:6px;
+}
+
+#RelatedVideosCOL {
+    float: right;
+    max-width: 300px;
+}
+
+#RateThisVideo {
+    font-family: open_sansbold;
+    font-size: 10.5px;
+	display: block;
+}
+
+#RatingSubmitted {
+    font-family: open_sansbold;
+    font-size: 10.5px;
+	overflow: hidden;
+	display: none;
+}
+
+.RatingText {
+    font-family: open_sansbold;
+    font-size: 10.5px;
+	overflow: hidden;
+}
+
+#RateVideoNow {
+    font-family: open_sansbold;
+    font-size: 10.5px;
+	display: none;
+}
+
+#RelatedVideosHeader {
+    position:relative;
+	//background-image: url(../img/relatedvideos.gif);
+	//background-image: url(../img/RelatedVideos.gif);
+    background-repeat:no-repeat;
+    width:200px;
+	height: 30px;
+    margin-bottom:6px;
+}
+
+#RelatedVideosWrapper {
+}
+
+.RelatedVideoPackage {
+    width: 300px;
+}
+
+.RelatedVideoThumbnail {
+    float:left;
+    margin-top:6px;
+    margin-right:6px;
+    margin-bottom:3px;
+}
+
+.RelatedVideoTitle {
+    font-family: open_sansbold;
+    font-size: 12.5px;
+    white-space: nowrap;
+    overflow:hidden;
+    margin-top:6px;
+}
+.RelatedVideoDescription {
+    font-family: open_sansregular;
+    font-size: 12.5px;
+    max-height:56px;
+    overflow:hidden;
+}
+
+.pager {
+    font-family: open_sansregular;
+    font-size: 12.5px;
+}
+
+
+
+
+
+ #Demo { 
+    position: relative;
+    height: 100%; /* Or whatever you want (eg. 400px) */
+    overflow: hidden;
+  }

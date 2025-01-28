@@ -1,0 +1,53 @@
+@import '_variables';
+
+.live-container {
+  height: 100vh;
+  background-color: #000;
+}
+
+bbt-program-browser {
+  margin-bottom: 50px;
+}
+
+.preview-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 36px;
+}
+
+.jumbotron-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .fit-plyr {
+    width: 100%;
+  }
+}
+
+.jumbotron-preview video,
+.jumbotron-preview bbt-idle-player,
+.jumbotron-preview bbt-plyr,
+.jumbotron-preview bbt-hls-plyr {
+  width: 100%;
+  flex-shrink: 1;
+}
+
+.jumbotron-description {
+  padding: 50px;
+  font-family: $bold-font;
+  font-size: 22px;
+  bbt-live-description {
+    width: 100%;
+  }
+}
+
+.contentContainer.fullscreen {
+  height: 100vh;
+  background-color: black;
+  .jumbotron-preview {
+    width: 100%;
+  }
+}

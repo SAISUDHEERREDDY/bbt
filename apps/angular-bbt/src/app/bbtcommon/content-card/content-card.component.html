@@ -1,0 +1,12 @@
+<shared-content-info-card
+  *ngIf="locale$ | async as locale"
+  [name]="
+    (content?.titles | translateToLocale: locale:content?.title) ||
+    (content?.names | translateToLocale: locale:content?.name)
+  "
+  [thumbSrc]="content.customIcon"
+  [type]="content.type"
+  [passkey]="content.passKey"
+  [info]="info"
+  [hasSubs]="content | hasTracks"
+></shared-content-info-card>

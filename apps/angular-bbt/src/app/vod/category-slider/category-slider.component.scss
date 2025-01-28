@@ -1,0 +1,87 @@
+@import '_variables';
+
+.horizontal-slider {
+  $left-pad: 20px;
+
+  .horizontal-slider-header {
+    padding-left: $left-pad;
+    padding-right: 20px;
+    margin-bottom: 9px;
+  }
+
+  &:hover > .horizontal-slider-container > .pager-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .horizontal-slider-container {
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    font-size: 0;
+    .pager-container {
+      display: none;
+      pointer-events: none;
+    }
+
+    .pager-container {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+
+      > button {
+        pointer-events: auto;
+        margin-right: 20px;
+        margin-left: 20px;
+        color: black;
+        height: 100%;
+        z-index: 1;
+        // height: 70px;
+        // width: 70px;
+        background-color: rgba($color: #f9f9f9, $alpha: 0.8);
+        mat-icon {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+}
+
+.vod-card-link {
+  display: inline-block;
+  text-decoration-line: none;
+  &.active {
+    position: sticky;
+  }
+}
+
+.vod-card-link.defering-navigable-active,
+.vod-card-link.active,
+// ,
+.thumbContainer:focus {
+  text-decoration: none;
+  border-color: $primary-color;
+  outline: none;
+  transition-property: box-shadow;
+  transition-duration: 125ms;
+  transition-timing-function: ease-in-out;
+}
+::ng-deep .focused_row .vod-card-link.vod-card-link-focused , .vod-card-link:focus{
+  text-decoration: none !important;
+  outline: none !important;
+  transition-property: box-shadow !important;
+  transition-duration: 125ms !important;
+  transition-timing-function: ease-in-out !important;
+  border: 12px solid $primary-color !important;
+}
+.breadcrumbs.listing-breadcrumbs {
+  margin: 0;
+  padding: 0;
+}
+
+ul.breadcrumbs {
+  font-size: 36px;
+}

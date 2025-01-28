@@ -1,0 +1,83 @@
+<div class="rounded-dropdown-picker" [ngClass]="{ 'dropdown-is-open': isOpen }">
+  <div
+    class="button button-bordered button-clear"
+    (click)="toggleOpen()"
+    #parent
+  >
+    <span class="dropdown-state">
+      <ng-content select=".dropdown-label"></ng-content>
+
+      <span
+        class="dropdown-selected"
+        *ngIf="langSet && _options?.length && selected; else noneSelected"
+      >
+        {{
+          labelProperty && selected
+            ? (selected[labelProperty] | uppercase | jqueryi18n)
+            : selected
+        }}
+      </span>
+      <ng-template #noneSelected>
+        <span class="dropdown-selected" bbti18n="NONE"></span>
+      </ng-template>
+
+      <i class="open-indicator fas fa-angle-left"></i>
+    </span>
+  </div>
+
+  <div class="dropdown-content" [style.width]="parent?.clientWidth + 'px'">
+    <ng-container *ngIf="isOpen">
+      <ng-container *ngIf="_options?.length > 0; else noOptions">
+        <bbt-navigable-container
+          horizontalStrategy="none"
+          verticalStrategy="self"
+          #optionsTrap="navigableGroup"
+        >
+          <div
+            *ngIf="includeNone"
+            class="dropdown-option"
+            (click)="selectOption(null, $event)"
+            (keydown.enter)="selectOption(null, $event)"
+            (keydown.escape)="bailOut($event)"
+            bbtDeferringNavigable
+            [parent]="optionsTrap"
+            tabindex="0"
+            (whenInit)="focusOptionsTrap($event)"
+          >
+            <span bbti18n="NONE">None</span>
+
+            <i *ngIf="!selected" class="fas fa-check"></i>
+          </div>
+
+          <div
+            *ngFor="let option of _options; first as isFirst"
+            class="dropdown-option"
+            (click)="selectOption(option, $event)"
+            (keydown.enter)="selectOption(option, $event)"
+            (keydown.escape)="bailOut($event)"
+            bbtDeferringNavigable
+            [parent]="optionsTrap"
+            (whenInit)="
+              !includeNone && isFirst ? focusOptionsTrap($event) : null
+            "
+            tabindex="0"
+          >
+            <span>
+              {{
+                labelProperty && option
+                  ? (option[labelProperty] | uppercase | jqueryi18n)
+                  : (option | uppercase | jqueryi18n)
+              }}
+            </span>
+
+            <i *ngIf="option === selected" class="fas fa-check"></i>
+          </div>
+        </bbt-navigable-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noOptions>
+  <div class="dropdown-option" (click)="bailOut()" bbti18n="NONE"></div>
+</ng-template>

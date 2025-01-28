@@ -1,0 +1,44 @@
+@import '_variables';
+
+.presentation-card {
+  display: flex;
+  width: 11.2vw;
+  height: 11.2vh;
+  position: relative;
+}
+
+.presentation-card span {
+  display: flex;
+  position: absolute;
+  height: 1.8vmin;
+  width: 1.8vmin;
+  bottom: 6%;
+  left: 5%;
+  color: $secondary-font-color;
+  background: $presentation-playing;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.presentation-card i {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vmin;
+}
+
+.presentation-card div {
+  position: absolute;
+  height: 2.2vh;
+  width: 2.2vh;
+  bottom: 1%;
+  left: 1%;
+  background-color: $presentation-playing;
+  color: $secondary-font-color;
+}
+
+.presentation-card img {
+  max-width: 100%;
+  min-height: 100%;
+}

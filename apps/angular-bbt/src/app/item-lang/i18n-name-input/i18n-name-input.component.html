@@ -1,0 +1,66 @@
+<div
+  class="name-container"
+  *ngFor="let title of titlesArray; let fileIndex = index"
+>
+  <mat-form-field class="name-language-form" appearance="outline">
+    <!-- Name Input Field -->
+    <mat-label>{{ 'NAME' | jqueryi18n }}</mat-label>
+    <input
+      matInput
+      required
+      class="input-name"
+      type="text"
+      [(ngModel)]="title.value"
+      #name="ngModel"
+      (change)="addName($event, fileIndex)"
+    />
+    <mat-hint>{{ 'REQUIRED' | jqueryi18n }}</mat-hint>
+
+    <!-- Language Select -->
+    <mat-select
+      #t
+      required
+      apperance="none"
+      class="language-select"
+      placeholder="{{ 'LANGUAGE' | jqueryi18n }}"
+      (selectionChange)="selectLanguage(t.value, fileIndex)"
+      [(ngModel)]="title.code"
+    >
+      <mat-option
+        *ngFor="let lang of supportedLanguages"
+        value="{{ lang.code }}"
+      >
+        {{ lang.description | uppercase | jqueryi18n }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="add-delete-button">
+    <!-- Add Language Button -->
+    <button
+      mat-stroked-button
+      class="add-lang-button"
+      type="button"
+      color="accent"
+      (click)="addLanguage()"
+      *ngIf="fileIndex === 0"
+    >
+      <span class="add-lang">
+        <mat-icon class="icon-display" svgIcon="add-lang"></mat-icon>
+        <br />
+        {{ 'LANGUAGE' | jqueryi18n }}
+      </span>
+    </button>
+
+    <!-- Delete Language button -->
+    <button
+      mat-stroked-button
+      type="button"
+      class="delete-lang-button"
+      (click)="removeNameInput(fileIndex)"
+      *ngIf="fileIndex !== 0"
+    >
+      <mat-icon color="warn">delete_forever</mat-icon>
+    </button>
+  </div>
+</div>

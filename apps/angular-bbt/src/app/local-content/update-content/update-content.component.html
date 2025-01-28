@@ -1,0 +1,113 @@
+<div>
+  <mat-toolbar>
+    <a mat-dialog-close class="top-back fas fa-arrow-left"> </a>
+
+    <span class="flex-spacer"></span>
+    <span>
+      {{ 'EDITLOCALCONTENT' | jqueryi18n }}
+    </span>
+    <span class="flex-spacer"></span
+  ></mat-toolbar>
+
+  <mat-dialog-content class="dialog-update-content">
+    <div class="modal-content-container">
+      <div class="left-column flex-column">
+        <div class="display-image">
+          <div class="mat-subheading-2" color="accent">
+            {{ 'DISPLAY_IMAGE' | jqueryi18n }}
+          </div>
+          <div>
+            <input
+              (change)="preview($any($event.target).files)"
+              id="upload-content"
+              #mediaUpload
+              type="file"
+              hidden="true"
+              accept="image/x-png,image/gif,image/jpeg"
+            />
+            <img class="responsive-image" [src]="imgURL" />
+
+            <div class="edit-thumb-icon" (click)="mediaUpload.click()">
+              <i class="fa fas fa-edit"></i>
+            </div>
+            <div
+              *ngIf="data.content.pendingThumb"
+              class="cancel-icon"
+              (click)="cancelThumb()"
+            >
+              <i class="fa fas fa-times"></i>
+            </div>
+          </div>
+        </div>
+        <div class="general-info">
+          <div class="mat-subheading-2" color="accent">
+            {{ 'GENERAL_INFO' | jqueryi18n }}
+          </div>
+          <mat-list class="mat-list-gray">
+            <mat-list-item>
+              <mat-icon mat-list-icon>theaters</mat-icon>
+              <div mat-line>
+                {{ data.content.duration | secondsByMagnitude }}
+              </div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>description</mat-icon>
+              <div mat-line>
+                {{ data.content.size | prettyBytes }}
+              </div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>publish</mat-icon>
+              <div mat-line>
+                {{
+                  data.content.uploadtime
+                    | date: 'medium':undefined:i18nService.currentLang
+                }}
+              </div>
+            </mat-list-item>
+
+            <mat-list-item>
+              <mat-icon mat-list-icon>language</mat-icon>
+              <div
+                mat-line
+                *ngFor="let track of $any($any(data.content)?.tracks)"
+              >
+                <span *ngIf="track.kind === 'audio'">
+                  {{ track.label | uppercase | jqueryi18n }}
+                </span>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+
+      <div class="right-column flex-column">
+        <app-i18n-name-input
+          [(titles)]="data.content.titles"
+        ></app-i18n-name-input>
+        <app-i18n-description-input
+          [(descriptions)]="data.content.descriptions"
+        >
+        </app-i18n-description-input>
+
+        <div class="confirm-modal-button-container">
+          <button
+            [mat-dialog-close]="data.content"
+            class="button btn-secondary"
+            data-i18n="SAVE"
+          >
+            {{ 'SAVE' | jqueryi18n }}
+          </button>
+          <button
+            cdkFocusRegionStart
+            class="button btn-secondary"
+            data-i18n="CANCEL"
+            mat-dialog-close
+          >
+            {{ 'CANCEL' | jqueryi18n }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>

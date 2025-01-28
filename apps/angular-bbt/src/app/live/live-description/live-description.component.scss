@@ -1,0 +1,34 @@
+@use 'sass:math';
+@import '_variables';
+
+.split-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.program-title {
+  font-size: math.div(48, 1080) vh;
+  margin: 15px 0;
+}
+
+.program-ratings {
+  margin: 15px 0;
+}
+
+.time-info {
+  font-size: 29px;
+  font-family: $book-font;
+}
+
+.event-ratings {
+  font-family: $bold-font;
+}
+
+.event-description {
+  margin-top: 30px;
+  font-family: $book-font;
+}
+
+.duration-info {
+  font-family: $medium-font;
+}

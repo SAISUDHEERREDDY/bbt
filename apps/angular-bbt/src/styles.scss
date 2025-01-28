@@ -1,0 +1,298 @@
+@import '_variables';
+@import 'node_modules/plyr/src/sass/plyr.scss';
+
+.active-border-mixin {
+  border: 10px solid $primary-color;
+  outline: none; // Prevent the blue border in chrome.
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  overflow-x: hidden; /* needed to hide right hamburger*/
+  /* overflow-y: hidden; */
+  background-color: $header-background;
+  margin: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  color: $body-hr;
+  border: 0;
+  border-top: 1px solid #4c4c4c;
+  padding: 0;
+}
+
+@import './styles/buttons';
+
+.headerBox {
+  background: $header-background;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  height: 6.4vh;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.align-right {
+  float: right;
+}
+
+.search {
+  position: absolute;
+  right: 110px;
+}
+
+.search-txt {
+  font-family: $book-font;
+  font-size: 30px;
+  color: #646464;
+  padding-right: 30px;
+}
+
+.search-icn {
+  font-size: 26px;
+  padding-right: 16px;
+}
+
+.unit {
+  font-family: $bold-font;
+  font-size: 30px;
+  display: inline-block;
+}
+
+.ampm {
+  font-family: $book-font;
+  font-size: 30px;
+  display: inline-block;
+}
+
+.live #live {
+  background-color: black;
+  color: #ffffff;
+}
+
+.vod #vod {
+  background-color: black;
+  color: #ffffff;
+}
+
+.search #search {
+  background-color: black;
+  color: #ffffff;
+}
+
+.lang {
+  display: none;
+}
+
+.language-arrow {
+  font-size: 20px;
+}
+
+#language i {
+  display: none;
+}
+
+.lang-check {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+$body-space: 35px;
+
+.contentContainer {
+  width: 100%;
+  transition: margin-top 0.5s ease-out;
+  /* background-color: gray; */
+}
+
+.contentThumb {
+  display: flex;
+  width: 871px;
+  height: 100%;
+  > *:before {
+    /* padding: 0.1%; */
+    background: linear-gradient(
+      to right,
+      #111,
+      #dd1144 0%,
+      #000000 0%,
+      transparent 25%
+    );
+  }
+  //background: linear-gradient(to right, #000, #000 0%, #eee 0%, #000 25%);
+  //background-color: transparent;
+  float: right;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.content {
+  display: inline-block;
+  width: 340px;
+  height: 270px;
+  background-color: orange;
+  border: solid;
+}
+
+@import './styles/content-cards';
+
+.passkey {
+  display: none;
+}
+
+.xbody {
+  margin: 0;
+  padding: 0;
+}
+
+.headerContainer {
+  height: 5px;
+  width: 100%;
+}
+
+.fullscreen {
+  .headerContainer {
+    height: 0;
+  }
+}
+
+.headerExpanded {
+  height: $header-height;
+  width: 100%;
+}
+
+.plyr__captions {
+  color: red;
+  font-size: 3vmin !important;
+}
+
+/* 720p tv resolution is 1024x720 */
+@media only screen and (min-width: 1024px) {
+  /* This line displays the keyboard for tv */
+  .keyboard-container .keyboard {
+    display: flex;
+  }
+
+  .search-input-container {
+    max-width: 740px;
+  }
+
+  .search-results-container {
+    padding-left: unset;
+    display: flex;
+  }
+
+  .button-back {
+    display: flex;
+  }
+}
+
+/* 1080p tv resolution is 1920x1080 */
+@media only screen and (min-width: 1920px) {
+  .top-header {
+    justify-content: flex-start;
+  }
+
+  .search-input-container {
+    flex: 1;
+    max-width: 900px;
+    margin-top: 20px;
+  }
+
+  .search-results-container {
+    justify-content: flex-start;
+  }
+
+  .button-back {
+    display: flex;
+    flex-basis: 27%;
+  }
+}
+
+.selected {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+@import '../../../node_modules/@angular/cdk/overlay-prebuilt.css';
+
+html,
+body {
+  height: 100%;
+}
+
+@import './styles/jumbotron';
+@import './styles/top-back';
+@import './styles/full-capture';
+@import './styles/breadcrumbs';
+
+.mat-drawer.mat-sidenav {
+  min-width: 333px;
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+.mat-snack-bar-container.snack-error {
+  background-color: #ffffff;
+  color: $confirm-font;
+  border: 4px solid $confirm-font;
+
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  height: 80px;
+  width: 700px;
+
+  > .mat-simple-snackbar {
+    font-family: $bold-font;
+    font-size: 32px;
+  }
+}
+
+.fit-plyr {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  bbt-hls-plyr {
+    width: 100%;
+  }
+
+  video,
+  .plyr {
+    max-height: 100vh;
+  }
+}
+
+/*
+JG created this to make a full screen dialog for editing local content.
+Can be used any time a full screen dialog is needed
+*/
+.fullscreen-dialog {
+  max-width: 100% !important;
+}
+
+/*
+without this update-content save/cancel buttons are clipped
+and need scrolling to see with 3 languages using title and description
+elements.
+*/
+.fullscreen-dialog .mat-dialog-content {
+  max-height: 85vh;
+}
+
+.fullscreen-dialog .mat-dialog-container {
+  padding: 0;
+}
+
+.hughes-horizontal-header {
+  & > .horizontal-header-label {
+    border-bottom-color: $primary-color;
+  }
+}

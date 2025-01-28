@@ -1,0 +1,7 @@
+Package: bbt
+Version: PROD_VERSION-INCREMENT
+Architecture: all
+Section: non-free
+Maintainer: Hughes, an Echostar Company <hsgsupport@hughes.com>
+Depends: apache2
+Description: Hughes HS device Browser-Based Training

@@ -1,0 +1,82 @@
+@import '_variables';
+
+.keypad {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  > .keypad-key {
+    width: 33.3333%;
+    height: 25%;
+    text-align: center;
+
+    > span {
+      display: inline-block;
+      font-family: $book-font;
+      color: $primary-font-color;
+      text-decoration: none;
+      outline: none;
+      user-select: none;
+    }
+
+    > span:focus,
+    > span:active {
+      background: $primary-color;
+      color: $secondary-font-color;
+    }
+  }
+
+  > .keypad-key.keypad-number {
+    > span {
+      display: inline-block;
+      font-family: $book-font;
+      font-size: 54px;
+      height: 84px;
+      width: 84px;
+      line-height: 84px;
+      color: $primary-font-color;
+      text-decoration: none;
+      outline: none;
+      user-select: none;
+    }
+
+    > span:focus,
+    > span:active {
+      background: $primary-color;
+      color: $secondary-font-color;
+      border-radius: 50%;
+    }
+  }
+
+  // .keypad-backspace {
+  //   text-align: center;
+  // }
+
+  .keypad-key-button {
+    background: #d8d8d8;
+    border-radius: 3px;
+    border-color: transparent;
+    font-family: $book-font;
+    font-size: 20px;
+
+    color: $primary-font-color;
+    text-align: center;
+    min-width: 81px;
+    min-height: 41px;
+    line-height: 41px;
+    > span {
+      font-size: 20px;
+    }
+  }
+
+  .keypad-key-button:focus,
+  .keypad-key-button:active {
+    background: $primary-color;
+    color: $secondary-font-color;
+    outline: none;
+  }
+
+  .decimal {
+    font-size: 7px;
+    padding-top: 15px;
+  }
+}

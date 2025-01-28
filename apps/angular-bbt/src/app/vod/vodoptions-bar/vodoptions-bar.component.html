@@ -1,0 +1,48 @@
+<bbt-navigable-container
+  horizontalStrategy="self"
+  [parentOverride]="parent"
+  #navTop="navigableGroup"
+  [priority]="200"
+>
+  <div class="content-options-top-menu">
+    <a
+      #backButton
+      bbtDeferringNavigable
+      [parent]="navTop"
+      class="button button-clear button-bordered back-button"
+      [routerLink]="backRoute || []"
+      [fragment]="fragment"
+      bbti18n="BACK"
+      (click)="back.emit()"
+      
+    >
+    </a>
+
+    <span class="i18n-options">
+      <bbt-rounded-dropdown-picker
+        bbtDeferringNavigable
+        [parent]="navTop"
+        activeClass="navigable-active"
+        tabindex="0"
+        [options]="audioOptions"
+        [formControl]="audioControl"
+        [labelProperty]="audioLabelAttribute"
+      >
+        <span class="dropdown-label" bbti18n="AUDIO"></span>
+      </bbt-rounded-dropdown-picker>
+
+      <bbt-rounded-dropdown-picker
+        bbtDeferringNavigable
+        [parent]="navTop"
+        activeClass="navigable-active"
+        tabindex="0"
+        [options]="captionOptions"
+        labelProperty="label"
+        [formControl]="captionsControl"
+        [includeNone]="true"
+      >
+        <span class="dropdown-label" bbti18n="CAPTION"></span>
+      </bbt-rounded-dropdown-picker>
+    </span>
+  </div>
+</bbt-navigable-container>

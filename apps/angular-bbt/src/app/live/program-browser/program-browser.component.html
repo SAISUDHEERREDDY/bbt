@@ -1,0 +1,38 @@
+<div
+  class="schedule program-browser"
+  [ngClass]="{ active: isActive }"
+  *ngIf="fullCalendarOptions$ | async as options; else noSchedule"
+>
+  <ng-container *ngIf="options">
+    <full-calendar [options]="options"></full-calendar>
+  </ng-container>
+</div>
+
+<ng-template #noSchedule>
+  <div class="loading-container">
+    <div
+      class="channel-loading-error"
+      *ngIf="isChannelError$ | async; else loading"
+    >
+      <div>
+        <h2>{{ 'TEXT_ERROR' | jqueryi18n }}</h2>
+        <h3>
+          {{ 'TEXT_ERROR_WHILE_LOADING' | jqueryi18n }}
+        </h3>
+      </div>
+      <button
+        bbtDeferringNavigable
+        [stealFocusOnInit]="true"
+        (click)="forceReload()"
+        (mousedown)="forceReload()"
+        class="button button-clear button-bordered back-button"
+      >
+        {{ 'TEXT_RETRY' | jqueryi18n }}
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

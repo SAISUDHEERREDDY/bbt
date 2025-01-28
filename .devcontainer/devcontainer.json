@@ -1,0 +1,59 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.155.1/containers/typescript-node
+{
+  "name": "hsma-node",
+
+  // Dockerfile version
+  "build": {
+    "dockerfile": "Dockerfile",
+    // Update 'VARIANT' to pick a Node version: 16, 14, 12.
+    // Append -bullseye or -buster to pin to an OS version.
+    // Use -bullseye variants on local on arm64/Apple Silicon.
+    "args": {
+      "VARIANT": "14"
+    }
+  },
+
+  "workspaceFolder": "/workspace",
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "zsh"
+      }
+    }
+  },
+
+  // Pass the local NPM token to the container (make sure this is set locally)
+  "remoteEnv": {
+    "NPM_TOKEN": "${localEnv:NPM_TOKEN}"
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "eg2.vscode-npm-script",
+    "editorconfig.editorconfig",
+    "nrwl.angular-console",
+    "angular.ng-template",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "esbenp.prettier-vscode",
+    "msjsdiag.debugger-for-chrome",
+    "johnpapa.angular-essentials",
+    "eamodio.gitlens",
+    "mhutchie.git-graph"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [4200],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "sudo chown -R node:node /workspaces",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node"
+
+  // "features": {
+  // 	"git": "latest"
+  // }
+}

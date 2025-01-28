@@ -1,0 +1,122 @@
+@import '_variables';
+
+.btn-primary {
+  text-align: center;
+  align-items: flex-start;
+  font-family: $medium-font;
+  font-size: 2.9vmin;
+  color: $btn-primary-font;
+  border-radius: 3px;
+  background-color: $btn-primary-background;
+}
+
+.btn-secondary {
+  text-align: center;
+  align-items: flex-start;
+  font-family: $medium-font;
+  font-size: 2.9vmin;
+  border-radius: 3px;
+  color: $btn-secondary-font;
+  background-color: $btn-secondary-background;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: $primary-color;
+  color: $btn-primary-font;
+  outline: none;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  background-color: red;
+  color: $btn-active;
+  outline: none;
+}
+
+.btn-primary:focus,
+.btn-secondary:focus {
+  background-color: $primary-color;
+  color: $secondary-font-color;
+  outline: none;
+}
+.btn {
+  display: inline-block;
+  /*border: .125em solid #000;*/
+  color: $btn-secondary-font;
+  font-family: $book-font;
+  font-size: 36px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:focus {
+  border: 10px solid $primary-color;
+  padding: 3px 27px;
+  outline: none;
+}
+
+.btn:hover {
+  border: 10px solid $primary-color;
+  padding: 3px 27px;
+  outline: none;
+}
+
+// Buttons are distinct from btn class in that they are more transparent
+.button {
+  //box-sizing: border-box;
+  display: inline-block;
+  padding: 12px 20px;
+  text-align: center;
+  user-select: none;
+  outline: none;
+
+  font-family: $medium-font;
+  line-height: 28px;
+  font-size: 28px;
+  min-width: 140px;
+
+  &.button-bordered {
+    border: 2px solid #000;
+    border-radius: 8px;
+
+    &:disabled {
+      border-color: grey;
+    }
+  }
+
+  &.button-clear {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    &.button-bordered {
+      border: 2px solid #fff;
+
+      &:disabled {
+        border-color: grey;
+      }
+    }
+  }
+}
+
+a.button {
+  text-decoration: none;
+}
+
+.button.button-clear:focus,
+.button:focus,
+.full-capture .navigable-active:focus .button.button-clear.button-bordered,
+.navigable-active .button:focus,
+.navigable-active .button.button-bordered:focus,
+.navigable-active .button.button-clear.button-bordered:focus,
+.navigable-active .btn:focus {
+  transition: color 300ms, background-color 300ms;
+  border-color: $primary-color;
+  background-color: $primary-color;
+  color: $secondary-font-color;
+  outline: none;
+}
+
+.navigable-active {
+  outline: none;
+}

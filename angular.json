@@ -1,0 +1,452 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "angular-bbt": {
+      "root": "apps/angular-bbt/",
+      "sourceRoot": "apps/angular-bbt/src",
+      "projectType": "application",
+      "prefix": "bbt",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-bbt",
+            "index": "apps/angular-bbt/src/index.html",
+            "main": "apps/angular-bbt/src/main.ts",
+            "polyfills": "apps/angular-bbt/src/polyfills.ts",
+            "tsConfig": "apps/angular-bbt/tsconfig.app.json",
+            "assets": [
+              "apps/angular-bbt/src/favicon.ico",
+              "apps/angular-bbt/src/assets",
+              {
+                "glob": "VodSettings.ini",
+                "input": "./",
+                "output": "/assets/"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/angular-bbt/src/global-scss/configurations/default",
+                "apps/angular-bbt/src/global-scss/common"
+              ]
+            },
+            "styles": [
+              "node_modules/@angular/cdk/overlay-prebuilt.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "apps/angular-bbt/src/assets/fonts/Gotham/Gotham.css",
+              "apps/angular-bbt/src/material.scss",
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/@fullcalendar/timeline/main.css",
+              "node_modules/@fullcalendar/resource-timeline/main.css",
+              "apps/angular-bbt/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery.cookie/jquery.cookie.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.messagestore.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.fallbacks.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.language.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.parser.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.emitter.js",
+              "node_modules/@wikimedia/jquery.i18n/src/jquery.i18n.emitter.bidi.js"
+            ]
+          },
+          "configurations": {
+            "dev": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-bbt/src/environments/environment.ts",
+                  "with": "apps/angular-bbt/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "hughes": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-bbt/src/environments/environment.ts",
+                  "with": "apps/angular-bbt/src/environments/environment.prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "apps/angular-bbt/src/global-scss/common",
+                  "apps/angular-bbt/src/global-scss/configurations/hughes"
+                ]
+              },
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "assets": [
+                "apps/angular-bbt/src/favicon.ico",
+                "apps/angular-bbt/src/assets",
+                {
+                  "glob": "*.png",
+                  "input": "apps/angular-bbt/src/client-assets/hughes/",
+                  "output": "/assets/"
+                },
+                {
+                  "glob": "VodSettings.ini",
+                  "input": "./",
+                  "output": "/assets/"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "orange": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-bbt/src/environments/environment.ts",
+                  "with": "apps/angular-bbt/src/environments/environment.prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "apps/angular-bbt/src/global-scss/common",
+                  "apps/angular-bbt/src/global-scss/configurations/orange"
+                ]
+              },
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "assets": [
+                "apps/angular-bbt/src/favicon.ico",
+                "apps/angular-bbt/src/assets",
+                {
+                  "glob": "*.png",
+                  "input": "apps/angular-bbt/src/client-assets/orange/",
+                  "output": "/assets/"
+                },
+                {
+                  "glob": "VodSettings.ini",
+                  "input": "./",
+                  "output": "/assets/"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            }
+          },
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "dev"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-bbt:build",
+            "proxyConfig": "proxies/proxy-base.js",
+            "host": "0.0.0.0",
+            "disableHostCheck": true,
+            "allowedHosts": ["10.1.1.11", "10.1.1.51", "10.1.1.52"]
+          },
+          "configurations": {
+            "dev": {
+              "browserTarget": "angular-bbt:build:dev"
+            },
+            "production": {
+              "browserTarget": "angular-bbt:build:production"
+            },
+            "hughes": {
+              "browserTarget": "angular-bbt:build:hughes",
+              "port": 4201
+            },
+            "orange": {
+              "browserTarget": "angular-bbt:build:orange",
+              "port": 4202
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-bbt:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-bbt/tsconfig.app.json",
+              "apps/angular-bbt/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/angular-bbt/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/angular-bbt/src/test.ts",
+            "tsConfig": "apps/angular-bbt/tsconfig.spec.json",
+            "karmaConfig": "apps/angular-bbt/karma.conf.js",
+            "polyfills": "apps/angular-bbt/src/polyfills.ts",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/cdk/overlay-prebuilt.css"
+            ],
+            "scripts": ["node_modules/jquery/dist/jquery.slim.js"],
+            "assets": []
+          },
+          "outputs": ["coverage/apps/angular-bbt/"]
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "apps/angular-bbt//.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/angular-bbt",
+            "config": {
+              "configFolder": "apps/angular-bbt//.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "angular-bbt-e2e": {
+      "root": "apps/angular-bbt-e2e",
+      "sourceRoot": "apps/angular-bbt-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-bbt-e2e/cypress.json",
+            "tsConfig": "apps/angular-bbt-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-bbt:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-bbt:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/angular-bbt-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "device-detector": {
+      "projectType": "library",
+      "root": "libs/device-detector",
+      "sourceRoot": "libs/device-detector/src",
+      "prefix": "bbt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/device-detector/tsconfig.lib.json",
+              "libs/device-detector/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/device-detector/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/device-detector/src/test.ts",
+            "tsConfig": "libs/device-detector/tsconfig.spec.json",
+            "karmaConfig": "libs/device-detector/karma.conf.js"
+          },
+          "outputs": ["coverage/libs/device-detector"]
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "less"
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "bbt",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/src/**/*.ts",
+              "libs/shared/src/**/*.html"
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/shared/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/shared",
+            "config": {
+              "configFolder": "libs/shared/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "shared-e2e": {
+      "root": "apps/shared-e2e",
+      "sourceRoot": "apps/shared-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/shared-e2e/cypress.json",
+            "tsConfig": "apps/shared-e2e/tsconfig.e2e.json",
+            "devServerTarget": "shared:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "shared:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/shared-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {}
+  },
+  "defaultProject": "angular-bbt"
+}

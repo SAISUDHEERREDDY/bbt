@@ -1,0 +1,176 @@
+<div class="presentation-video-overlay">
+  <bbt-navigable-container
+    #trap="navigableGroup"
+    horizontalStrategy="none"
+    verticalStrategy="self"
+    overflowStrategy="none"
+    underflowStrategy="none"
+  >
+    <div
+      *ngIf="content$ | async as content"
+      class="full-capture full-capture-safe-body"
+    >
+      <bbt-vodoptions-bar
+        [parent]="trap"
+        (back)="back.emit()"
+        [audioOptions]="audioTracks$ | async"
+        [audioControl]="audioControl"
+        audioLabelAttribute="name"
+        [captionOptions]="captions$ | async"
+        [captionsControl]="captionControl"
+      >
+      </bbt-vodoptions-bar>
+
+      <div class="full-capture-content">
+        <bbt-content-description
+          [content]="content"
+          [audioTracks]="audioTrackLabels$ | async"
+          [captions]="captionsLabels$ | async"
+        >
+        </bbt-content-description>
+      </div>
+
+      <bbt-navigable-container
+        [parentOverride]="trap"
+        #mediaControls="navigableGroup"
+        [priority]="300"
+      >
+        <div class="media-controls">
+          <!-- <button
+            #previousSlideButton
+            *ngIf="content.type === 'Presentation'"
+            [parent]="mediaControls"
+            class="button button-clear previous-slide-button"
+            tabindex="0"
+            bbtDeferringNavigable
+            [priority]="100"
+            (click)="trigger('previousSlide')"
+            (keydown.enter)="trigger('previousSlide', $any($event))"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button> -->
+
+          <div class="individual-controls">
+            <button
+              #previousTrackButton
+              [parent]="mediaControls"
+              *ngIf="selected.type === 'Video'"
+              class="button button-clear button-bordered media-button"
+              tabindex="0"
+              bbtDeferringNavigable
+              [priority]="200"
+              (click)="trigger('previousTrack')"
+              (keydown.enter)="trigger('previousTrack', $any($event))"
+            >
+              <i class="fas fa-fast-backward"></i>
+            </button>
+
+            <button
+              #rewindButton
+              [parent]="mediaControls"
+              *ngIf="selected.type === 'Video'"
+              class="button button-clear button-bordered media-button"
+              tabindex="0"
+              bbtDeferringNavigable
+              [priority]="300"
+              (click)="trigger('rewind')"
+              (keydown.enter)="trigger('rewind', $any($event))"
+            >
+              <i class="fas fa-backward"></i>
+            </button>
+
+            <button
+              #playButton
+              [parent]="mediaControls"
+              class="button button-clear button-bordered media-button"
+              tabindex="0"
+              bbtDeferringNavigable
+              [stealFocusOnInit]="true"
+              [priority]="400"
+              (click)="trigger('play')"
+              (keydown.enter)="trigger('play', $any($event))"
+            >
+              <i class="fas fa-play"></i>
+            </button>
+
+            <button
+              #fastForwardButton
+              [parent]="mediaControls"
+              *ngIf="selected.type === 'Video'"
+              class="button button-clear button-bordered media-button"
+              tabindex="0"
+              bbtDeferringNavigable
+              [priority]="500"
+              (click)="trigger('fastForward')"
+              (keydown.enter)="trigger('fastForward', $any($event))"
+            >
+              <i class="fas fa-forward"></i>
+            </button>
+
+            <button
+              #nextTrackButton
+              [parent]="mediaControls"
+              *ngIf="selected.type === 'Video'"
+              class="button button-clear button-bordered media-button"
+              tabindex="0"
+              bbtDeferringNavigable
+              [priority]="600"
+              (click)="trigger('nextTrack')"
+              (keydown.enter)="trigger('nextTrack', $any($event))"
+            >
+              <i class="fas fa-fast-forward"></i>
+            </button>
+          </div>
+
+          <!-- <button
+            #nextSlideButton
+            [parent]="mediaControls"
+            *ngIf="content.type === 'Presentation'"
+            class="button button-clear next-slide-button"
+            tabindex="0"
+            bbtDeferringNavigable
+            [priority]="700"
+            (click)="trigger('nextSlide')"
+            (keydown.enter)="trigger('nextSlide', $any($event))"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button> -->
+        </div>
+      </bbt-navigable-container>
+
+      <div class="gutter gutter-no-right-pad">
+        <ng-template #ratioComplete>
+          <div class="ratio" *ngIf="content.type === 'Presentation'">
+            {{ (selectedIndex || 0) + 1 }} / {{ files?.length }}
+          </div>
+        </ng-template>
+        <ng-template #videoProgress>
+          <bbt-linear-progress [media]="mediaElement">
+            <span class="ratio" *ngIf="content.type === 'Presentation'">
+              {{ (selectedIndex || 0) + 1 }} / {{ files?.length }}
+            </span>
+          </bbt-linear-progress>
+        </ng-template>
+        <div class="presentation-progress with-right-pad">
+          <ng-container
+            [ngTemplateOutlet]="
+              selected?.type === 'Video' ? videoProgress : ratioComplete
+            "
+          >
+          </ng-container>
+        </div>
+
+        <div  
+            tabindex="0"
+            class="thumbs"
+           *ngIf="(content?.type === 'Presentation') && (showThumbs)">
+          <bbt-presentation-thumbs
+            [selectedIndex]="selectedIndex"
+            [files]="files"
+            (jumpToSlide)="jumpToSlide.emit($event)"
+          ></bbt-presentation-thumbs>
+        </div>
+      </div>
+    </div>
+  </bbt-navigable-container>
+</div>
