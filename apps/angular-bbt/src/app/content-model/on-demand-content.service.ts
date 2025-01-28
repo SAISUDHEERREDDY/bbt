@@ -22,7 +22,7 @@ export interface PasskeyContentResponse {
 })
 export class OnDemandContentService {
   jsonFilePath: string = "";
-  playerManifestXmlPath: string = "";
+  //playerManifestXmlPath: string = "";
 
   constructor(private http: HttpClient, private configService: ConfigService) {
 
@@ -32,8 +32,8 @@ export class OnDemandContentService {
       if (!this.configService.loadConfig()) {
         this.configService.loadConfig().then(() => {
           this.jsonFilePath = this.configService.getConfigValue('JsonFilePath') || '';
-          this.playerManifestXmlPath = this.configService.getConfigValue('PlayerManifestXmlPath') || '';
-          console.log('Config Loaded:', this.jsonFilePath, this.playerManifestXmlPath);
+          // this.playerManifestXmlPath = this.configService.getConfigValue('PlayerManifestXmlPath') || '';
+          
           resolve();
         }).catch((error) => {
           console.error('Failed to load configuration:', error);
@@ -41,7 +41,7 @@ export class OnDemandContentService {
         });
       } else {
         this.jsonFilePath = this.configService.getConfigValue('JsonFilePath') || '';
-        this.playerManifestXmlPath = this.configService.getConfigValue('PlayerManifestXmlPath') || '';
+        //this.playerManifestXmlPath = this.configService.getConfigValue('PlayerManifestXmlPath') || '';
         resolve();
       }
     });
@@ -110,128 +110,82 @@ export class OnDemandContentService {
   ): Observable<CategoryCollection> {
     this.initializeConfig();
     let obs: Observable<CategoryCollection>;
-    //console.log("jsonPath", this.jsonFilePath);
+  
     if (!this.jsonFilePath) {
       console.error("JSON file path is not defined.");
       return of(null); // Return an empty observable or handle the error gracefully
     }
-
+  
     if (!id) {
-      // If there is no category the top level is returned and it has a
-      // slightly different shape.
-      //obs = this.http.get<VODMenu>(`video_player/vod`);
+      // Fetch the top-level menu
       obs = this.http.get<VODMenu>(this.jsonFilePath).pipe(
         map((data) => {
           if (!data || !data.categories) {
             throw new Error("Invalid data structure received from API.");
           }
-
+  
           // Find all categories without `menuItems`
           const specialMenuItems = data.categories
             .filter((category) => !category.menuItems)
             .map((category) => ({ ...category }));
-
+  
           // Create the "Special Categories" object
           if (specialMenuItems.length > 0) {
             const specialCategorie: Category = {
-              id: 111, // A unique ID for the special category
-              name: "Special Categories",
+              id: 100, // A unique ID for the special category
+              name: "Video On Demand",
               displayOrder: 0,
-              menuItems: specialMenuItems as unknown as Array<Video | Presentation | Folder>, // Cast to the expected type
+              menuItems: specialMenuItems as unknown as Array<Video | Presentation | Folder>,
             };
             console.log("specialCategorie", specialCategorie);
-
+  
             // Add the special category to the main categories
             data.categories.push(specialCategorie);
-
+  
             // Remove original categories without menuItems
             data.categories = data.categories.filter(
               (category) => category.menuItems && category.menuItems.length > 0
             );
           }
-
+  
           // Sort categories by displayOrder
           data.categories.sort(
             (a, b) => (a.displayOrder ?? 1000) - (b.displayOrder ?? 1000)
           );
-
+  
           console.log("Sorted categories:", data.categories);
-
-          // Return the modified data for further processing
+  
           return data;
-        }),
-        switchMap((data) => {
-          // Fetch the XML file to process customIcon updates
-          return this.http.get(this.playerManifestXmlPath, { responseType: 'text' }).pipe(
-            map((xml) => {
-              console.log("Processing XML...");
-              const parser = new DOMParser();
-              const xmlDoc = parser.parseFromString(xml, 'text/xml');
-              const files = Array.from(xmlDoc.getElementsByTagName('file'));
-
-              console.log("Parsed XML files:", files);
-
-              // Function to update customIcons in categories
-              const updateCustomIcons = (categories) => {
-                categories.forEach((category) => {
-                  const matchingFile = files.find(
-                    (file) => file.getAttribute('destination') === category.customIcon
-                  );
-
-                  if (matchingFile) {
-                    const url = matchingFile.getAttribute('url');
-                    const urlFormate = matchingFile.getAttribute('destination');
-                    if (url && (urlFormate.endsWith('.jpg') || urlFormate.endsWith('.png'))) {
-                      category.customIcon = decodeURIComponent(url); // Update customIcon if it's an image
-                    }
-                  }
-
-                  // Process nested menuItems recursively
-                  if (category.menuItems && category.menuItems.length > 0) {
-                    updateCustomIcons(category.menuItems);
-                  }
-                });
-              };
-
-              // Update categories with customIcons
-              updateCustomIcons(data.categories);
-
-              console.log("Updated categories with customIcons:", data.categories);
-
-              return data;
-            })
-          );
         })
       );
-
-
     } else if (type === 'category' || type === 'folder') {
-      /**
-       * The category case is covered by the API, and so is included here, but
-       * doesn't seem to be used in the application.
-       */
+      // Handle specific category or folder requests
       obs = this.http
         .get<MenuItemCollection>(this.jsonFilePath, {
           params: { type }
         })
         .pipe(
           map(data => {
-            let menuItems
-            let FindManucategory = data.categories.find(category => category.menuItems.find(item => item.id === id));
+            let menuItems;
+            let FindManucategory = data.categories?.find(category => 
+              Array.isArray(category.menuItems) && 
+              category.menuItems.find(item => item.id === id)
+            );
+  
             if (!FindManucategory) {
               FindManucategory = findMenuItemsById(data.categories, id);
               menuItems = Array.isArray(FindManucategory) ? FindManucategory : [FindManucategory];
             } else {
               menuItems = FindManucategory?.menuItems?.filter(item => item.id === id);
             }
+  
             const breadcrumbs = data.breadcrumbs?.length
               ? data.breadcrumbs
               : data.categories.map(item => ({
                 id: item.id,
                 name: item.name,
-                // Optionally map more properties if needed
               }));
-
+  
             return {
               id: data.id,
               requestedType: type === 'folder' ? 'Folder' : 'Category',
@@ -241,27 +195,15 @@ export class OnDemandContentService {
             };
           })
         );
-      console.log("obs", obs)
-      // obs = this.http
-      // .get<MenuItemCollection>(assets/json-test/THD-Demo-2021-11_5.json, {
-      //   params: { type }
-      // })
-      // .pipe(
-      //   map(x => ({
-      //     id: x.id,
-      //     requestedType: type === 'folder' ? 'Folder' : 'Category',
-      //     name: x.name,
-      //     breadcrumbs: x.breadcrumbs,
-      //     categories: [x]
-      //   })) // Wrap in array for compatability
-      // );
+      console.log("obs", obs);
     }
+  
     function findMenuItemsById(array, id) {
       for (const item of array) {
         if (item.id === id) {
           return item;
         }
-
+  
         if (item.menuItems && item.menuItems.length > 0) {
           const found = findMenuItemsById(item.menuItems, id);
           if (found) {
@@ -271,8 +213,8 @@ export class OnDemandContentService {
       }
       return null;
     }
+  
     return obs.pipe(
-      // Fix folder types
       map(collection => ({
         ...collection,
         categories: collection?.categories?.map?.(category => ({
@@ -357,95 +299,51 @@ export class OnDemandContentService {
     // Ensure config is loaded first
     return from(this.initializeConfig()).pipe( // Convert Promise to Observable
       switchMap(() => {
-        if (!this.jsonFilePath || !this.playerManifestXmlPath) {
+        if (!this.jsonFilePath) {
           console.error("Configuration paths are not defined.");
           return of(null);
         }
-         
+  
         // Fetch data from the JSON file
         return this.http
           .get<{ categories: Array<{ menuItems: any[] }> }>(this.jsonFilePath)
           .pipe(
-            switchMap((data) => {
+            map((data) => {
               // Find all categories without `menuItems`
               const specialMenuItems = data.categories.filter(
                 category => !category.menuItems
               ).map(category => ({
                 ...category
               }));
+  
               // Create the "Special Categories" object
               if (specialMenuItems.length > 0) {
                 const specialCategorie: Category = {
-                  id: 111, // A unique ID for the special category
-
+                  id: 100, // A unique ID for the special category
                   name: "Special Categories",
                   displayOrder: 0,
-                  // categories: [], // Ensure valid `categories` property
                   menuItems: specialMenuItems as unknown as Array<Video | Presentation | Folder>, // Cast to the expected type
-                  // breadcrumbs: [], // Ensure valid `breadcrumbs` property
                 };
-                console.log("specialCategorie", specialCategorie)
+                console.log("specialCategorie", specialCategorie);
+  
                 // Add the special category to the main categories
                 data.categories.push(specialCategorie);
-
-
+  
                 // Remove original categories without menuItems
                 data.categories = data.categories.filter(
                   category => category.menuItems && category.menuItems.length > 0
                 );
               }
-
+  
               const item = this.findById(data.categories, id);
               if (!item) {
                 console.warn("Item not found");
-                return of(null);
+                return null;
               }
-
+  
               console.log("Item found:", item);
-
-              // Fetch the playerManifest.xml and map filePath values
-              return this.http
-                .get(this.playerManifestXmlPath, { responseType: 'text' })
-                .pipe(
-                  map((xml) => {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(xml, 'text/xml');
-                    const files = Array.from(xmlDoc.getElementsByTagName('file'));
-                    // Function to recursively update and decode filePaths
-                    const updateAndDecodeFilePaths = (item) => {
-                      if (item.items && item.items.length > 0) {
-                        // Process sub-items recursively
-                        item.items.forEach((subItem) => updateAndDecodeFilePaths(subItem));
-                      } else {
-                        // Update and decode filePath for the main item or sub-item
-                        if (item.filePath) {
-                          const matchingFile = files.find(
-                            (file) => file.getAttribute('destination') === item.filePath
-                          );
-                          if (matchingFile) {
-                            const url = matchingFile.getAttribute('url');
-                            const decodedUrl = decodeURIComponent(url); // Decode URL
-                            item.filePath = decodedUrl; // Assign decoded URL
-                          } else {
-                            console.warn("No matching file found for:", item.filePath);
-                          }
-                        }
-                      }
-
-                      // Decode existing filePath regardless of match
-                      if (item.filePath) {
-                        item.filePath = decodeURIComponent(item.filePath);
-                      }
-                    };
-
-                    // Update and decode filePaths for the main item and its nested items
-                    updateAndDecodeFilePaths(item);
-
-                    // Log the updated structure
-                    console.log("Updated item with decoded URLs:", item);
-                    return this.fixFolderType(item);
-                  })
-                );
+  
+              return this.fixFolderType(item);
             })
           );
       })

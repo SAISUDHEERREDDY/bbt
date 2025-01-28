@@ -24,7 +24,7 @@ Primary.args = {
     thumbpath:
       'http://hs.home.pugina.com/opt/VA/content/thumbnails/Connecting_Matters_Final_720pEE1.png',
 
-    type: 'Video',
+    type: 'video',
     duration: '1:26',
     count: 3,
     file_base: 'file_base',

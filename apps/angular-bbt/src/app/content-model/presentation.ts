@@ -6,3 +6,4 @@ export interface Presentation extends Content {
   type: 'Presentation';
   items: Array<Video | Image>;
 }
+

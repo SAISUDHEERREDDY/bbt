@@ -36,7 +36,6 @@ import { SafeKeyService } from '../../bbtcommon/safe-key.service';
 import { UserInputEvent } from '../../bbtcommon/UserInputEvent';
 import { Presentation, Video } from '../../content-model';
 import { FocusService } from '../../bbtcommon/service/focus.service';
-import { NavigationService } from '../../bbtcommon/service/navigation.service';
 
 @Component({
   selector: 'bbt-content-landing-menu',
@@ -44,7 +43,7 @@ import { NavigationService } from '../../bbtcommon/service/navigation.service';
   styleUrls: ['./content-landing-menu.component.scss']
 })
 export class ContentLandingMenuComponent implements OnDestroy, OnInit {
-@ViewChildren('playVideoButton, presentationButton, loginButton') buttons!: QueryList<ElementRef<HTMLAnchorElement>>;
+  @ViewChildren('playVideoButton, presentationButton, loginButton ,playImageButton') buttons!: QueryList<ElementRef<HTMLAnchorElement>>;
   private currentFocusIndex = 0; // 0 for BACK, 1 for PLAY
   constructor(
     private route: ActivatedRoute,
@@ -52,7 +51,6 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     private store: Store<ApplicationState>,
     private safeKey: SafeKeyService,
     private focusService: FocusService,
-    private navigationService: NavigationService
   ) {
     this.store.dispatch(new FullscreenEnableAction());
   }
@@ -102,9 +100,11 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playVideoButton');
         
         break;
+        case 'Image':
+          buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playImageButton');
+         
+          break;
       case 'Presentation':
-        console.log("Presentation()");
-        //window.location.reload();
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'presentationButton');
        
         break;
@@ -183,7 +183,7 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     control.setValue(null);
   }
   goBack(): void {
-    this.navigationService.navigateBack();
+    // this.navigationService.navigateBack();
   }
   // Event Handlers
   @HostListener('window:keydown', ['$event'])
@@ -202,7 +202,6 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
 
   // Angular Lifecycle Hooks
   ngOnInit() {
-   
     // Setup subscriptions
     this.subs.addMany(
       // Set dropdowns to use state
@@ -236,22 +235,13 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
       this.store.dispatch(setPreferredAudio(a))
     );
 
-    this.subs.add(
-      this.route.params.subscribe(params => {
-        this.fragment = `menu-${params?.menuId}-item-${params.itemId}`;
-         // Check if the page has already been reloaded
-    if (!localStorage.getItem('presentationReloaded')) {
-      localStorage.setItem('presentationReloaded', 'true'); // Mark as reloaded
-      window.location.reload(); // Reload the page
-  } else {
-      // Reset the flag only after handling logic
-      localStorage.removeItem('presentationReloaded');
-      // Logic after reload
-      //buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'presentationButton');
-      //console.log("Button focus logic executed after reload");
-  }
-      })
-    );
+    // this.subs.add(
+    //   this.route.params.subscribe(params => {
+    //     this.fragment = `menu-${params?.menuId}-item-${params.itemId}`;
+    //     console.log("fragment", this.fragment);
+      
+    //   })
+    // );
     this.content$.subscribe((content) => {
       // Use setTimeout to ensure elements are available
       setTimeout(() => this.setButtonFocus(content), 0);
@@ -259,7 +249,9 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
+    this.focusService.clearRegisteredElements()
     this.subs.destroy();
     this.store.dispatch(new FullscreenDisableAction());
+    // localStorage.removeItem('presentationReloaded');
   }
 }

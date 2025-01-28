@@ -88,6 +88,7 @@ export class VideoPlayerComponent
 
   // Angular lifecycle hooks
   ngOnInit() {
+   
     this.pauseIdleness();
   }
 
@@ -95,7 +96,6 @@ export class VideoPlayerComponent
     this.file$.subscribe(file => {
       console.log('Current file from store:', file);
     });
-    //this.player.nativeElement.src = "https://digitalmediabridge.tv/screen-builder/assets/SNMS.mp4"
     // If the video is ready to be played right away play it
     if (this.player?.nativeElement?.readyState > 3) {
       this.safePlay();

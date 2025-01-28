@@ -157,13 +157,13 @@ const simpleReducer = createReducer(
 
   on(selectContent, (state, action) => {
     const content: Presentation & Video = action.content as unknown as any;
-
     return {
       ...state,
       selectedContent: {
         ...state?.selectedContent,
         params: {
-          contentType:(content as any).type === 'Video' ? 'local': 'content',
+          contentType:(content as any)?.type === 'Video'
+          ? 'local': 'content',
             // ((content as any).type === 'Video' && typeof content.pifId) !==
             // 'number'
             //   ? 'local'

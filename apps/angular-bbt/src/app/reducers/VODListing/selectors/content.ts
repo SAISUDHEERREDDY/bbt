@@ -44,6 +44,21 @@ export const contentFiles = createSelector(selectedContent, x => {
     ];
     console.log("arr", arr)
     return arr;
+  } else if (x?.type === 'Image') {
+    const video = x as Video;
+    console.log("video",video)
+    // Make the video conform to a presentation file format
+    const arr: PresentationFile[] = [
+      {
+        filePath: video.filePath,
+        type: 'Image',
+        iconType: video.iconType,
+        customIcon: video.customIcon,
+        tracks: video.tracks != null ? [...video.tracks] : []
+      }
+    ];
+    console.log("arr", arr)
+    return arr;
   } else {
     return null;
   }
@@ -71,7 +86,7 @@ export const currentFile = createSelector(
   currentPresentationIndex,
   (files: PresentationFile[], index: number) => {
     const safeIndex = index ? index : 0; // default falsy values to 0
-    if (files.length <= safeIndex) {
+    if (files?.length <= safeIndex) {
       throw new Error('Tried to select files out of range');
     }
 

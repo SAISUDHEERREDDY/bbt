@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, OnDestroy } from '@angular/core';
 import { INavigableGroup } from '../../four-directional-navigation/navigable-group';
 import { FormControl } from '@angular/forms';
 import { FocusService } from '../../bbtcommon/service/focus.service';
@@ -26,5 +26,11 @@ export class VODOptionsBarComponent {
 
   ngAfterViewInit() {
     this.focusService.registerElements([this.backButton]);
+  }
+  goback(){
+  window.history.back();
+  }
+  OnDestroy(){
+    this.focusService.clearRegisteredElements();
   }
 }

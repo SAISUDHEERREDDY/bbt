@@ -1,3 +1,4 @@
+import { event } from 'jquery';
 import {
   Component,
   HostListener,
@@ -13,7 +14,7 @@ import { Unsubscribable } from 'rxjs';
 import { INavigable } from './four-directional-navigation/navigable';
 import { ActiveService } from './four-directional-navigation/active.service';
 import { IdlenessService } from './idle/idleness.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { CrossMessageService } from './bbtcommon/cross-message.service';
 import { FeatureSwitchesService } from './bbtcommon/feature-switches.service';
 import { SwitchableFeature } from './bbtcommon/SwitchableFeatures';
@@ -31,10 +32,6 @@ import {
 } from '@angular/material/snack-bar';
 import { SupportedLanguage } from './i18n/lang.types';
 import { FocusService } from './bbtcommon/service/focus.service';
-import { ConfigService } from './services/config.service';
-//import { ConfigService } from './services/config.service';
-// { NavigationService } from './bbtcommon/service/navigation.service';
-
 // export interface QtToken {
 //   qt: boolean;
 // }
@@ -65,8 +62,7 @@ export interface DialogData {
 export class AppComponent implements OnInit, OnDestroy {
   // Angular datamembers
   @ViewChild('sideMenuStart') sideMenuStart: INavigable;
-  jsonFilePath: string = '';
-  playerManifestXmlPath: string = '';
+
   // Traditional Data Members
   authenticated: boolean;
   snackRef: MatSnackBarRef<TextOnlySnackBar>;
@@ -81,7 +77,8 @@ export class AppComponent implements OnInit, OnDestroy {
   inSettings = false;
   inSettingsAuth = false;
   sideNavOpen = false;
-
+  currentUrl: string = '';
+  homePageUrl: string = '/vod/root/menu/none/selection';
   /**
    * General subscriptions that should be cleaned up on component destruction
    */
@@ -104,15 +101,17 @@ export class AppComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     public crossMessageService: CrossMessageService,
     public active: ActiveService,
-    private focusService: FocusService,
-    private configService: ConfigService
-    
+    private focusService: FocusService
   ) {
     // Default feature from platforms
     this.features.detectPlatformFeatures();
     this.startFeatureSubscriptions(); // Sets up ongoing feature subscriptions
     this.determineIdlenessStrategy();
-  
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.urlAfterRedirects;
+      }
+    });
   }
 
   /**
@@ -260,7 +259,12 @@ export class AppComponent implements OnInit, OnDestroy {
   focusMainSideNav(nav: INavigable) {
     this.active.pushAndSteal(nav);
   }
-
+  goBack() {
+    if (this.currentUrl != this.homePageUrl) {
+      window.history.back();
+      console.log(window.history, 'appComponent');
+    }
+  }
   cancel() {
     this.toggleSideNav(false);
     this.active.activatePrevious();
@@ -275,29 +279,35 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostListener('window:keydown', ['$event'])
   globalKeyDown(event: KeyboardEvent) {
     const key = this.safeKey.tryKey(event);
-    // const totalFocusableElements = this.focusService.getTotalFocusableElements();
+    console.log(key, 'keyHandler');
+    // const totalFocusableElements = this.focusService.getTotalFocusableElements();debu
     switch (key) {
       case 'ArrowRight':
-        // const nextIndex = 
+        // const nextIndex =
         //     (this.focusService.getFocusIndex() + 1) % totalFocusableElements;
         //   this.focusService.setFocus(nextIndex);
-        this.focusService.moveFocus(1);  // Move focus to the next element globally
+        this.focusService.moveFocus(1); // Move focus to the next element globally
         event.preventDefault();
-          break;
+        break;
       case 'ArrowLeft':
-      //   const prevIndex = 
-      //   this.focusService.getFocusIndex() === 0 ? - 1 : this.focusService.getFocusIndex() - 1;
-      //   console.log("prevIndex", prevIndex);
-      //   if (prevIndex === -1) {
-      //     this.focusService.focusBackButton();
-      // } else {
-      //     this.focusService.setFocus(prevIndex);
-      // }
-      this.focusService.moveFocus(-1); // Move focus to the previous element globally
-      event.preventDefault();
-      break;
-      case 'Backspace':
+        //   const prevIndex =
+        //   this.focusService.getFocusIndex() === 0 ? - 1 : this.focusService.getFocusIndex() - 1;
+        //   console.log("prevIndex", prevIndex);
+        //   if (prevIndex === -1) {
+        //     this.focusService.focusBackButton();
+        // } else {
+        //     this.focusService.setFocus(prevIndex);
+        // }
+        this.focusService.moveFocus(-1); // Move focus to the previous element globally
         event.preventDefault();
+        break;
+      case 'Backspace' || 'Escape':
+        event.preventDefault();
+        this.goBack();
+        break;
+      case 'd':
+        event.preventDefault();
+        this.goBack();
         break;
       case UserInputEvent.Home:
         if (this.features.get('HomeMessage')) {
@@ -323,11 +333,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   // Angular lifecycle hooks
-  ngOnInit() {
+  ngOnInit(): void {
     this.i18nService.load().catch(console.error);
-    this.jsonFilePath = this.configService.getConfigValue('JsonFilePath');
-    //this.manifestPath = this.configService.getConfigValue('PlayerManifestXmlPath');
-    console.log("App jsonFile", this.jsonFilePath);
   }
 
   ngOnDestroy(): void {

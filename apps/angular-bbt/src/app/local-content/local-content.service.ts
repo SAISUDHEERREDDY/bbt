@@ -23,11 +23,11 @@ export class LocalContentService {
   list(): Observable<Local[]> {
     const baseUrl = 'video_player/vod?type=local';
     this.loading = true;
-      debugger;
+
     return this.http.get(baseUrl).pipe(
       map((response: SerializedLocalContentResponse) => {
         this.loading = false;
-debugger;
+
         return response.categories.filter(
           item => item.name === 'LocalContent'
         )[0]?.menuItems;

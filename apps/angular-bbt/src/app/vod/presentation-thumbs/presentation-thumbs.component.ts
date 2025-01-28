@@ -45,6 +45,7 @@ export class PresentationThumbsComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
+    console.log("Presentation",this.files );
     this.scrollToSelectedThumb(this.selectedIndex);
   }
 
@@ -61,6 +62,5 @@ export class PresentationThumbsComponent implements AfterViewInit {
     }
     active.nativeElement.focus();
     active.nativeElement.scrollIntoView(true);
-  }
-  
+  }  
 }

@@ -23,7 +23,7 @@ Primary.args = {
 
     rating: 5,
     description: 'here is the description of the jumbotron',
-    type: 'Video',
+    type: 'video',
     showFade: true,
     previewOnly: false,
     descname: 'descname',

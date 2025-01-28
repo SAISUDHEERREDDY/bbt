@@ -219,6 +219,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
  
   ngOnDestroy(): void {
+    this.focusService.clearRegisteredElements();
     this.subs.forEach(u => u.unsubscribe());
   }
 }

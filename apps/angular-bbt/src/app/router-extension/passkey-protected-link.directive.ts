@@ -38,9 +38,9 @@ export class PasskeyProtectedLinkDirective {
     id?: number;
     itemId?: number;
     passKey?: boolean;
-    //pifId?: number;
+    // pifId?: number;
     type?: string;
-  } = { passKey: false, id: null, itemId: null, };
+  } = { passKey: false, id: null, itemId: null };
 
   @Input() categoryId: number;
   @Input() folderId: number;

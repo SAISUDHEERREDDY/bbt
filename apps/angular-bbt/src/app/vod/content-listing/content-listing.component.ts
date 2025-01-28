@@ -33,7 +33,6 @@ import {
 } from '@angular/animations';
 import { event } from 'jquery';
 import { CategorySliderComponent } from '../category-slider/category-slider.component';
-import { NavigationService } from '../../bbtcommon/service/navigation.service';
 @Component({
   selector: 'bbt-content-listing',
   templateUrl: './content-listing.component.html',
@@ -137,8 +136,7 @@ export class ContentListingComponent {
     public activatedRoute: ActivatedRoute,
     private active: ActiveService,
     private safeKey: SafeKeyService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private navigationService: NavigationService
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.active.pause(); // Pause active service while loading
   }
@@ -243,12 +241,11 @@ export class ContentListingComponent {
    * @param crumbs
    * @returns navigation promise
    */
-  private backUpOneLevel(crumbs: Array<Folder | Category>) {
+  private backUpOneLevel(crumbs) {
     // no nothing if there are no breadcrumbs to read
     if (!crumbs || crumbs?.length === 0) {
       return;
     }
-
     const current = this.activatedRoute.snapshot.params;
 
     // Make fragment to add to backup route
@@ -271,7 +268,7 @@ export class ContentListingComponent {
         const singleParent = crumbs[0];
         const singleParentFragment = `#menu-${singleParent.id}-folder-${current?.category}`;
         return this.router.navigateByUrl(
-          `vod/root/menu/none/selection${singleParentFragment}`
+          `vod/root/menu/none/selection`
         );
       }
 
@@ -304,11 +301,10 @@ export class ContentListingComponent {
     const key = this.safeKey.tryKey($event);
     console.log("key", key)
     if (key === UserInputEvent.Back || key === 'Escape' || key === 'Backspace') {
-      return;
       // use take to make access synchronous
       // this.store.pipe(take(1)).subscribe(snapshot => {
-      //   const crumbs = snapshot?.VODListing?.categories?.[0]?.breadcrumbs;
-      //   //this.backUpOneLevel(crumbs);
+      //   const crumbs = snapshot?.VODListing?.categories?.[0];
+      //   this.backUpOneLevel(crumbs);
       // });
     } else if  (key === 'ArrowRight' ) {
       this.sliders.toArray()[this.currentRowIndex].focusNext();  // Move focus to the next column in the current row

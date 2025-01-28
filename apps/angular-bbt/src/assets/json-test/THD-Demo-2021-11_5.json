@@ -1,146 +1,70 @@
 {
   "categories": [
     {
-      "name": "Category-1",
+      "name": "Category_1",
       "menuItems": [
         {
-          "name": "Sub-Category-1",
-          "customIcon": "MSS189ThumbClouds.jpg",
-          "menuItems": [
-            {
-              "title": "Clouds",
-              "description": "",
-              "type": "Video",
-              "duration": 11,
-              "filePath": "MSS197CostaRica4K60fps.mp4",
-              "customIcon": "MSS189ThumbClouds.jpg",
-              "passkey": "",
-              "startDate": "2024-12-26T00:00:00.000-05:00",
-              "endDate": null,
-              "displayOrder": 0,
-              "itemId": 111
-            },
+          "title": "city01",
+          "description": "",
+          "type": "Image",
+          "duration": 10,
+          "filePath": "https://picsum.photos/200/300",
+          "customIcon": "https://picsum.photos/200/300",
+          "passkey": "",
+          "startDate": "2021-11-18T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 0,
+          "itemId": 11
+        },
+        {
+          "title": "Presentation-2",
+          "description": "",
+          "type": "Presentation",
+          "duration": 169,
+          "customIcon": "http://127.0.0.1:3000/vod/http://127.0.0.1:3000/vod/MSS352Presentation2.png",
+          "passkey": "",
+          "num_of_items": 2,
+          "displayOrder": 1,
+          "items": [
             {
               "title": "angrybirds-tlr3_h480p",
               "description": "",
               "type": "Video",
               "duration": 159,
-              "filePath": "MSS197CostaRica4K60fps.mp4",
-              "customIcon": null,
+              "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/i1vwr90vp3pcyzxsvexcqcdpw214?response-content-disposition=attachment%3B%20filename%3D%22angrybirds-tlr3_h480p.mp4%22%3B%20filename%2A%3DUTF-8%27%27angrybirds-tlr3_h480p.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=2fd8a53dcf87a88a01410670ed239e0a108527b3cca804297b006a3a0510d107",
+              "customIcon": "http://127.0.0.1:3000/vod/MSS354AngryBirdsCustomIcon.png",
               "passkey": "",
               "startDate": "2024-12-26T00:00:00.000-05:00",
               "endDate": null,
-              "displayOrder": 1,
-              "itemId": 112
+              "displayOrder": 0
+            },
+            {
+              "title": "city03",
+              "description": "",
+              "type": "Image",
+              "duration": 10,
+              "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=ae908d8d88d8dabea93d6cd66fdfa4edac2f9369f4911265cc72d8d6a50b75c7",
+              "customIcon": "http://127.0.0.1:3000/vod/null",
+              "passkey": "",
+              "startDate": "2021-11-18T00:00:00.000-05:00",
+              "endDate": null,
+              "displayOrder": 1
             }
           ],
-          "id": 11,
-          "displayOrder": 1,
-          "type": "Folder"
+          "itemId": 12
         },
         {
-          "name": "New Hire Presentation (HDT15050)",
-          "customIcon": "677/unknownName",
-          "description": "This is an example of a PowerPoint-type Presentation using the old 'New Hire Orientation' from 2020. Slides and videos can be sequentially viewed, just as faciltators used to with the New Hire DVDs. (HDT15050)",
-          "displayOrder": 10,
-          "endDate": "",
-          "itemId": 368,
-          "items":
-              [
-                  {
-                    "title": "hdt15050-01.jpg",
-                  "description": null,
-                    "type": "Image",
-                    "duration": 159,
-                  "filePath": "MSS189ThumbClouds.jpg",
-                  "customIcon": null,
-                  "iconType": "default",
-                  "itemId": 349,
-                  "displayOrder": 0
-                  },
-                  {
-                    "title": "hdt15050-01.jpg",
-                  "description": null,
-                    "type": "Video",
-                    "duration": 159,
-                  "filePath": "MSS189Clouds.mp4",
-                  "customIcon": null,
-                  "iconType": "default",
-                  "itemId": 349,
-                  "displayOrder": 0
-                  },
-                  {
-                    "title": "hdt15050-01.jpg",
-                  "description": null,
-                  "type": "Image",
-                  "duration": 159,
-                  "filePath": "MSS152ThumbHDCountdown.jpg",
-                  "customIcon": null,
-                  "iconType": "default",
-                  "itemId": 349,
-                  "displayOrder": 0
-                  }
-              ],
-        
-          "type": "Presentation"
-          },
-        {
-          "name": "Sub-Category-2",
-          "menuItems": [],
-          "id": 12,
-          "type": "Folder"
-        },
-        {
-          "title": "MicrowaveCountdown",
+          "title": "Bennu-4k_29.970fps_10.8Mbs_h264",
           "description": "",
           "type": "Video",
-          "duration": 24,
-          "filePath": "MSS153MicrowaveCountdown.mov",
-          "customIcon": null,
+          "duration": 360,
+          "filePath": "https://picsum.photos/200/300",
+          "customIcon": "https://picsum.photos/200/300",
           "passkey": "",
-          "startDate": "2024-12-23T00:00:00.000-05:00",
-          "endDate": null,
-          "displayOrder": 0,
-          "itemId": 13
-        },
-        {
-          "title": "CrazyCountdown",
-          "description": "",
-          "type": "Video",
-          "duration": 11,
-          "filePath": "MSS150CrazyCountdown.mp4",
-          "customIcon": null,
-          "passkey": "",
-          "startDate": "2024-12-23T00:00:00.000-05:00",
-          "endDate": null,
-          "displayOrder": 1,
-          "itemId": 14
-        },
-        {
-          "title": "HDCountdown",
-          "description": "",
-          "type": "Video",
-          "duration": 9,
-          "filePath": "MSS152HDCountdown.mov",
-          "customIcon": null,
-          "passkey": "",
-          "startDate": "2024-12-23T00:00:00.000-05:00",
+          "startDate": "2024-12-26T00:00:00.000-05:00",
           "endDate": null,
           "displayOrder": 2,
-          "itemId": 15
-        },
-        {
-          "title": "DigitalCountdown",
-          "description": "Test Description - Digital Countdown",
-          "type": "Video",
-          "duration": 23,
-          "filePath": "MSS151DigitalCountdown.mov",
-          "customIcon": "MSS183CountDown.JPG",
-          "passkey": "",
-          "startDate": "2024-12-23T00:00:00.000-05:00",
-          "endDate": null,
-          "displayOrder": 3,
-          "itemId": 16
+          "itemId": 13
         }
       ],
       "id": 1,
@@ -148,192 +72,148 @@
       "type": "Folder"
     },
     {
-      "name": "Category-2",
-      "menuItems": [],
-      "itemId": 2,
+      "name": "Category_2",
+      "menuItems": [
+        {
+          "name": "Sub-Category-1",
+          "menuItems": [
+            {
+              "name": "Sub-A",
+              "menuItems": [
+                {
+                  "title": "hd0061",
+                  "description": "",
+                  "type": "Video",
+                  "duration": 9,
+                  "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/cyvuifix5enpbu8plleu62c3altj?response-content-disposition=attachment%3B%20filename%3D%22hd0061.mp4%22%3B%20filename%2A%3DUTF-8%27%27hd0061.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=31bbbadb7c5da9b34eea7f36067d444c85d037e4dd0f85911f10337d54d11160",
+                  "customIcon": "http://127.0.0.1:3000/vod/null",
+                  "passkey": "",
+                  "startDate": "2024-12-26T00:00:00.000-05:00",
+                  "endDate": null,
+                  "displayOrder": 0,
+                  "itemId": 2111
+                }
+              ],
+              "id": 211,
+              "type": "Folder"
+            },
+            {
+              "title": "HDCountdown",
+              "description": "",
+              "type": "Video",
+              "duration": 9,
+              "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/1h8jru878yihg8b2wyeajqov59xm?response-content-disposition=attachment%3B%20filename%3D%22HDCountdown.mov%22%3B%20filename%2A%3DUTF-8%27%27HDCountdown.mov&response-content-type=video%2Fquicktime&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=29d7c482274756daa35fb50be896b2c09f4ce727768242d328b19ec3487505ca",
+              "customIcon": "http://127.0.0.1:3000/vod/null",
+              "passkey": "",
+              "startDate": "2024-12-26T00:00:00.000-05:00",
+              "endDate": null,
+              "displayOrder": 0,
+              "itemId": 212
+            }
+          ],
+          "id": 21,
+          "type": "Folder"
+        },
+        {
+          "name": "Sub-Category-2",
+          "menuItems": [
+            {
+              "title": "Presentation-3",
+              "description": "",
+              "type": "Presentation",
+              "duration": 48,
+              "customIcon": "http://127.0.0.1:3000/vod/http://127.0.0.1:3000/vod/MSS353Presentation3.png",
+              "passkey": "",
+              "num_of_items": 1,
+              "displayOrder": 0,
+              "items": [
+                {
+                  "title": "River",
+                  "description": "",
+                  "type": "Video",
+                  "duration": 48,
+                  "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3qx64s5c4a25i4j8ma82ewqiozi?response-content-disposition=attachment%3B%20filename%3D%22River.mp4%22%3B%20filename%2A%3DUTF-8%27%27River.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172847Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b19bbcee2bf54d1ba40bcdce7a58d20a17148c6c1f0e1ebfc39cd25dc1a83b82",
+                  "customIcon": "http://127.0.0.1:3000/vod/null",
+                  "passkey": "",
+                  "startDate": "2024-12-26T00:00:00.000-05:00",
+                  "endDate": null,
+                  "displayOrder": 0
+                }
+              ],
+              "itemId": 221
+            }
+          ],
+          "id": 22,
+          "type": "Folder"
+        },
+        {
+          "title": "Sky",
+          "description": "",
+          "type": "Video",
+          "duration": 28,
+          "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/58hcv8zi17tahin3hse027i2fky5?response-content-disposition=attachment%3B%20filename%3D%22Sky.mp4%22%3B%20filename%2A%3DUTF-8%27%27Sky.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a2e39c1300e0d862cc81849e42d101c5fd874b638569735ebb66db82c94bc025",
+          "customIcon": "http://127.0.0.1:3000/vod/MSS282Screenshot20250103at12.23.10PM.png",
+          "passkey": "",
+          "startDate": "2024-12-26T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 0,
+          "itemId": 23
+        }
+      ],
+      "id": 2,
+      "displayOrder": 2,
       "type": "Folder"
     },
     {
-      "title": "Bennu-4k_29.970fps_10.8Mbs_h264",
+      "title": "the-cup-2360104_640",
       "description": "",
-      "type": "Video",
-      "duration": 360,
-      "filePath": "MSS196Bennu4k29.970fps10.8Mbsh264.mp4",
-      "customIcon": null,
+      "type": "Image",
+      "duration": 10,
+      "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/238ajjbupumpct0oqns4lc781cji?response-content-disposition=attachment%3B%20filename%3D%22the-cup-2360104_640.png%22%3B%20filename%2A%3DUTF-8%27%27the-cup-2360104_640.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=61cc2f244c2f5f1f6b585d1af9eba7e6bf49ea8e1c8bd0e4fb43ef2285774a89",
+      "customIcon": "http://127.0.0.1:3000/vod/null",
       "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
+      "startDate": "2025-01-05T00:00:00.000-05:00",
       "endDate": null,
       "displayOrder": 0,
       "itemId": 3
     },
     {
-      "title": "Sky",
+      "title": "Presentation-1",
       "description": "",
-      "type": "Video",
-      "duration": 28,
-      "filePath": "MSS194Sky.mp4",
-      "customIcon": null,
+      "type": "Presentation",
+      "duration": 10,
+      "customIcon": "http://127.0.0.1:3000/vod/http://127.0.0.1:3000/vod/MSS351Presentation1.png",
       "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
+      "num_of_items": 1,
       "displayOrder": 1,
+      "items": [
+        {
+          "title": "city03",
+          "description": "",
+          "type": "Image",
+          "duration": 10,
+          "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/x3oozlhmk54hzqmbte9hbpebldla?response-content-disposition=attachment%3B%20filename%3D%22city03.png%22%3B%20filename%2A%3DUTF-8%27%27city03.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=ae908d8d88d8dabea93d6cd66fdfa4edac2f9369f4911265cc72d8d6a50b75c7",
+          "customIcon": "http://127.0.0.1:3000/vod/null",
+          "passkey": "",
+          "startDate": "2021-11-18T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 0
+        }
+      ],
       "itemId": 4
-    },
-    {
-      "title": "Road-4k_23.976fps_17.2Mbs",
-      "description": "",
-      "type": "Video",
-      "duration": 33,
-      "filePath": "MSS201Road4k23.976fps17.2Mbs.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 2,
-      "itemId": 5
-    },
-    {
-      "title": "River",
-      "description": "",
-      "type": "Video",
-      "duration": 48,
-      "filePath": "MSS193River.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 3,
-      "itemId": 6
-    },
-    {
-      "title": "OaklandAs",
-      "description": "",
-      "type": "Video",
-      "duration": 300,
-      "filePath": "MSS191OaklandAs.mov",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 4,
-      "itemId": 7
-    },
-    {
-      "title": "mars-curiosity-roves-again-1280x720_59.940fps_4.32Mbs",
-      "description": "",
-      "type": "Video",
-      "duration": 94,
-      "filePath": "MSS200marscuriosityrovesagain1280x72059.940fps4.32Mbs.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 5,
-      "itemId": 8
-    },
-    {
-      "title": "Kim_SmartSync_720p_60fps_2.7Mbps_4x3",
-      "description": "",
-      "type": "Video",
-      "duration": 181,
-      "filePath": "MSS199KimSmartSync720p60fps2.7Mbps4x3.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 6,
-      "itemId": 9
-    },
-    {
-      "title": "HD Set1 1080p60_5Mbps",
-      "description": "",
-      "type": "Video",
-      "duration": 171,
-      "filePath": "MSS190HDSet11080p605Mbps.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 7,
-      "itemId": 10
-    },
-    {
-      "title": "DressCode_KTVSpot",
-      "description": "",
-      "type": "Video",
-      "duration": 21,
-      "filePath": "MSS198DressCodeKTVSpot.mov",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 8,
-      "itemId": 11
-    },
-    {
-      "title": "Costa_Rica_4K_60fps",
-      "description": "",
-      "type": "Video",
-      "duration": 313,
-      "filePath": "MSS197CostaRica4K60fps.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 9,
-      "itemId": 12
-    },
-    {
-      "title": "Clouds",
-      "description": "",
-      "type": "Video",
-      "duration": 11,
-      "filePath": "MSS189Clouds.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 10,
-      "itemId": 13
-    },
-    {
-      "title": "Bennu-4k_29.970fps_10.8Mbs_h264",
-      "description": "",
-      "type": "Video",
-      "duration": 360,
-      "filePath": "MSS196Bennu4k29.970fps10.8Mbsh264.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-26T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 11,
-      "itemId": 14
     },
     {
       "title": "angrybirds-tlr3_h480p",
       "description": "",
       "type": "Video",
       "duration": 159,
-      "filePath": "MSS195angrybirdstlr3h480p.mp4",
-      "customIcon": null,
+      "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/i1vwr90vp3pcyzxsvexcqcdpw214?response-content-disposition=attachment%3B%20filename%3D%22angrybirds-tlr3_h480p.mp4%22%3B%20filename%2A%3DUTF-8%27%27angrybirds-tlr3_h480p.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=2fd8a53dcf87a88a01410670ed239e0a108527b3cca804297b006a3a0510d107",
+      "customIcon": "http://127.0.0.1:3000/vod/MSS354AngryBirdsCustomIcon.png",
       "passkey": "",
       "startDate": "2024-12-26T00:00:00.000-05:00",
       "endDate": null,
-      "displayOrder": 12,
-      "itemId": 15
-    },
-    {
-      "title": "space",
-      "description": "",
-      "type": "Video",
-      "duration": 36,
-      "filePath": "MSS117space.mp4",
-      "customIcon": null,
-      "passkey": "",
-      "startDate": "2024-12-12T00:00:00.000-05:00",
-      "endDate": null,
-      "displayOrder": 13,
-      "itemId": 16
+      "displayOrder": 2,
+      "itemId": 5
     }
   ]
 }

@@ -171,7 +171,6 @@ export class PanningContainerComponent implements AfterViewInit {
 
   // Lifecycle hooks
   ngAfterViewInit() {
-    
     const width8k = 7680;
     // For some reason only here I need to add setTimeout, in my local env it's working without
     this.itemWidth =

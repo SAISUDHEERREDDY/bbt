@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  JsonFile : "assets/json-test/THD-Demo-2021-11_5.json",
-  PlayerManiFestXml:"assets/json-test/playerManifest.xml"
+  // JsonFile : "{}THD-Demo-2021-11_5.json",
+  // JsonFile : "https://digitalmediabridge.tv/enhanced-vod-ondemand/ondemand-vod.json",
+  // PlayerManiFestXml:"playerManifest.xml"
+  
 };
 
 /*

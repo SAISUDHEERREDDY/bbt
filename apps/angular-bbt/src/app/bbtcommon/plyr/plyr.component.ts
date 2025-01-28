@@ -75,7 +75,7 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
    */
   private composeSource(): any {
     return {
-      type: 'Video',
+      type: 'video',
       sources: [
         {
           src: this.source,

@@ -182,7 +182,7 @@ export class RoundedDropdownPickerComponent
       this.toggleOpen();
     }
 
-    if (this.isOpen && (key === 'escape' || key === UserInputEvent.Back)) {
+    if (this.isOpen && (key === 'escape' || key === UserInputEvent.Back || key === 'd')) {
       this.swallowEvent($event);
       this.bailOut();
     }

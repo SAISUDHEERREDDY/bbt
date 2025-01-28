@@ -76,7 +76,18 @@
               [stealFocusOnInit]="true"
               bbti18n="PLAY"
             ></a>
-            <p style="color:white">Url : {{$any(content)?.filePath}}</p>
+            <a
+            #playImageButton
+            id="playImageButton"
+            *ngSwitchCase="'Image'"
+            [parent]="navContainer"
+            class="button button-clear button-bordered"
+            routerLink="../presentation"
+            bbtDeferringNavigable
+            [stealFocusOnInit]="true"
+            bbti18n="PLAY"
+          ></a>
+            <p hidden style="color:white">Url : {{$any(content)?.filePath}}</p>
             <a
               #presentationButton
               id="presentationButton"

@@ -11,7 +11,7 @@ export class ConfigService {
 
   // Load the configuration file
   loadConfig(): Promise<void> {
-    return this.http.get('/assets/VodSettings.ini')
+    return this.http.get('assets/VodSettings.ini')
       .toPromise()
       .then((data) => {
         this.config = data;

@@ -7,14 +7,13 @@ import { environment } from './environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeEs from '@angular/common/locales/es';
-//import { ConfigService } from './app/services/config.service';
 
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeEs, 'es');
 
 // Qt stuff
 const globals = window as any;
-//const configService = new ConfigService();
+
 if (globals.qt) {
   try {
     import(
@@ -51,26 +50,8 @@ if (globals.qt) {
     console.log('Detected qt but encountered error loading qml', e);
   }
 }
+
 // end qt stuff
-
-//Loaded before your app initializes
-// configService
-//   .loadConfig()
-//   .then(() => {
-//     // Log a success message to indicate the configuration was loaded successfully
-//     console.log('ConfigService successfully loaded.');
-
-//     // Optionally, log specific configuration values to verify they were loaded
-//     console.log('Loaded JSON File Path:', configService.get('JsonFilePath'));
-//     console.log('Loaded Player Manifest XML Path:', configService.get('PlayerManifestXmlPath'));
-
-//     // Bootstrap the Angular application
-//     platformBrowserDynamic([{ provide: ConfigService, useValue: configService }])
-//       .bootstrapModule(AppModule)
-//       .catch((err) => console.error('Error bootstrapping the Angular app:', err));
-//   })
-//   .catch((err) => console.error('Failed to load VodSettings.ini:', err));
-
 
 //  Bootstrap in timeout to reduce frame drops on low power devices
 setTimeout(() => {

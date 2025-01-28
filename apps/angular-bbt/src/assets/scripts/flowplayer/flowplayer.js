@@ -902,7 +902,7 @@ engineImpl = function flashEngine(player, root) {
             return url.replace(/&amp;/g, '%26').replace(/&/g, '%26').replace(/=/g, '%3D');
          }
 
-         var html5Tag = common.findDirect('Video', root)[0] || common.find('.fp-player > video', root)[0],
+         var html5Tag = common.findDirect('video', root)[0] || common.find('.fp-player > video', root)[0],
             url = escapeURL(video.src),
             is_absolute = /^https?:/.test(url);
 
@@ -1169,7 +1169,7 @@ var flowplayer = _dereq_('../flowplayer'),
     ClassList = _dereq_('class-list'),
     extend = _dereq_('extend-object'),
     common = _dereq_('../common');
-var VIDEO = document.createElement('Video');
+var VIDEO = document.createElement('video');
 
 // HTML5 --> Flowplayer event
 var EVENTS = {
@@ -1233,7 +1233,7 @@ var createVideoTag = function(video, autoplay, preload, useCache) {
     videoTagCache.src = video.src;
     return videoTagCache;
   }
-  var el  = document.createElement('Video');
+  var el  = document.createElement('video');
   el.src = video.src;
   el.type = getType(video.type);
   el.className = 'fp-engine';
@@ -1248,7 +1248,7 @@ var engine;
 
 engine = function(player, root) {
 
-  var api = common.findDirect('Video', root)[0] || common.find('.fp-player > video', root)[0],
+  var api = common.findDirect('video', root)[0] || common.find('.fp-player > video', root)[0],
       support = flowplayer.support,
       track = common.find("track", api)[0],
       conf = player.conf,
@@ -1388,7 +1388,7 @@ engine = function(player, root) {
             if (conf.debug && !/progress/.test(flow)) console.log(type, "->", flow, e);
 
             // no events if player not ready
-            if (!player.ready && !/ready|error/.test(flow) || !flow || !common.find('Video', root).length) { return; }
+            if (!player.ready && !/ready|error/.test(flow) || !flow || !common.find('video', root).length) { return; }
 
             var arg, vtype;
 
@@ -2104,7 +2104,7 @@ flowplayer(function(api, root) {
    });
 
    var speedhelp = flowplayer.support.video && api.conf.engine !== "flash" &&
-      !!document.createElement('Video').playbackRate ?
+      !!document.createElement('video').playbackRate ?
       '<p><em>shift</em> + <em>&#8592;</em><em>&#8594;</em>slower / faster</p>' : '';
 
    // TODO: add to player-layout.html
@@ -2240,7 +2240,7 @@ if (flowplayer.support.touch || isIeMobile) {
       });
 
       // native fullscreen
-      if (player.conf.native_fullscreen && typeof document.createElement('Video').webkitEnterFullScreen === 'function') {
+      if (player.conf.native_fullscreen && typeof document.createElement('video').webkitEnterFullScreen === 'function') {
          player.fullscreen = function() {
             var video = common.find('video.fp-engine', root)[0];
             video.webkitEnterFullScreen();
@@ -2392,7 +2392,7 @@ flowplayer(function(player, root) {
       if (!plEl) {
          plEl = common.createElement('div', {className: 'fp-playlist'});
          var cntrls = common.find('.fp-next,.fp-prev', root);
-         if (!cntrls.length) common.insertAfter(root, common.find('Video', root)[0], plEl);
+         if (!cntrls.length) common.insertAfter(root, common.find('video', root)[0], plEl);
          else cntrls[0].parentElement.insertBefore(plEl, cntrls[0]);
       }
       plEl.innerHTML = '';
@@ -2484,7 +2484,7 @@ flowplayer(function(player, root) {
          ClassList(el).toggle(klass);
        });
        player.conf.playlist.forEach(function(itm, i) {
-         rootClasses.remove('Video' + i);
+         rootClasses.remove('video' + i);
        });
     });
 
@@ -2807,7 +2807,7 @@ flowplayer(function(p, root) {
     var conf = player.conf;
     if (flowplayer.support.subtitles && conf.nativesubtitles && player.engine.engineName == 'html5') {
       var setMode = function(mode) {
-        var tracks = common.find('Video', root)[0].textTracks;
+        var tracks = common.find('video', root)[0].textTracks;
         if (!tracks.length) return;
         tracks[0].mode = mode;
       };
@@ -2934,7 +2934,7 @@ var flowplayer = _dereq_('../flowplayer'),
    };
 
    var createVideoTag = function() {
-     var videoTag = document.createElement('Video');
+     var videoTag = document.createElement('video');
      videoTag.loop = true;
      videoTag.autoplay = true;
      videoTag.preload = true;
@@ -3608,7 +3608,7 @@ if (typeof window.jQuery !== 'undefined') {
       if (isFunction(opts)) { callback = opts; opts = {}; }
       var root = $(this),
           scriptConf = root.find('script[type="application/json"]'),
-          confObject = scriptConf.length ? JSON.parse(scriptConf.text()) : videoTagConfig(root.find('Video')),
+          confObject = scriptConf.length ? JSON.parse(scriptConf.text()) : videoTagConfig(root.find('video')),
           conf = $.extend({}, opts || {}, confObject, root.data());
       var api = initializePlayer(this, conf, callback);
       events.EVENTS.forEach(function(evName) {
@@ -3902,7 +3902,7 @@ function initializePlayer(element, opts, callback) {
                rootClasses.add("is-splash");
             }
 
-            if (conf.splash) common.find('Video', root).forEach(common.removeNode);
+            if (conf.splash) common.find('video', root).forEach(common.removeNode);
 
             if (conf.live || rootClasses.contains('is-live')) {
                api.live = conf.live = true;

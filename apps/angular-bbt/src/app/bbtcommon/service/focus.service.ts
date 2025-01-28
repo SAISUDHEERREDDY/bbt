@@ -30,7 +30,11 @@ export class FocusService {
    * @param elements An array of ElementRef focusable elements
    */
   registerElements(elements: ElementRef[]) {
-    elements.forEach((element) => this.focusElements.push(element));
+    elements.forEach((element) => {
+      if(!this.focusElements.some((el) => el.nativeElement === element.nativeElement)){
+        this.focusElements.push(element);
+      }
+    })
   }
   getRegisteredElements(): ElementRef[] {
     return this.focusElements;
@@ -54,7 +58,7 @@ export class FocusService {
    */
   moveFocus(direction: -1 | 1) {
     const totalElements = this.focusElements.length;
-
+    console.log("this.focusElements",this.focusElements, );
     // Calculate the new index based on the direction
     let newIndex = this.focusIndex + direction;
 

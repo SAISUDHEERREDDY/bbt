@@ -22,7 +22,6 @@ export class ContentCardComponent {
 
   // A helper property for complex type transformations on the info
   get info() {
-    //debugger;
     switch (this.content?.type as string) {
       case 'Folder':
         if (this.content?.count === undefined || this.content?.count === null) {

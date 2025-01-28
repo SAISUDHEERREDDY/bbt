@@ -131,7 +131,7 @@ describe('ContentLandingMenuComponent', () => {
       video = {
         descname: 'Fake Vid',
         thumbpath: '',
-        type: 'Video',
+        type: 'video',
         duration: '00:33:41',
         timestamp: '2019-10-30T02:37:00-06:00',
         full_path: '/opt/VA/cmscontent/19011_tsp_EEFS.m3u8',

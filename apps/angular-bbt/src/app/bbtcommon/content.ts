@@ -1,7 +1,7 @@
 export type passkeyOptions = boolean | 'true' | 'false';
 
 export enum ContentTypes {
-  video = 'Video',
+  video = 'video',
   folder = 'folder',
   document = 'doc',
   presentation = 'presentation'

@@ -19,6 +19,7 @@
             >
               {{ crumb.name }}
             </a>
+            <!-- current path with bold text -->
             <span *ngIf="i === breadcrumbPath.length - 1">
               {{ crumb.name }}
             </span>
@@ -27,7 +28,8 @@
       </ng-container>
       
       <ng-template #noBreadcrumbs>
-        <span>No breadcrumb path available.</span>
+        <!-- <span>No breadcrumb path available.</span> -->
+        <span>Loading...</span>
       </ng-template>
       <!-- <ng-container
         *ngIf="!category?.breadcrumbs?.length; else folderHeader"

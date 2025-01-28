@@ -45,7 +45,7 @@ export interface RawFolder extends BaseFolder {
    * Raw folders feature an overly complex type
    * that contains their nesting level
    */
-  type: 'Folder_L1' | 'Folder_L2';
+  type: 'Folder' | 'Folder_L2';
 }
 
 /**

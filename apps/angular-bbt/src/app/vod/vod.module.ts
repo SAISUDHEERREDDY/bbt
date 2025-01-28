@@ -33,7 +33,6 @@ import { SharedComponentsModule } from '@bbt/shared';
 import { HlsModule } from '../hls/hls.module';
 import { PanningModule } from '../panning/panning.module';
 import { CategorySliderComponent } from './category-slider/category-slider.component';
-import { ArrowNavigationDirective } from '../directives/arrow-navigation.directive';
 
 const routes = [
   {
@@ -95,8 +94,7 @@ const routes = [
     PresentationThumbsComponent,
     LinearProgressComponent,
     VideoPlayerComponent,
-    CategorySliderComponent,
-    ArrowNavigationDirective
+    CategorySliderComponent
   ],
   providers: [ContentResolver, DirectoryGuard],
   imports: [
