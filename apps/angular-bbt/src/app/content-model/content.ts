@@ -47,5 +47,5 @@ export interface Content {
   /**
    * The type of the content as a string
    */
-  type: 'Video' | 'Presentation' | 'Image' | 'Folder';
+  type: 'Video' | 'Presentation' | 'Image' | 'Folder' | 'Stream';
 }
