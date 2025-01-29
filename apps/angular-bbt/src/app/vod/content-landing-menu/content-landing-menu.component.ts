@@ -253,6 +253,7 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
+    this.buttons =null;
     this.focusService.clearRegisteredElements()
     this.subs.destroy();
     this.store.dispatch(new FullscreenDisableAction());
