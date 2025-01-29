@@ -144,7 +144,7 @@ export interface ContentDocument extends ContentLike {
 
 export interface PresentationFile {
   filePath: string;
-  type: 'Video' | 'Image';
+  type: 'Video' | 'Image' | 'Stream';
   customIcon: string;
   iconType: 'custom' | 'default';
   tracks: Track[];

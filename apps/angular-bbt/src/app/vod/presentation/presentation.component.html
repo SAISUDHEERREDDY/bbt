@@ -12,7 +12,18 @@
       (manifestParsed)="manifestParsed($event.audioTracks)"
       (ended)="playNext()"
     ></video>
-
+    <video
+    class="presentation-item"
+    *ngSwitchCase="'Stream'"
+    [poster]="f?.customIcon"
+    [bbtCaptionLanguage]="captionLanguage$ | async"
+    [bbtHlsVideo]="f.filePath"
+    [audioTrackId]="audioTrackId$ | async"
+    #player
+    (canplaythrough)="safePlay()"
+    (manifestParsed)="manifestParsed($event.audioTracks)"
+    (ended)="playNext()"
+  ></video>
     <img
       class="presentation-item"
       [src]="f.filePath"

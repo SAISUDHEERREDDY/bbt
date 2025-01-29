@@ -77,6 +77,17 @@
               bbti18n="PLAY"
             ></a>
             <a
+              #playStreamButton
+              id="playStreamButton"
+              *ngSwitchCase="'Stream'"
+              [parent]="navContainer"
+              class="button button-clear button-bordered"
+              routerLink="../play"
+              bbtDeferringNavigable
+              [stealFocusOnInit]="true"
+              bbti18n="PLAY"
+            ></a>
+            <a
             #playImageButton
             id="playImageButton"
             *ngSwitchCase="'Image'"

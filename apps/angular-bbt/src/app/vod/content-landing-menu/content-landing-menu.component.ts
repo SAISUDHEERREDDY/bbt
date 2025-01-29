@@ -43,7 +43,7 @@ import { FocusService } from '../../bbtcommon/service/focus.service';
   styleUrls: ['./content-landing-menu.component.scss']
 })
 export class ContentLandingMenuComponent implements OnDestroy, OnInit {
-  @ViewChildren('playVideoButton, presentationButton, loginButton ,playImageButton') buttons!: QueryList<ElementRef<HTMLAnchorElement>>;
+  @ViewChildren('playVideoButton, presentationButton, loginButton ,playImageButton,playStreamButton') buttons!: QueryList<ElementRef<HTMLAnchorElement>>;
   private currentFocusIndex = 0; // 0 for BACK, 1 for PLAY
   constructor(
     private route: ActivatedRoute,
@@ -98,6 +98,10 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     switch (content?.type) {
       case 'Video':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playVideoButton');
+        
+        break;
+        case 'Stream':
+        buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playStreamButton');
         
         break;
         case 'Image':
