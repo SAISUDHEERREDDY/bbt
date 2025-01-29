@@ -5,17 +5,15 @@
   [priority]="200"
 >
   <div class="content-options-top-menu">
-    <a
+    <button
       #backButton
       bbtDeferringNavigable
       [parent]="navTop"
-      class="button button-clear button-bordered back-button"
-      [routerLink]="backRoute || []"
-      [fragment]="fragment"
+      class="button button-clear button-bordered back-button"     
       bbti18n="BACK"
-    
+      (click)="goBack()"
     >
-    </a>
+  </button>
 
     <span class="i18n-options">
       <bbt-rounded-dropdown-picker

@@ -27,7 +27,7 @@ export class VODOptionsBarComponent {
   ngAfterViewInit() {
     this.focusService.registerElements([this.backButton]);
   }
-  goback(){
+  goBack(){
   window.history.back();
   }
   OnDestroy(){
