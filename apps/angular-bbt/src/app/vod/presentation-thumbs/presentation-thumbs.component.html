@@ -18,6 +18,14 @@
           height="145"
           loading="lazy"
         />
+        <img
+        *ngSwitchCase="'Html'"
+        [src]="file?.filePath"
+        [alt]="file?.type + ' preview thumbnail'"
+        width="274"
+        height="145"
+        loading="lazy"
+      />
         <ng-container *ngSwitchCase="'Stream'">
           <ng-container [ngSwitch]="file?.iconType">
             <img

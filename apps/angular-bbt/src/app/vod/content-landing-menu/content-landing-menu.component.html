@@ -88,6 +88,17 @@
               bbti18n="PLAY"
             ></a>
             <a
+            #playHtmlButton
+            id="playHtmlButton"
+            *ngSwitchCase="'Html'"
+            [parent]="navContainer"
+            class="button button-clear button-bordered"
+            routerLink="../presentation"
+            bbtDeferringNavigable
+            [stealFocusOnInit]="true"
+            bbti18n="PLAY"
+          ></a>
+            <a
             #playImageButton
             id="playImageButton"
             *ngSwitchCase="'Image'"

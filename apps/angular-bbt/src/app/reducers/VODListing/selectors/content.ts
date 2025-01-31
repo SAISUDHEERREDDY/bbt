@@ -61,8 +61,6 @@ export const contentFiles = createSelector(selectedContent, x => {
     return arr;
   }else if (x?.type === 'Stream') {
     const video = x as Video;
-    console.log("video",video)
-    // Make the video conform to a presentation file format
     const arr: PresentationFile[] = [
       {
         filePath: video.filePath,
@@ -74,7 +72,21 @@ export const contentFiles = createSelector(selectedContent, x => {
     ];
     console.log("arr", arr)
     return arr;
-  } else {
+  }else if (x?.type === 'Html') {
+    const video = x as Video;
+    const arr: PresentationFile[] = [
+      {
+        filePath: video.filePath,
+        type: 'Html',
+        iconType: video.iconType,
+        customIcon: video.customIcon,
+        tracks: video.tracks != null ? [...video.tracks] : []
+      }
+    ];
+    console.log("arr", arr)
+    return arr;
+  } 
+  else {
     return null;
   }
 });
