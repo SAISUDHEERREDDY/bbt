@@ -102,6 +102,7 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
         break;
         case 'Stream':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playStreamButton');
+        break;
         case 'Html':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playHtmlButton');
         
