@@ -18,6 +18,26 @@
           height="145"
           loading="lazy"
         />
+        <ng-container *ngSwitchCase="'Html'">
+          <ng-container [ngSwitch]="file?.iconType">
+            <img
+              *ngSwitchCase="'custom'"
+              [src]="file?.customIcon"
+              [alt]="file?.type + ' preview thumbnail'"
+              width="274"
+              height="145"
+              loading="lazy"
+            />
+            <img
+              *ngSwitchCase="'default'"
+              src="assets/images/missing_thumb.png"
+              [alt]="file?.type + ' preview thumbnail'"
+              width="274"
+              height="145"
+              loading="lazy"
+            />
+          </ng-container>
+        </ng-container>
         <ng-container *ngSwitchCase="'Stream'">
           <ng-container [ngSwitch]="file?.iconType">
             <img
