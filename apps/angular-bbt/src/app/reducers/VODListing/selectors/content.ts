@@ -61,8 +61,6 @@ export const contentFiles = createSelector(selectedContent, x => {
     return arr;
   }else if (x?.type === 'Stream') {
     const video = x as Video;
-    console.log("video",video)
-    // Make the video conform to a presentation file format
     const arr: PresentationFile[] = [
       {
         filePath: video.filePath,
@@ -76,8 +74,6 @@ export const contentFiles = createSelector(selectedContent, x => {
     return arr;
   }else if (x?.type === 'Html') {
     const video = x as Video;
-    console.log("video",video)
-    // Make the video conform to a presentation file format
     const arr: PresentationFile[] = [
       {
         filePath: video.filePath,
