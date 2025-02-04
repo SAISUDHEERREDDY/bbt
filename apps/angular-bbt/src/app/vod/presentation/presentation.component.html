@@ -1,5 +1,5 @@
 <ng-container *ngIf="file$ | async as f; else loading">
-  <div class="presentation-container" [ngSwitch]="f?.type">
+  <div class="presentation-container" [ngSwitch]="f?.type" [ngClass]="{'white-background': f?.type === 'Html'}">
     <video
       class="presentation-item"
       *ngSwitchCase="'Video'"
@@ -32,17 +32,11 @@
       alt="thumbnail"
     />
       <!-- FIXED HTML CASE -->
-      <div *ngSwitchCase="'Html'" class="htmlView">
+      <div *ngSwitchCase="'Html'">
         <div [innerHTML]="safeHtmlContent"></div>
       </div>
     
-      <!-- <img
-      class="presentation-item"
-      [src]="f.filePath"
-      *ngSwitchCase="'Html'"
-      default="/assets/images/missing_thumb.png"
-      alt="thumbnail"
-    /> -->
+   
 
     <div *ngSwitchDefault class="presentation-type-error">
       Couldn't load presentation type {{ f?.type }}
