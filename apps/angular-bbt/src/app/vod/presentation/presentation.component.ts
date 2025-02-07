@@ -31,6 +31,8 @@ import {
   UserInputEvent
 } from '../../bbtcommon/UserInputEvent';
 import { tap } from 'rxjs/operators';
+import { DomSanitizer,SafeHtml } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'bbt-presentation',
@@ -38,6 +40,7 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['../playback.less', './presentation.component.less']
 })
 export class PresentationComponent extends VODPlayback implements OnDestroy {
+  safeHtmlContent!: SafeHtml;
   constructor(
     route: ActivatedRoute,
     store: Store<ApplicationState>,
@@ -45,7 +48,9 @@ export class PresentationComponent extends VODPlayback implements OnDestroy {
     safeKey: SafeKeyService,
     active: ActiveService,
     autoplayPermitted: AutoplayPermittedService,
-    contentOverlayService: ContentOverlayModalService
+    contentOverlayService: ContentOverlayModalService,
+    private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) {
     super(
       store,
@@ -210,6 +215,23 @@ export class PresentationComponent extends VODPlayback implements OnDestroy {
       default:
         return;
     }
+  }
+  ngOnInit(): void {
+    this.store.select(currentFile).subscribe((file) => {
+      if (file?.type === 'Html' && file.filePath) {
+        this.loadHtmlContent(file.filePath);
+      }
+    });
+  }
+  loadHtmlContent(url: string): void {
+    this.http.get(url, { responseType: 'text' }).subscribe(
+      (response) => {
+        this.safeHtmlContent = this.sanitizer.bypassSecurityTrustHtml(response);
+      },
+      (error) => {
+        console.error('Error loading HTML file:', error);
+      }
+    );
   }
 
   // Angular Lifecycle Hooks
