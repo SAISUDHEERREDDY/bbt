@@ -172,20 +172,25 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
     this.registerMediaButtons();
   }
   registerMediaButtons() {
-    // Collect all media buttons into an array and register them
     const elementsToRegister = [
       this.previousTrackButton,
       this.rewindButton,
       this.playButton,
       this.fastForwardButton,
       this.nextTrackButton,
-      // this.nextSlideButton,
-      // this.previousSlideButton
-    ].filter((element) => element); // Filter out undefined elements (e.g., conditionally rendered)
-
-    this.focusService.registerElements(elementsToRegister);
-      const currentElIndex = this.focusService.findElementIndex(this.playButton);
-      this.focusService.setFocus(currentElIndex);
+    ].filter((element) => element); // Filter out undefined elements
+  
+    // Register buttons with their positions
+    const positions = elementsToRegister.map(button => {
+      const rect = button.nativeElement.getBoundingClientRect();
+      return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }; // Use center of the button
+    });
+  
+    this.focusService.registerElements(elementsToRegister, positions);
+  
+    // Set initial focus on the play button
+    const currentElIndex = this.focusService.findElementIndex(this.playButton);
+    this.focusService.setFocus(currentElIndex);
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {

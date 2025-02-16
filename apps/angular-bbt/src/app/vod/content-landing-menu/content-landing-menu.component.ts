@@ -83,48 +83,46 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
   
 
   ngAfterViewInit(): void {
-  
-    console.log("AfterInt()");
-    // Delay the call to ensure ViewChild elements are available
     this.content$.subscribe((content) => {
-      // Delay to ensure buttons are available in the QueryList
-      setTimeout(() => this.setButtonFocus(content), 0);
+      setTimeout(() => {
+        const buttons = this.buttons.toArray();
+        const positions = buttons.map(button => {
+          const rect = button.nativeElement.getBoundingClientRect();
+          return { x: rect.left, y: rect.top };
+        });
+        this.focusService.registerElements(buttons, positions);
+        this.setButtonFocus(content);
+      }, 0);
     });
   }
 
   setButtonFocus(content) {
     let buttonToFocus: ElementRef<HTMLAnchorElement> | undefined;
-
+  
     switch (content?.type) {
       case 'Video':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playVideoButton');
-        
         break;
-        case 'Stream':
+      case 'Stream':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playStreamButton');
         break;
-        case 'Html':
+      case 'Html':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playHtmlButton');
-        
         break;
-        case 'Image':
-          buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playImageButton');
-         
-          break;
+      case 'Image':
+        buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playImageButton');
+        break;
       case 'Presentation':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'presentationButton');
-       
         break;
       case 'Login':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'loginButton');
-       
         break;
       default:
         break;
     }
-
+  
     if (buttonToFocus) {
-      this.focusService.registerElements([buttonToFocus]);
       const currentElIndex = this.focusService.findElementIndex(buttonToFocus);
       this.focusService.setFocus(currentElIndex);
     }

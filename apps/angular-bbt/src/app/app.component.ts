@@ -280,40 +280,31 @@ export class AppComponent implements OnInit, OnDestroy {
   globalKeyDown(event: KeyboardEvent) {
     const key = this.safeKey.tryKey(event);
     console.log(key, 'keyHandler');
-    // const totalFocusableElements = this.focusService.getTotalFocusableElements();debu
+
     switch (key) {
       case 'ArrowUp':
-      if (this.focusService.getFocusIndex() > 0) {
-        this.focusService.moveFocus(-1);
-      } else {
-        this.focusService.focusFirstElement(); // Focus the first element
-      }
-      break;
+        this.focusService.moveFocus('up');
+        event.preventDefault();
+        break;
       case 'ArrowDown':
-        if (
-          this.focusService.getFocusIndex() <
-          this.focusService.getRegisteredElements().length - 1
-        ) {
-          this.focusService.moveFocus(1);
-        } else {
-          this.focusService.focusLastElement(); // Focus the last element
-        }
+        this.focusService.moveFocus('down');
+        event.preventDefault();
         break;
       case 'ArrowRight':
-        
-        this.focusService.moveFocus(1); // Move focus to the next element globally
+        this.focusService.moveFocus('right');
         event.preventDefault();
         break;
       case 'ArrowLeft':
-       
-        this.focusService.moveFocus(-1); // Move focus to the previous element globally
+        this.focusService.moveFocus('left');
         event.preventDefault();
         break;
-      case 'Backspace' || 'Escape':
+      case 'Backspace':
+      case 'Escape':
         event.preventDefault();
         this.goBack();
         break;
       case 'd':
+      case 'D':
         event.preventDefault();
         this.goBack();
         break;
@@ -336,6 +327,8 @@ export class AppComponent implements OnInit, OnDestroy {
         if (this.features.get('VolumeMessage')) {
           this.crossMessageService.passVolumeMessage(-1);
         }
+        break;
+      default:
         break;
     }
   }

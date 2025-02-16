@@ -7,13 +7,10 @@ import { Subject } from 'rxjs';
 export class FocusService {
   private focusIndex = 0;
   private focusElements: ElementRef[] = []; // Global list of focusable elements
+  private focusPositions: { x: number, y: number }[] = []; // Track positions of focusable elements
   private focusChangeSubject = new Subject<number>();
   focusChange$ = this.focusChangeSubject.asObservable();
 
-  /**
-   * Sets focus to the element at the specified index and emits the change
-   * @param index The index of the focusable element to focus
-   */
   setFocus(index: number) {
     this.focusIndex = index;
     const element = this.focusElements[index]?.nativeElement;
@@ -25,64 +22,86 @@ export class FocusService {
     }
   }
 
-  /**
-   * Registers multiple focusable elements from different components
-   * @param elements An array of ElementRef focusable elements
-   */
-  registerElements(elements: ElementRef[]) {
-    elements.forEach((element) => {
-      if(!this.focusElements.some((el) => el.nativeElement === element.nativeElement)){
+  registerElements(elements: ElementRef[], positions: { x: number, y: number }[]) {
+    elements.forEach((element, index) => {
+      if (!this.focusElements.some((el) => el.nativeElement === element.nativeElement)) {
         this.focusElements.push(element);
+        this.focusPositions.push(positions[index]);
       }
-    })
+    });
   }
+
   getRegisteredElements(): ElementRef[] {
     return this.focusElements;
   }
+
   findElementIndex(element: ElementRef): number {
     return this.focusElements.findIndex((el) => el === element);
   }
+
   clearRegisteredElements() {
     this.focusElements = [];
+    this.focusPositions = [];
   }
-  /**
-   * Returns the current focus index
-   */
+
   getFocusIndex(): number {
     return this.focusIndex;
   }
 
-  /**
-   * Moves focus to the previous or next element, stopping at boundaries
-   * @param direction -1 for previous, 1 for next
-   */
-  moveFocus(direction: -1 | 1) {
-    const totalElements = this.focusElements.length;
-    console.log("this.focusElements",this.focusElements, );
-    // Calculate the new index based on the direction
-    let newIndex = this.focusIndex + direction;
-
-    // Check if new index is within bounds
-    if (newIndex >= 0 && newIndex < totalElements) {
-      this.setFocus(newIndex);
-    } else {
-      console.log("Reached focus boundary. Focus will not move further.");
+  moveFocus(direction: 'up' | 'down' | 'left' | 'right') {
+    const currentPosition = this.focusPositions[this.focusIndex];
+    let newIndex = -1;
+  
+    if (direction === 'up') {
+      newIndex = this.findClosestElement(currentPosition, 'y', -1); // Find element above
+      console.log('New Index (Up):', newIndex); // Debugging
+    } else if (direction === 'down') {
+      newIndex = this.findClosestElement(currentPosition, 'y', 1); // Find element below
+    } else if (direction === 'left') {
+      newIndex = this.findClosestElement(currentPosition, 'x', -1); // Find element to the left
+    } else if (direction === 'right') {
+      newIndex = this.findClosestElement(currentPosition, 'x', 1); // Find element to the right
     }
-  }
-  focusFirstElement() {
-    if (this.focusElements.length > 0) {
-      this.setFocus(0); // Focus the first element
+  
+    if (newIndex !== -1) {
+      this.setFocus(newIndex);
     }
   }
   
-  /**
-   * Moves focus to the last element in the list
-   */
+  private findClosestElement(currentPosition: { x: number, y: number }, axis: 'x' | 'y', direction: number): number {
+    let closestIndex = -1;
+    let closestDistance = Infinity;
+  
+    this.focusPositions.forEach((position, index) => {
+      if (index === this.focusIndex) return; // Skip the currently focused element
+  
+      // Relax the column constraint for up/down movement
+      const isSameAxis = true; // Allow elements in different columns
+      const isDirectionMatch = axis === 'x' ? (direction === -1 ? position.x < currentPosition.x : position.x > currentPosition.x) :
+                                             (direction === -1 ? position.y < currentPosition.y : position.y > currentPosition.y);
+  
+      if (isSameAxis && isDirectionMatch) {
+        const distance = Math.abs(position[axis] - currentPosition[axis]);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      }
+    });
+  
+    return closestIndex;
+  }
+
+  focusFirstElement() {
+    if (this.focusElements.length > 0) {
+      this.setFocus(0);
+    }
+  }
+
   focusLastElement() {
     const lastIndex = this.focusElements.length - 1;
     if (lastIndex >= 0) {
-      this.setFocus(lastIndex); // Focus the last element
+      this.setFocus(lastIndex);
     }
   }
-  
 }
