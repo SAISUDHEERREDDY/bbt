@@ -282,22 +282,30 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log(key, 'keyHandler');
     // const totalFocusableElements = this.focusService.getTotalFocusableElements();debu
     switch (key) {
+      case 'ArrowUp':
+      if (this.focusService.getFocusIndex() > 0) {
+        this.focusService.moveFocus(-1);
+      } else {
+        this.focusService.focusFirstElement(); // Focus the first element
+      }
+      break;
+      case 'ArrowDown':
+        if (
+          this.focusService.getFocusIndex() <
+          this.focusService.getRegisteredElements().length - 1
+        ) {
+          this.focusService.moveFocus(1);
+        } else {
+          this.focusService.focusLastElement(); // Focus the last element
+        }
+        break;
       case 'ArrowRight':
-        // const nextIndex =
-        //     (this.focusService.getFocusIndex() + 1) % totalFocusableElements;
-        //   this.focusService.setFocus(nextIndex);
+        
         this.focusService.moveFocus(1); // Move focus to the next element globally
         event.preventDefault();
         break;
       case 'ArrowLeft':
-        //   const prevIndex =
-        //   this.focusService.getFocusIndex() === 0 ? - 1 : this.focusService.getFocusIndex() - 1;
-        //   console.log("prevIndex", prevIndex);
-        //   if (prevIndex === -1) {
-        //     this.focusService.focusBackButton();
-        // } else {
-        //     this.focusService.setFocus(prevIndex);
-        // }
+       
         this.focusService.moveFocus(-1); // Move focus to the previous element globally
         event.preventDefault();
         break;

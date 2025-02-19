@@ -204,6 +204,8 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
       this.goToNextSlide();
     }else if(event.key === "ArrowLeft" && this.showThumbs){
       this.goToPreviousSlide();
+    }else if(event.key === "e"){
+      this.trigger('play', event)
     }
   }
   goToNextSlide() {

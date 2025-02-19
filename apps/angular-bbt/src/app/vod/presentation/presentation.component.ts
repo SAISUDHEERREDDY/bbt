@@ -167,7 +167,7 @@ export class PresentationComponent extends VODPlayback implements OnDestroy {
     // Is it important that the keydown event be used with the key property.
     // Do not change these things!
     switch (key) {
-      case 'enter':
+      case 'enter' :
         PresentationComponent.swallowEvent($event);
 
         if ($event.repeat) {
@@ -176,6 +176,15 @@ export class PresentationComponent extends VODPlayback implements OnDestroy {
 
         this.openOverlay();
         return;
+        case 'e' :
+          PresentationComponent.swallowEvent($event);
+  
+          if ($event.repeat) {
+            return;
+          }
+  
+          this.openOverlay();
+          return;
       case UserInputEvent.PlayPause:
         return this.togglePlay();
       case UserInputEvent.Back:

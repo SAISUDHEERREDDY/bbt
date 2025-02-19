@@ -69,4 +69,20 @@ export class FocusService {
       console.log("Reached focus boundary. Focus will not move further.");
     }
   }
+  focusFirstElement() {
+    if (this.focusElements.length > 0) {
+      this.setFocus(0); // Focus the first element
+    }
+  }
+  
+  /**
+   * Moves focus to the last element in the list
+   */
+  focusLastElement() {
+    const lastIndex = this.focusElements.length - 1;
+    if (lastIndex >= 0) {
+      this.setFocus(lastIndex); // Focus the last element
+    }
+  }
+  
 }
