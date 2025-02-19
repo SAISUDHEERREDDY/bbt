@@ -2,6 +2,9 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, OnDestro
 import { INavigableGroup } from '../../four-directional-navigation/navigable-group';
 import { FormControl } from '@angular/forms';
 import { FocusService } from '../../bbtcommon/service/focus.service';
+import { ApplicationState } from '../../reducers';
+import { Store } from '@ngrx/store';
+import { Unsubscribable } from 'rxjs';
 
 @Component({
   selector: 'bbt-vodoptions-bar',
@@ -22,17 +25,12 @@ export class VODOptionsBarComponent implements AfterViewInit, OnDestroy {
 
   @Input() captionOptions: Iterable<any>;
   @Input() captionsControl: FormControl;
-
-  constructor(private focusService: FocusService) {}
+  private previouslyFocusedIndex: number = -1; 
+  constructor(private store: Store<ApplicationState>,private focusService: FocusService) {}
 
   ngAfterViewInit() {
     const rect = this.backButton.nativeElement.getBoundingClientRect();
-    console.log('Back Button Position:', { x: rect.left, y: rect.top }); // Debugging
-    this.focusService.registerElements([this.backButton], [{ x: rect.left, y: rect.top }]);
-  
-    // Log all registered elements
-    console.log('Registered Elements:', this.focusService.getRegisteredElements());
-    // console.log('Registered Positions:', this.focusService.getRegisteredPositions());
+    this.focusService.registerElements([this.backButton], [{ x: rect.left, y: rect.top }]); 
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -40,9 +38,27 @@ export class VODOptionsBarComponent implements AfterViewInit, OnDestroy {
   
     switch (key) {
       case 'ArrowUp':
+        // Check if focus is already on the backButton
         const backButtonIndex = this.focusService.findElementIndex(this.backButton);
+        if (backButtonIndex === this.focusService.getFocusIndex()) {
+          return; // Do nothing if focus is already on the backButton
+        }
+  
+        // Store the current focus index before moving to the backButton
+        this.previouslyFocusedIndex = this.focusService.getFocusIndex();
+  
+        // Move focus to the backButton
         if (backButtonIndex !== -1) {
-          this.focusService.setFocus(backButtonIndex); // Manually set focus to backButton
+          this.focusService.setFocus(backButtonIndex);
+        }
+        event.preventDefault();
+        break;
+  
+      case 'ArrowDown':
+        // Restore focus to the previously focused element
+        if (this.previouslyFocusedIndex !== -1) {
+          this.focusService.setFocus(this.previouslyFocusedIndex);
+          this.previouslyFocusedIndex = -1; // Reset the previously focused index
         }
         event.preventDefault();
         break;
