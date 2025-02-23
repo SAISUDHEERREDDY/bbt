@@ -5,103 +5,105 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class FocusService {
-  private focusIndex = 0;
-  private focusElements: ElementRef[] = []; // Global list of focusable elements
-  private focusPositions: { x: number, y: number }[] = []; // Track positions of focusable elements
-  private focusChangeSubject = new Subject<number>();
+  private focusIndex = { row: 0, col: 0 }; // Track current focus position (row and column)
+  private focusGrid: ElementRef[][] = []; // 2D array to store focusable elements in rows and columns
+  private focusChangeSubject = new Subject<{ row: number, col: number }>();
   focusChange$ = this.focusChangeSubject.asObservable();
 
-  setFocus(index: number) {
-    this.focusIndex = index;
-    const element = this.focusElements[index]?.nativeElement;
+  setFocus(row: number, col: number) {
+    const element = this.focusGrid[row]?.[col]?.nativeElement;
     if (element) {
       element.focus();
-      this.focusChangeSubject.next(this.focusIndex);
+      this.focusIndex = { row, col };
+      this.focusChangeSubject.next({ row, col });
     } else {
-      console.warn(`No element found at index ${index}`);
+      console.warn(`No element found at row ${row}, column ${col}`);
     }
   }
 
-  registerElements(elements: ElementRef[], positions: { x: number, y: number }[]) {
-    elements.forEach((element, index) => {
-      if (!this.focusElements.some((el) => el.nativeElement === element.nativeElement)) {
-        this.focusElements.push(element);
-        this.focusPositions.push(positions[index]);
+  registerElements(row: number, elements: ElementRef[]) {
+    if (!this.focusGrid[row]) {
+      this.focusGrid[row] = []; // Initialize the row if it doesn't exist
+    }
+
+    elements.forEach((element, col) => {
+      if (!this.focusGrid[row].some((el) => el.nativeElement === element.nativeElement)) {
+        this.focusGrid[row][col] = element; // Add element to the specified row and column
       }
     });
+
+    console.log("Focus Grid:", this.focusGrid);
   }
 
-  getRegisteredElements(): ElementRef[] {
-    return this.focusElements;
+  getRegisteredElements(): ElementRef[][] {
+    return this.focusGrid;
   }
 
-  findElementIndex(element: ElementRef): number {
-    return this.focusElements.findIndex((el) => el === element);
+  findElementIndex(element: ElementRef): { row: number, col: number } | null {
+    for (let row = 0; row < this.focusGrid.length; row++) {
+      for (let col = 0; col < this.focusGrid[row].length; col++) {
+        if (this.focusGrid[row][col] === element) {
+          return { row, col };
+        }
+      }
+    }
+    return null;
   }
 
   clearRegisteredElements() {
-    this.focusElements = [];
-    this.focusPositions = [];
+    this.focusGrid = [];
+    this.focusIndex = { row: 0, col: 0 };
   }
 
-  getFocusIndex(): number {
+  getFocusIndex(): { row: number, col: number } {
     return this.focusIndex;
   }
 
   moveFocus(direction: 'up' | 'down' | 'left' | 'right') {
-    const currentPosition = this.focusPositions[this.focusIndex];
-    let newIndex = -1;
-  
-    if (direction === 'up') {
-      newIndex = this.findClosestElement(currentPosition, 'y', -1); // Find element above
-      console.log('New Index (Up):', newIndex); // Debugging
-    } else if (direction === 'down') {
-      newIndex = this.findClosestElement(currentPosition, 'y', 1); // Find element below
-    } else if (direction === 'left') {
-      newIndex = this.findClosestElement(currentPosition, 'x', -1); // Find element to the left
-    } else if (direction === 'right') {
-      newIndex = this.findClosestElement(currentPosition, 'x', 1); // Find element to the right
-    }
-  
-    if (newIndex !== -1) {
-      this.setFocus(newIndex);
-    }
-  }
-  
-  private findClosestElement(currentPosition: { x: number, y: number }, axis: 'x' | 'y', direction: number): number {
-    let closestIndex = -1;
-    let closestDistance = Infinity;
-  
-    this.focusPositions.forEach((position, index) => {
-      if (index === this.focusIndex) return; // Skip the currently focused element
-  
-      // Relax the column constraint for up/down movement
-      const isSameAxis = true; // Allow elements in different columns
-      const isDirectionMatch = axis === 'x' ? (direction === -1 ? position.x < currentPosition.x : position.x > currentPosition.x) :
-                                             (direction === -1 ? position.y < currentPosition.y : position.y > currentPosition.y);
-  
-      if (isSameAxis && isDirectionMatch) {
-        const distance = Math.abs(position[axis] - currentPosition[axis]);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
+    const { row, col } = this.focusIndex;
+
+    switch (direction) {
+      case 'up':
+        if (row > 0) {
+          // Move to the first element in the previous row
+          this.setFocus(row - 1, 0);
         }
-      }
-    });
-  
-    return closestIndex;
+        break;
+
+      case 'down':
+        if (row < this.focusGrid.length - 1) {
+          // Move to the first element in the next row
+          this.setFocus(row + 1, 0);
+        }
+        break;
+
+      case 'left':
+        if (col > 0) {
+          // Move to the previous element in the same row
+          this.setFocus(row, col - 1);
+        }
+        break;
+
+      case 'right':
+        if (col < this.focusGrid[row].length - 1) {
+          // Move to the next element in the same row
+          this.setFocus(row, col + 1);
+        }
+        break;
+    }
   }
 
   focusFirstElement() {
-    if (this.focusElements.length > 0) {
-      this.setFocus(0);
+    if (this.focusGrid.length > 0 && this.focusGrid[0].length > 0) {
+      this.setFocus(0, 0); // Focus on the first element in the first row
     }
   }
 
   focusLastElement() {
-    const lastIndex = this.focusElements.length - 1;
-    if (lastIndex >= 0) {
-      this.setFocus(lastIndex);
+    if (this.focusGrid.length > 0) {
+      const lastRow = this.focusGrid.length - 1;
+      const lastCol = this.focusGrid[lastRow].length - 1;
+      this.setFocus(lastRow, lastCol); // Focus on the last element in the last row
     }
   }
 }

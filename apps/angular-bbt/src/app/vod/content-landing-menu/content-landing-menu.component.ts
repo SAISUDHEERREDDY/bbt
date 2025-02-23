@@ -86,11 +86,7 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     this.content$.subscribe((content) => {
       setTimeout(() => {
         const buttons = this.buttons.toArray();
-        const positions = buttons.map(button => {
-          const rect = button.nativeElement.getBoundingClientRect();
-          return { x: rect.left, y: rect.top };
-        });
-        this.focusService.registerElements(buttons, positions);
+        this.focusService.registerElements(1, buttons);
         this.setButtonFocus(content);
       }, 0);
     });
@@ -123,8 +119,10 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     }
   
     if (buttonToFocus) {
-      const currentElIndex = this.focusService.findElementIndex(buttonToFocus);
-      this.focusService.setFocus(currentElIndex);
+      const buttonIndex = this.buttons.toArray().indexOf(buttonToFocus);
+      this.focusService.setFocus(1, buttonIndex); 
+    } else {
+      this.focusService.setFocus(0, 0);
     }
   }
 

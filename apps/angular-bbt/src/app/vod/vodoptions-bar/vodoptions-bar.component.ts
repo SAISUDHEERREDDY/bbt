@@ -29,43 +29,12 @@ export class VODOptionsBarComponent implements AfterViewInit, OnDestroy {
   constructor(private store: Store<ApplicationState>,private focusService: FocusService) {}
 
   ngAfterViewInit() {
-    const rect = this.backButton.nativeElement.getBoundingClientRect();
-    this.focusService.registerElements([this.backButton], [{ x: rect.left, y: rect.top }]); 
+    setTimeout(() => {
+      this.focusService.registerElements(0, [this.backButton]);     
+    }, 0);
+     
   }
-  @HostListener('window:keydown', ['$event'])
-  handleKeyDown(event: KeyboardEvent) {
-    const key = event.key;
-  
-    switch (key) {
-      case 'ArrowUp':
-        // Check if focus is already on the backButton
-        const backButtonIndex = this.focusService.findElementIndex(this.backButton);
-        if (backButtonIndex === this.focusService.getFocusIndex()) {
-          return; // Do nothing if focus is already on the backButton
-        }
-  
-        // Store the current focus index before moving to the backButton
-        this.previouslyFocusedIndex = this.focusService.getFocusIndex();
-  
-        // Move focus to the backButton
-        if (backButtonIndex !== -1) {
-          this.focusService.setFocus(backButtonIndex);
-        }
-        event.preventDefault();
-        break;
-  
-      case 'ArrowDown':
-        // Restore focus to the previously focused element
-        if (this.previouslyFocusedIndex !== -1) {
-          this.focusService.setFocus(this.previouslyFocusedIndex);
-          this.previouslyFocusedIndex = -1; // Reset the previously focused index
-        }
-        event.preventDefault();
-        break;
-  
-      // Handle other keys...
-    }
-  }
+ 
   goBack() {
     window.history.back();
   }
