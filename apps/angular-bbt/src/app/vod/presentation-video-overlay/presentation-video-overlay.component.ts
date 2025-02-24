@@ -182,11 +182,11 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   
     
   
-    this.focusService.registerElements(1, elementsToRegister); 
+    this.focusService.registerElements(2, elementsToRegister); 
 
     const playButtonIndex = elementsToRegister.indexOf(this.playButton);
     if (playButtonIndex !== -1) {
-      this.focusService.setFocus(1, playButtonIndex); // Focus on playButton in row 1
+      this.focusService.setFocus(2, playButtonIndex); // Focus on playButton in row 1
     }
   }
 

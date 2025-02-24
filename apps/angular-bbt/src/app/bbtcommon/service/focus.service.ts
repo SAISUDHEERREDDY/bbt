@@ -66,14 +66,15 @@ export class FocusService {
       case 'up':
         if (row > 0) {
           // Move to the first element in the previous row
-          this.setFocus(row - 1, 0);
+          this.setFocus(row - 2, 0);
         }
         break;
 
       case 'down':
+        debugger;
         if (row < this.focusGrid.length - 1) {
           // Move to the first element in the next row
-          this.setFocus(row + 1, 2);
+          this.setFocus(row + 2, 2);
         }
       
         break;
