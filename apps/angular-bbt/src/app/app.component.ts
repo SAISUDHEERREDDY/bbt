@@ -274,28 +274,28 @@ export class AppComponent implements OnInit, OnDestroy {
     this.crossMessageService.complete();
     this.cancel();
   }
-
+  private currentRowId: string = ''; 
   // Listener events
   @HostListener('window:keydown', ['$event'])
   globalKeyDown(event: KeyboardEvent) {
     const key = this.safeKey.tryKey(event);
     console.log(key, 'keyHandler');
-
+    this.currentRowId = this.focusService.getCurrentFocusedRowId();
     switch (key) {
       case 'ArrowUp':
-        this.focusService.moveFocus('up');
+        this.focusService.moveFocus(this.currentRowId, 'up');
         event.preventDefault();
         break;
       case 'ArrowDown':
-        this.focusService.moveFocus('down');
+        this.focusService.moveFocus(this.currentRowId, 'down');
         event.preventDefault();
         break;
       case 'ArrowRight':
-        this.focusService.moveFocus('right');
+        this.focusService.moveFocus(this.currentRowId, 'right');
         event.preventDefault();
         break;
       case 'ArrowLeft':
-        this.focusService.moveFocus('left');
+        this.focusService.moveFocus(this.currentRowId, 'left');
         event.preventDefault();
         break;
       case 'Backspace':
@@ -331,6 +331,7 @@ export class AppComponent implements OnInit, OnDestroy {
       default:
         break;
     }
+    
   }
 
   // Angular lifecycle hooks

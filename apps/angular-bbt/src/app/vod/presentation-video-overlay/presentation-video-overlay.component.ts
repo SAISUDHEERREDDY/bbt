@@ -178,15 +178,14 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
       this.playButton,
       this.fastForwardButton,
       this.nextTrackButton,
-    ].filter((element) => element); 
+    ].filter((element) => element); // Filter out undefined/null elements
   
-    
+    const rowId = 'PageCenterFocus'; // Unique identifier for the media buttons row
+    this.focusService.registerElements(rowId, elementsToRegister); // Register media buttons for the row
   
-    this.focusService.registerElements(2, elementsToRegister); 
-
     const playButtonIndex = elementsToRegister.indexOf(this.playButton);
     if (playButtonIndex !== -1) {
-      this.focusService.setFocus(2, playButtonIndex); // Focus on playButton in row 1
+      this.focusService.setFocus(rowId, playButtonIndex); // Focus on playButton in the media buttons row
     }
   }
 

@@ -30,9 +30,9 @@ export class VODOptionsBarComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.focusService.registerElements(0, [this.backButton]);     
+      const rowId = 'PageTopFocus'; // Unique identifier for the row
+      this.focusService.registerElements(rowId, [this.backButton]); // Register the backButton in the navigation row
     }, 0);
-     
   }
  
   goBack() {

@@ -86,13 +86,14 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     this.content$.subscribe((content) => {
       setTimeout(() => {
         const buttons = this.buttons.toArray();
-        this.focusService.registerElements(1, buttons);
-        this.setButtonFocus(content);
+        const rowId = 'PageBottomFocus'; 
+        this.focusService.registerElements(rowId, buttons); 
+        this.setButtonFocus(content, rowId);
       }, 0);
     });
   }
-
-  setButtonFocus(content) {
+  
+  setButtonFocus(content, rowId: string) {
     let buttonToFocus: ElementRef<HTMLAnchorElement> | undefined;
   
     switch (content?.type) {
@@ -120,12 +121,11 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
   
     if (buttonToFocus) {
       const buttonIndex = this.buttons.toArray().indexOf(buttonToFocus);
-      this.focusService.setFocus(1, buttonIndex); 
+      this.focusService.setFocus(rowId, buttonIndex); 
     } else {
-      this.focusService.setFocus(0, 0);
+      this.focusService.setFocus(rowId, 0); 
     }
   }
-
   thumbUrl$ = this.content$.pipe(
     map(x => x.customIcon || (x as any).thumb), // futureproofing,
     map(x => (x ? `url('${encodeURI(x)}')` : undefined))
@@ -245,10 +245,10 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
       
     //   })
     // );
-    this.content$.subscribe((content) => {
-      // Use setTimeout to ensure elements are available
-      setTimeout(() => this.setButtonFocus(content), 0);
-    });
+    // this.content$.subscribe((content) => {
+    //   // Use setTimeout to ensure elements are available
+    //   setTimeout(() => this.setButtonFocus(content), 0);
+    // });
   }
 
   ngOnDestroy() {
