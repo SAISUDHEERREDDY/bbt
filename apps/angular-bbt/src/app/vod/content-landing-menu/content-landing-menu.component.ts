@@ -245,14 +245,14 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
       
     //   })
     // );
-    // this.content$.subscribe((content) => {
-    //   // Use setTimeout to ensure elements are available
-    //   setTimeout(() => this.setButtonFocus(content), 0);
-    // });
+    this.content$.subscribe((content) => {
+      // Use setTimeout to ensure elements are available
+      setTimeout(() => this.setButtonFocus(content , "PageBottomFocus"), 0);
+    });
   }
 
   ngOnDestroy() {
-    this.buttons =null;
+    //this.buttons =null;
     this.focusService.clearRegisteredElements()
     this.subs.destroy();
     this.store.dispatch(new FullscreenDisableAction());
