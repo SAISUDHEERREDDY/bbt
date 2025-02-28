@@ -44,6 +44,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @ViewChild('fastForwardButton') fastForwardButton!: ElementRef;
   @ViewChild('nextTrackButton') nextTrackButton!: ElementRef;
   @ViewChild('focusSection') focusSection!: ElementRef;
+  @ViewChild('thumbsSection', { static: false }) thumbsSection!: ElementRef;
   // @ViewChild('nextSlideButton') nextSlideButton!: ElementRef;
   // @ViewChild('previousSlideButton') previousSlideButton!: ElementRef;
   @Input() files: PresentationFile[];
@@ -170,6 +171,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     this.registerMediaButtons();
+    this.registerThumbsRow();
   }
   registerMediaButtons() {
     const elementsToRegister = [
@@ -188,13 +190,27 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
       this.focusService.setFocus(rowId, playButtonIndex); // Focus on playButton in the media buttons row
     }
   }
-
+  registerThumbsRow() {
+    if (this.thumbsSection) {
+      this.focusService.registerElements('ThumbsRow', [this.thumbsSection.nativeElement]);
+    }
+  }
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    if (event.key.toLocaleLowerCase() === 'm') {
-      this.showThumbs = !this.showThumbs; 
-      event.preventDefault(); 
-      return; 
+    
+    if (event.key === 'ArrowDown' && !this.showThumbs) {
+      const currentFocus = this.focusService.getCurrentFocusedRowId();
+  
+      if (currentFocus === 'PageCenterFocus') {
+        if (!this.showThumbs) {
+          this.showThumbs = true; // Make the div visible
+          this.focusService.moveFocus(currentFocus, 'down'); // Move focus
+        }
+      }
+    } 
+    else if (event.key === 'ArrowUp' && this.showThumbs) {
+      this.showThumbs = false; 
+      this.focusService.setFocus('PageCenterFocus', 0); 
     }else if(event.key === "ArrowRight" && this.showThumbs){
       this.goToNextSlide();
     }else if(event.key === "ArrowLeft" && this.showThumbs){
