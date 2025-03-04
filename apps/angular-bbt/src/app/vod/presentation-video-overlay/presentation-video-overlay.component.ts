@@ -76,7 +76,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Output() previousSlide = new EventEmitter<void>();
   @Output() audioTrackChanged = new EventEmitter<any>();
   @Output() captionTrackChanged = new EventEmitter<any>();
-
+  content: Presentation | Video | null = null;
   @ViewChild(LinearProgressComponent) progress;
 
   @Input()
@@ -85,7 +85,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Input()
   audioControl: FormControl;
 
-  showThumbs: boolean = false;
+  showThumbs: boolean = true;
 
   audioTrackLabels$ = this.store.pipe(
     select(uniqueFileAudioTracks),
@@ -145,6 +145,9 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
 
   // Angular lifecycle hooks
   ngOnInit(): void {
+    this.content$.subscribe((content) => {
+      this.content = content;
+    });
     this.subs.add(
       this.audioControl.valueChanges.subscribe(x => {
         // Guard against re-emission
@@ -171,7 +174,9 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     this.registerMediaButtons();
-    this.registerThumbsRow();
+    if(this.content?.type === 'Presentation'){
+     this.registerThumbsRow();
+    }
   }
   registerMediaButtons() {
     const elementsToRegister = [
@@ -191,26 +196,29 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
     }
   }
   registerThumbsRow() {
-    if (this.thumbsSection) {
-      this.focusService.registerElements('ThumbsRow', [this.thumbsSection.nativeElement]);
-    }
+    const rowId = "ThumbsRow";
+
+    // Ensure thumbsSection is an ElementRef
+    const thumbsElementRef = new ElementRef(this.thumbsSection.nativeElement);
+
+    // Register the thumbsSection element with the FocusService
+    this.focusService.registerElements(rowId, [thumbsElementRef]);
+
+    // Set focus on the thumbsSection element
+    //this.focusService.setFocus(rowId, 0); // Focus on the first (and only) element in the row
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    
-    if (event.key === 'ArrowDown' && !this.showThumbs) {
-      const currentFocus = this.focusService.getCurrentFocusedRowId();
-  
-      if (currentFocus === 'PageCenterFocus') {
-        if (!this.showThumbs) {
-          this.showThumbs = true; // Make the div visible
-          this.focusService.moveFocus(currentFocus, 'down'); // Move focus
-        }
+    const currentFocus = this.focusService.getCurrentFocusedRowId();
+    console.log("current", currentFocus)
+    if(this.content?.type === 'Presentation'){
+    if (event.key === 'ArrowDown' ) {
+      if (currentFocus === 'PageCenterFocus') {       
+          this.showThumbs = false; // Make the div visible
       }
     } 
-    else if (event.key === 'ArrowUp' && this.showThumbs) {
-      this.showThumbs = false; 
-      this.focusService.setFocus('PageCenterFocus', 0); 
+    else if (event.key === 'ArrowUp' ) {
+      this.showThumbs = true; 
     }else if(event.key === "ArrowRight" && this.showThumbs){
       this.goToNextSlide();
     }else if(event.key === "ArrowLeft" && this.showThumbs){
@@ -218,6 +226,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
     }else if(event.key === "e"){
       this.trigger('play', event)
     }
+  }
   }
   goToNextSlide() {
     if (this.selectedIndex < this.files.length - 1) {
@@ -232,7 +241,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
  
   ngOnDestroy(): void {
-    this.focusService.clearRegisteredElements();
+    //this.focusService.clearRegisteredElements();
     this.subs.forEach(u => u.unsubscribe());
   }
 }

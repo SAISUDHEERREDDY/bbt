@@ -83,21 +83,7 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
   
 
   ngAfterViewInit(): void {
-    this.content$.subscribe((content) => {
-    if (content?.type === 'Video') {
-    setTimeout(() => {
-        const buttons = this.buttons.toArray();
-        const rowId = 'PageBottomFocus'; 
-        this.focusService.registerElements(rowId, buttons); 
-        this.setButtonFocus(content, rowId);
-     }, 0);
-    }else{
-      const buttons = this.buttons.toArray();
-      const rowId = 'PageBottomFocus'; 
-      this.focusService.registerElements(rowId, buttons); 
-      this.setButtonFocus(content, rowId);
-    }
-    });
+ 
   }
 
   setButtonFocus(content, rowId: string) {
@@ -212,6 +198,16 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
 
   // Angular Lifecycle Hooks
   ngOnInit() {
+    this.content$.subscribe((content) => {
+      // if (content?.type === 'Video') {
+      setTimeout(() => {
+          const buttons = this.buttons.toArray();
+          const rowId = 'PageBottomFocus'; 
+          this.focusService.registerElements(rowId, buttons); 
+          this.setButtonFocus(content, rowId);
+      }, 0);
+   
+      });
     // Setup subscriptions
     this.subs.addMany(
       // Set dropdowns to use state

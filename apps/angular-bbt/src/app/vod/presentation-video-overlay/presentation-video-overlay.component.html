@@ -161,9 +161,12 @@
         </div>
 
         <div  
+            id="ThumbsRow"
+            #thumbsSection
             tabindex="0"
             class="thumbs"
-           *ngIf="(content?.type === 'Presentation') && (showThumbs)">
+            [hidden]="showThumbs"
+           >
           <bbt-presentation-thumbs
             [selectedIndex]="selectedIndex"
             [files]="files"
