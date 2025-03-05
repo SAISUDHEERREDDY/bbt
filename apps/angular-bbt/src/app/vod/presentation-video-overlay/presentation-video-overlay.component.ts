@@ -85,7 +85,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Input()
   audioControl: FormControl;
 
-  showThumbs: boolean = true;
+  //showThumbs: boolean = true;
 
   audioTrackLabels$ = this.store.pipe(
     select(uniqueFileAudioTracks),
@@ -211,22 +211,15 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   handleKeyDown(event: KeyboardEvent) {
     const currentFocus = this.focusService.getCurrentFocusedRowId();
     console.log("current", currentFocus)
-    if(this.content?.type === 'Presentation'){
-    if (event.key === 'ArrowDown' ) {
-      if (currentFocus === 'PageCenterFocus') {       
-          this.showThumbs = false; // Make the div visible
-      }
-    } 
-    else if (event.key === 'ArrowUp' ) {
-      this.showThumbs = true; 
-    }else if(event.key === "ArrowRight" && this.showThumbs){
+    
+    if(event.key === "ArrowRight" && this.content?.type === 'Presentation'){
       this.goToNextSlide();
-    }else if(event.key === "ArrowLeft" && this.showThumbs){
+    }else if(event.key === "ArrowLeft" && this.content?.type === 'Presentation'){
       this.goToPreviousSlide();
     }else if(event.key === "e"){
       this.trigger('play', event)
     }
-  }
+  
   }
   goToNextSlide() {
     if (this.selectedIndex < this.files.length - 1) {
