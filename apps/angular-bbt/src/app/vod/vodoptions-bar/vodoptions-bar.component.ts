@@ -40,6 +40,6 @@ export class VODOptionsBarComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.focusService.clearRegisteredElements();
+   this.focusService.clearRegisteredElements();
   }
 }

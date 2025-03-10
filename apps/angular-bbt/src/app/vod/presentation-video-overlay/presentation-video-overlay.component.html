@@ -161,18 +161,42 @@
         </div>
 
         <div  
-            id="ThumbsRow"
-            #thumbsSection
+           
             tabindex="0"
-            class="thumbs"
+            class="thumbs text-center"
            >
-          <bbt-presentation-thumbs
-            [selectedIndex]="selectedIndex"
-            [files]="files"
-            (jumpToSlide)="jumpToSlide.emit($event)"
-          ></bbt-presentation-thumbs>
+           <button
+           #moreButton
+           bbtDeferringNavigable
+           class="button button-clear button-bordered back-button"
+           (click)="openModal()"
+           bbti18n="More"
+         >
+           More
+         </button>
+
+  
+         
         </div>
       </div>
     </div>
   </bbt-navigable-container>
 </div>
+
+
+<!-- <div class="presentation-video-overlay"> -->
+         
+  <div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <!-- <button class="close-button" (click)="closeModal()">×</button> -->
+      <div class="modal-thumbs-container">
+      
+        <bbt-presentation-thumbs
+          [selectedIndex]="selectedIndex"
+          [files]="files"
+          (jumpToSlide)="handleJumpToSlide($event)"
+        ></bbt-presentation-thumbs>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

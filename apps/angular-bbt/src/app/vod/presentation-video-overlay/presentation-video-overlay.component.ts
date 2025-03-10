@@ -44,7 +44,8 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @ViewChild('fastForwardButton') fastForwardButton!: ElementRef;
   @ViewChild('nextTrackButton') nextTrackButton!: ElementRef;
   @ViewChild('focusSection') focusSection!: ElementRef;
-  @ViewChild('thumbsSection', { static: false }) thumbsSection!: ElementRef;
+
+  @ViewChild('moreButton') moreButton!: ElementRef<HTMLAnchorElement>;
   // @ViewChild('nextSlideButton') nextSlideButton!: ElementRef;
   // @ViewChild('previousSlideButton') previousSlideButton!: ElementRef;
   @Input() files: PresentationFile[];
@@ -66,6 +67,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Output() back = new EventEmitter<void>();
   @Output() jumpToSlide = new EventEmitter<number>();
 
+  isModalOpen = false;
   // Media Events
   @Output() play = new EventEmitter<void>();
   @Output() fastForward = new EventEmitter<void>();
@@ -174,9 +176,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     this.registerMediaButtons();
-    if(this.content?.type === 'Presentation'){
-     this.registerThumbsRow();
-    }
+    
   }
   registerMediaButtons() {
     const elementsToRegister = [
@@ -194,23 +194,17 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
     if (playButtonIndex !== -1) {
       this.focusService.setFocus(rowId, playButtonIndex); // Focus on playButton in the media buttons row
     }
+    if(this.content?.type === 'Presentation'){
+      this.registerThumbsRow();
+     }
   }
   registerThumbsRow() {
-    const rowId = "ThumbsRow";
-
-    // Ensure thumbsSection is an ElementRef
-    const thumbsElementRef = new ElementRef(this.thumbsSection.nativeElement);
-
-    // Register the thumbsSection element with the FocusService
-    this.focusService.registerElements(rowId, [thumbsElementRef]);
-
-    // Set focus on the thumbsSection element
-    //this.focusService.setFocus(rowId, 0); // Focus on the first (and only) element in the row
+    const rowId = "PageBottom";
+    this.focusService.registerElements(rowId, [this.moreButton]);
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    const currentFocus = this.focusService.getCurrentFocusedRowId();
-    console.log("current", currentFocus)
+ 
     
     if(event.key === "ArrowRight" && this.content?.type === 'Presentation'){
       this.goToNextSlide();
@@ -236,5 +230,25 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     //this.focusService.clearRegisteredElements();
     this.subs.forEach(u => u.unsubscribe());
+  }
+  /**
+   * Handle jumpToSlide event from the modal
+   */
+  handleJumpToSlide(index: number) {
+    this.jumpToSlide.emit(index); // Emit the event to the parent component
+    this.closeModal(); // Close the modal after jumping to a slide
+  }
+   /**
+   * Open the modal
+   */
+   openModal() {
+    this.isModalOpen = true;
+  }
+
+  /**
+   * Close the modal
+   */
+  closeModal() {
+    this.isModalOpen = false;
   }
 }
