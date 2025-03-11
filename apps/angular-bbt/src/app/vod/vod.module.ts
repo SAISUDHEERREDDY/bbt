@@ -33,6 +33,7 @@ import { SharedComponentsModule } from '@bbt/shared';
 import { HlsModule } from '../hls/hls.module';
 import { PanningModule } from '../panning/panning.module';
 import { CategorySliderComponent } from './category-slider/category-slider.component';
+import { ModalPopupComponent } from './presentation-video-overlay/modal-popup.component/modal-popup.component';
 
 const routes = [
   {
@@ -94,7 +95,8 @@ const routes = [
     PresentationThumbsComponent,
     LinearProgressComponent,
     VideoPlayerComponent,
-    CategorySliderComponent
+    CategorySliderComponent,
+    ModalPopupComponent
   ],
   providers: [ContentResolver, DirectoryGuard],
   imports: [

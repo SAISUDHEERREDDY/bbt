@@ -174,8 +174,13 @@
          >
            More
          </button>
-
-  
+          <app-modal-popup
+          [isModalOpen]="isModalOpen"
+          [selectedIndex]="selectedIndex"
+          [files]="files"
+          (closeModalEvent)="closeModal()"
+          (jumpToSlideEvent)="handleJumpToSlide($event)"
+        ></app-modal-popup>
          
         </div>
       </div>
@@ -184,11 +189,11 @@
 </div>
 
 
-<!-- <div class="presentation-video-overlay"> -->
+<!-- <div class="presentation-video-overlay">
          
   <div *ngIf="isModalOpen" class="modal-overlay">
     <div class="modal-content">
-      <!-- <button class="close-button" (click)="closeModal()">×</button> -->
+      
       <div class="modal-thumbs-container">
       
         <bbt-presentation-thumbs
@@ -199,4 +204,4 @@
       </div>
     </div>
   </div>
-<!-- </div> -->
+</div> -->

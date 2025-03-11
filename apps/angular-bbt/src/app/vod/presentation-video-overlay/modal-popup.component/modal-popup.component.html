@@ -1,0 +1,12 @@
+<div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-button" (click)="closeModal()">×</button>
+      <div class="modal-thumbs-container">
+        <bbt-presentation-thumbs
+          [selectedIndex]="selectedIndex"
+          [files]="files"
+          (jumpToSlide)="handleJumpToSlide($event)"
+        ></bbt-presentation-thumbs>
+      </div>
+    </div>
+  </div>

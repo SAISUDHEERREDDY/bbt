@@ -250,5 +250,11 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
    */
   closeModal() {
     this.isModalOpen = false;
+       // Focus on the playButton after closing the modal
+       const rowId = 'PageCenterFocus';
+       const playButtonIndex = this.focusService.getRegisteredElements()[rowId]?.indexOf(this.playButton);
+       if (playButtonIndex !== -1) {
+         this.focusService.setFocus(rowId, playButtonIndex); // Focus on playButton
+       }
   }
 }
