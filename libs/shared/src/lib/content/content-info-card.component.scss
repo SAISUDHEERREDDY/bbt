@@ -9,10 +9,10 @@ $bold-font: 'Gotham Bold', Helvetica, serif;
 
 .name {
   color: #fff;
-  padding-top: 11px;
+  padding-top: 4px;
   font-family: $bold-font;
-  font-size: 24px;
-
+  font-size: 18px;
+margin-bottom: 10px;
   // This webkit based solution works everywhere I have tested it
   // (Chromium, Firefox, Edge, and Chrome)
   // I don't love it, but it works.
@@ -34,4 +34,10 @@ $bold-font: 'Gotham Bold', Helvetica, serif;
   &.variable-info > * ~ * {
     margin-left: 8px;
   }
+}
+.d-inline{
+  display: inline;
+}
+.float-right{
+  float: right
 }

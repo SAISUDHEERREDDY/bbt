@@ -9,17 +9,23 @@
       <div>
         <div class="card-header-container">
           <div class="card-header-button">
-            <ng-content select="[type]"></ng-content>
+           
           </div>
           <i class="fa fa-grip-lines"></i>
-          <div class="card-content-header-button">
-            <ng-content select="[info]"></ng-content>
-          </div>
+          
+            
+         
         </div>
       </div>
 
       <div class="card-content-container">
+        <div class="card-footer-container">
         <ng-content select="[name]"></ng-content>
+        <div class="card-content-header-button">
+         <ng-content select="[type]"></ng-content>
+         <ng-content select="[info]"></ng-content>
+        </div>
+        </div>
       </div>
     </div>
   </div>

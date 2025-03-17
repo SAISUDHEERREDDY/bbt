@@ -1,5 +1,5 @@
 <shared-thumbnail-card [thumbSrc]="thumbSrc">
-  <div type class="secondary-info translucent-container">
+  <div type class="secondary-info translucent-container d-inline">
     <ng-container [ngSwitch]="type">
       <i *ngSwitchCase="'Folder'" class="fa fas fa-folder"></i>
       <i *ngSwitchCase="'Video'" class="fa fas fa-film"></i>
@@ -9,7 +9,7 @@
   </div>
   <div
     info
-    class="secondary-info translucent-container variable-info"
+    class="secondary-info translucent-container variable-info float-right"
     *ngIf="info || hasSubs || passkey"
   >
     <span *ngIf="info">{{ info }}</span>
