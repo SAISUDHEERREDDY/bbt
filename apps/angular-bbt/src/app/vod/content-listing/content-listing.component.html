@@ -9,14 +9,14 @@
     [ngSwitch]="categoryState$ | async"
     [ngClass]="categoryState$ | async"
   >
-    <bbt-content-info [content]="focused">
+    <!-- <bbt-content-info [content]="focused">
       <img
         *ngIf="focused?.customIcon"
         [src]="focused?.customIcon"
         class="jumbo-thumb"
         alt=""
       />
-    </bbt-content-info>
+    </bbt-content-info> -->
     <div
       *ngSwitchCase="'loading'"
       class="categories-loading vertical-slider-container"
