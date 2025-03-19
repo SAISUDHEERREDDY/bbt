@@ -45,9 +45,7 @@
           <bbt-category-slider
             [rowIndex]="rowIndex"
             [isFocused]="rowIndex === currentRowIndex"
-            
-            sharedScrollTo
-            [shouldScrollTo]="category?.shouldScroll"
+        
             [category]="category"
             (contentFocused)="selectAndSetFocused($event)"
             (contentActivated)="triggerParentScroll(categorySliderContainer)"

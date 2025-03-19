@@ -22,7 +22,7 @@ import { PanningItemDirective } from './panning-item.directive';
   exportAs: 'panning-container',
   template: `
     <div class="panning-container-wrapper" #wrapper>
-      <ul class="carousel-inner" #carouselInner [style.width]="containerWidth">
+      <ul class="carousel-inner" #carouselInner >
         <li *ngFor="let item of items" class="carousel-item" #consumedItem>
           <ng-container [ngTemplateOutlet]="item.tpl"></ng-container>
         </li>
@@ -32,7 +32,7 @@ import { PanningItemDirective } from './panning-item.directive';
   styles: [
     `
       ul.carousel-inner {
-        display: flex;
+        //display: flex;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -42,10 +42,10 @@ import { PanningItemDirective } from './panning-item.directive';
         overflow: hidden;
         width: 100vw;
       }
-
-      .carousel-item:first-child {
-        margin-left: 75px;
+      li.carousel-item {
+      float: left;
       }
+   
     `
   ]
 })
