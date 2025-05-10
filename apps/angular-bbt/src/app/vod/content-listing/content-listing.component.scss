@@ -44,7 +44,8 @@ $folders-vertical-margin: 1vh;
   $space-after-header: 51.8vh;
 
   .vertical-slider-container {
-    height: 48.2vh;
+    height: 100%;
+    margin-top: 20px;
   }
 }
 

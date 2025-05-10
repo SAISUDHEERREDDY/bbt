@@ -274,38 +274,37 @@ export class AppComponent implements OnInit, OnDestroy {
     this.crossMessageService.complete();
     this.cancel();
   }
-
+  private currentRowId: string = ''; 
   // Listener events
   @HostListener('window:keydown', ['$event'])
   globalKeyDown(event: KeyboardEvent) {
     const key = this.safeKey.tryKey(event);
     console.log(key, 'keyHandler');
-    // const totalFocusableElements = this.focusService.getTotalFocusableElements();debu
+    this.currentRowId = this.focusService.getCurrentFocusedRowId();
     switch (key) {
+      case 'ArrowUp':
+        this.focusService.moveFocus(this.currentRowId, 'up');
+        event.preventDefault();
+        break;
+      case 'ArrowDown':
+        this.focusService.moveFocus(this.currentRowId, 'down');
+        event.preventDefault();
+        break;
       case 'ArrowRight':
-        // const nextIndex =
-        //     (this.focusService.getFocusIndex() + 1) % totalFocusableElements;
-        //   this.focusService.setFocus(nextIndex);
-        this.focusService.moveFocus(1); // Move focus to the next element globally
+        this.focusService.moveFocus(this.currentRowId, 'right');
         event.preventDefault();
         break;
       case 'ArrowLeft':
-        //   const prevIndex =
-        //   this.focusService.getFocusIndex() === 0 ? - 1 : this.focusService.getFocusIndex() - 1;
-        //   console.log("prevIndex", prevIndex);
-        //   if (prevIndex === -1) {
-        //     this.focusService.focusBackButton();
-        // } else {
-        //     this.focusService.setFocus(prevIndex);
-        // }
-        this.focusService.moveFocus(-1); // Move focus to the previous element globally
+        this.focusService.moveFocus(this.currentRowId, 'left');
         event.preventDefault();
         break;
-      case 'Backspace' || 'Escape':
+      case 'Backspace':
+      case 'Escape':
         event.preventDefault();
         this.goBack();
         break;
       case 'd':
+      case 'D':
         event.preventDefault();
         this.goBack();
         break;
@@ -329,7 +328,10 @@ export class AppComponent implements OnInit, OnDestroy {
           this.crossMessageService.passVolumeMessage(-1);
         }
         break;
+      default:
+        break;
     }
+    
   }
 
   // Angular lifecycle hooks

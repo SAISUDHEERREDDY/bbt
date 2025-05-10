@@ -83,53 +83,42 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
   
 
   ngAfterViewInit(): void {
-  
-    console.log("AfterInt()");
-    // Delay the call to ensure ViewChild elements are available
-    this.content$.subscribe((content) => {
-      // Delay to ensure buttons are available in the QueryList
-      setTimeout(() => this.setButtonFocus(content), 0);
-    });
+ 
   }
 
-  setButtonFocus(content) {
+  setButtonFocus(content, rowId: string) {
     let buttonToFocus: ElementRef<HTMLAnchorElement> | undefined;
-
+  
     switch (content?.type) {
       case 'Video':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playVideoButton');
-        
         break;
-        case 'Stream':
+      case 'Stream':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playStreamButton');
         break;
-        case 'Html':
+      case 'Html':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playHtmlButton');
-        
         break;
-        case 'Image':
-          buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playImageButton');
-         
-          break;
+      case 'Image':
+        buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'playImageButton');
+        break;
       case 'Presentation':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'presentationButton');
-       
         break;
       case 'Login':
         buttonToFocus = this.buttons.find((button) => button.nativeElement.id === 'loginButton');
-       
         break;
       default:
         break;
     }
-
+  
     if (buttonToFocus) {
-      this.focusService.registerElements([buttonToFocus]);
-      const currentElIndex = this.focusService.findElementIndex(buttonToFocus);
-      this.focusService.setFocus(currentElIndex);
+      const buttonIndex = this.buttons.toArray().indexOf(buttonToFocus);
+      this.focusService.setFocus(rowId, buttonIndex); 
+    } else {
+      this.focusService.setFocus(rowId, 0); 
     }
   }
-
   thumbUrl$ = this.content$.pipe(
     map(x => x.customIcon || (x as any).thumb), // futureproofing,
     map(x => (x ? `url('${encodeURI(x)}')` : undefined))
@@ -209,6 +198,16 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
 
   // Angular Lifecycle Hooks
   ngOnInit() {
+    this.content$.subscribe((content) => {
+      // if (content?.type === 'Video') {
+      setTimeout(() => {
+          const buttons = this.buttons.toArray();
+          const rowId = 'PageBottomFocus'; 
+          this.focusService.registerElements(rowId, buttons); 
+          this.setButtonFocus(content, rowId);
+      }, 0);
+   
+      });
     // Setup subscriptions
     this.subs.addMany(
       // Set dropdowns to use state
@@ -251,12 +250,12 @@ export class ContentLandingMenuComponent implements OnDestroy, OnInit {
     // );
     this.content$.subscribe((content) => {
       // Use setTimeout to ensure elements are available
-      setTimeout(() => this.setButtonFocus(content), 0);
+      setTimeout(() => this.setButtonFocus(content , "PageBottomFocus"), 0);
     });
   }
 
   ngOnDestroy() {
-    this.buttons =null;
+    //this.buttons =null;
     this.focusService.clearRegisteredElements()
     this.subs.destroy();
     this.store.dispatch(new FullscreenDisableAction());

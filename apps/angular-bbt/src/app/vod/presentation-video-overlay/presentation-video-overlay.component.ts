@@ -44,6 +44,8 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @ViewChild('fastForwardButton') fastForwardButton!: ElementRef;
   @ViewChild('nextTrackButton') nextTrackButton!: ElementRef;
   @ViewChild('focusSection') focusSection!: ElementRef;
+
+  @ViewChild('moreButton') moreButton!: ElementRef<HTMLAnchorElement>;
   // @ViewChild('nextSlideButton') nextSlideButton!: ElementRef;
   // @ViewChild('previousSlideButton') previousSlideButton!: ElementRef;
   @Input() files: PresentationFile[];
@@ -65,6 +67,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Output() back = new EventEmitter<void>();
   @Output() jumpToSlide = new EventEmitter<number>();
 
+  isModalOpen = false;
   // Media Events
   @Output() play = new EventEmitter<void>();
   @Output() fastForward = new EventEmitter<void>();
@@ -75,7 +78,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Output() previousSlide = new EventEmitter<void>();
   @Output() audioTrackChanged = new EventEmitter<any>();
   @Output() captionTrackChanged = new EventEmitter<any>();
-
+  content: Presentation | Video | null = null;
   @ViewChild(LinearProgressComponent) progress;
 
   @Input()
@@ -84,7 +87,7 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   @Input()
   audioControl: FormControl;
 
-  showThumbs: boolean = false;
+  //showThumbs: boolean = true;
 
   audioTrackLabels$ = this.store.pipe(
     select(uniqueFileAudioTracks),
@@ -144,6 +147,9 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
 
   // Angular lifecycle hooks
   ngOnInit(): void {
+    this.content$.subscribe((content) => {
+      this.content = content;
+    });
     this.subs.add(
       this.audioControl.valueChanges.subscribe(x => {
         // Guard against re-emission
@@ -170,41 +176,44 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     this.registerMediaButtons();
+    
   }
   registerMediaButtons() {
-    // Collect all media buttons into an array and register them
     const elementsToRegister = [
       this.previousTrackButton,
       this.rewindButton,
       this.playButton,
       this.fastForwardButton,
       this.nextTrackButton,
-      // this.nextSlideButton,
-      // this.previousSlideButton
-    ].filter((element) => element); // Filter out undefined elements (e.g., conditionally rendered)
-
-    this.focusService.registerElements(elementsToRegister);
-      const currentElIndex = this.focusService.findElementIndex(this.playButton);
-      this.focusService.setFocus(currentElIndex);
+    ].filter((element) => element); // Filter out undefined/null elements
+  
+    const rowId = 'PageCenterFocus'; // Unique identifier for the media buttons row
+    this.focusService.registerElements(rowId, elementsToRegister); // Register media buttons for the row
+  
+    const playButtonIndex = elementsToRegister.indexOf(this.playButton);
+    if (playButtonIndex !== -1) {
+      this.focusService.setFocus(rowId, playButtonIndex); // Focus on playButton in the media buttons row
+    }
+    if(this.content?.type === 'Presentation'){
+      this.registerThumbsRow();
+     }
+  }
+  registerThumbsRow() {
+    const rowId = "PageBottom";
+    this.focusService.registerElements(rowId, [this.moreButton]);
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    if (event.key === 'ArrowDown' && !this.showThumbs) {
-      // Show thumbs when ArrowDown is pressed and thumbs are not already visible
-      this.showThumbs = true;
-  
-      // Focus on the thumbs section
-     
-    } else if (event.key === 'ArrowUp' && this.showThumbs) {
-      // Hide thumbs when ArrowUp is pressed and focus is on the thumbs
-      this.showThumbs = false;
-      this.registerMediaButtons();
-     
-    }else if(event.key === "ArrowRight" && this.showThumbs){
+ 
+    
+    if(event.key === "ArrowRight" && this.content?.type === 'Presentation'){
       this.goToNextSlide();
-    }else if(event.key === "ArrowLeft" && this.showThumbs){
+    }else if(event.key === "ArrowLeft" && this.content?.type === 'Presentation'){
       this.goToPreviousSlide();
+    }else if(event.key === "e"){
+      this.trigger('play', event)
     }
+  
   }
   goToNextSlide() {
     if (this.selectedIndex < this.files.length - 1) {
@@ -219,7 +228,33 @@ export class PresentationVideoOverlayComponent implements OnInit, OnDestroy {
   }
  
   ngOnDestroy(): void {
-    this.focusService.clearRegisteredElements();
+    //this.focusService.clearRegisteredElements();
     this.subs.forEach(u => u.unsubscribe());
+  }
+  /**
+   * Handle jumpToSlide event from the modal
+   */
+  handleJumpToSlide(index: number) {
+    this.jumpToSlide.emit(index); // Emit the event to the parent component
+    this.closeModal(); // Close the modal after jumping to a slide
+  }
+   /**
+   * Open the modal
+   */
+   openModal() {
+    this.isModalOpen = true;
+  }
+
+  /**
+   * Close the modal
+   */
+  closeModal() {
+    this.isModalOpen = false;
+       // Focus on the playButton after closing the modal
+       const rowId = 'PageCenterFocus';
+       const playButtonIndex = this.focusService.getRegisteredElements()[rowId]?.indexOf(this.playButton);
+       if (playButtonIndex !== -1) {
+         this.focusService.setFocus(rowId, playButtonIndex); // Focus on playButton
+       }
   }
 }

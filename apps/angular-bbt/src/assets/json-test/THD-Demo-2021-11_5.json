@@ -4,6 +4,81 @@
       "name": "Category_1",
       "menuItems": [
         {
+          "title": "Presentation-1",
+          "description": "Presentation test .... 1",
+          "type": "Presentation",
+          "duration": 209,
+          "customIcon": "https://hughes-mediasignage-staging.s3.amazonaws.com/1gkmsxfyqn5v3beao4xblxoe074r?response-content-disposition=attachment%3B%20filename%3D%22Presentation-1.jpg%22%3B%20filename%2A%3DUTF-8%27%27Presentation-1.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250211T010636Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7b754a88c6d99aa8e81c040f49238199a877b505b44e105554e613c6893773f8",
+          "passkey": "",
+          "num_of_items": 6,
+          "displayOrder": 0,
+          "items": [
+              {
+                  "title": "Penguins",
+                  "description": "",
+                  "type": "Image",
+                  "duration": 10,
+                  "filePath": "https://hughes-mediasignage-staging.s3.amazonaws.com/iywpzh09w8a478hi1zpr9b82vbod?response-content-disposition=attachment%3B%20filename%3D%22Penguins.jpg%22%3B%20filename%2A%3DUTF-8%27%27Penguins.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250211T010638Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7e14f9e6814ebf56a1c2579744cafcded72376585349694b11d136a97d005d15",
+                  "customIcon": "https://hughes-mediasignage-staging.s3.amazonaws.com/iywpzh09w8a478hi1zpr9b82vbod?response-content-disposition=attachment%3B%20filename%3D%22Penguins.jpg%22%3B%20filename%2A%3DUTF-8%27%27Penguins.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250211T010638Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7e14f9e6814ebf56a1c2579744cafcded72376585349694b11d136a97d005d15",
+                  "passkey": "",
+                  "startDate": "2023-06-21T00:00:00.000-07:00",
+                  "endDate": null,
+                  "displayOrder": 1
+              },
+              {
+                  "title": "HLS-Cilutions-FLS",
+                  "description": "With Foreign Language Support",
+                  "type": "Stream",
+                  "duration": 10,
+                  "filePath": "http://192.168.1.130/lms/content/398/homedepot2_vid.m3u8",
+                  "customIcon": "https://hughes-mediasignage-staging.s3.amazonaws.com/iywpzh09w8a478hi1zpr9b82vbod?response-content-disposition=attachment%3B%20filename%3D%22Penguins.jpg%22%3B%20filename%2A%3DUTF-8%27%27Penguins.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250211T010638Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7e14f9e6814ebf56a1c2579744cafcded72376585349694b11d136a97d005d15",
+                  "passkey": "",
+                  "startDate": "2025-02-05T00:00:00.000-07:00",
+                  "endDate": null,
+                  "displayOrder": 2
+              },
+              {
+                  "title": "angrybirds-tlr3_h480p",
+                  "description": "",
+                  "type": "Video",
+                  "duration": 159,
+                  "filePath": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                  "customIcon": "https://hughes-mediasignage-staging.s3.amazonaws.com/iywpzh09w8a478hi1zpr9b82vbod?response-content-disposition=attachment%3B%20filename%3D%22Penguins.jpg%22%3B%20filename%2A%3DUTF-8%27%27Penguins.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250211T010638Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7e14f9e6814ebf56a1c2579744cafcded72376585349694b11d136a97d005d15",
+                  "passkey": "",
+                  "startDate": "2023-06-21T00:00:00.000-07:00",
+                  "endDate": null,
+                  "displayOrder": 3
+              },
+              {
+                  "title": "Puppy",
+                  "description": "",
+                  "type": "Video",
+                  "duration": 10,
+                  "filePath": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                  "customIcon": "https://hughes-mediasignage-staging.s3.amazonaws.com/c4ddun1mbzm7ci4xj584o6vidkbc?response-content-disposition=attachment%3B%20filename%3D%22Puppy.jpg%22%3B%20filename%2A%3DUTF-8%27%27Puppy.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250211T010637Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3bd3f9ed10f469dca27259135d53464b72dbe47a593b999fb9c527ac0fe22c6a",
+                  "passkey": "",
+                  "startDate": "2023-06-21T00:00:00.000-07:00",
+                  "endDate": null,
+                  "displayOrder": 4
+              }
+          ],
+          "itemId": 11
+      },
+        {
+         "title": "SimpleHTML",
+         "description": "",
+         "type": "Html",
+          "duration": 10,
+          "filePath": "https://hughes-mediasignage-staging.s3.amazonaws.com/s7g71k3co39kj5wklkodmlq7xeod?response-content-disposition=attachment%3B%20filename%3D%22SimpleHTML.html%22%3B%20filename%2A%3DUTF-8%27%27SimpleHTML.html&response-content-type=application%2Foctet-stream&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250203%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250203T180645Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=42456b16d1c5e37eb0e12697f151f934dfed6ca38885bf7d86acaaa258f3e0fc",
+          "customIcon": null,
+          "passkey": "",
+          "startDate": "2025-02-03T00:00:00.000-05:00",
+          "endDate": null,
+          "displayOrder": 0,
+          "itemId": 1
+         },
+       
+        {
           "title": "HLS_BigBuckBunny",
           "description": "",
           "type": "Stream",
@@ -151,8 +226,8 @@
           "description": "",
           "type": "Video",
           "duration": 28,
-          "filePath": "https://media-signage-dev-hotfix.s3.amazonaws.com/58hcv8zi17tahin3hse027i2fky5?response-content-disposition=attachment%3B%20filename%3D%22Sky.mp4%22%3B%20filename%2A%3DUTF-8%27%27Sky.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZZVDPYYUHVXKLYA%2F20250108%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250108T172846Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a2e39c1300e0d862cc81849e42d101c5fd874b638569735ebb66db82c94bc025",
-          "customIcon": "http://127.0.0.1:3000/vod/MSS282Screenshot20250103at12.23.10PM.png",
+          "filePath": "http://25010160-channel-hls.ums.ustream.tv/playlist/directhls/channel/25010160/playlist.m3u8?sgn=bb312f34d4773f3cc1de32bccba144353823bb1d&password=Od1-1nfo5hannel",
+          "customIcon": "",
           "passkey": "",
           "startDate": "2024-12-26T00:00:00.000-05:00",
           "endDate": null,

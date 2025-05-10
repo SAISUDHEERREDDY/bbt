@@ -224,7 +224,7 @@ export class HlsVideoDirective implements AfterViewInit, OnChanges, OnDestroy {
     this.hookNativePlayer(source);
   }
   private isHlsStream(source: string): boolean {
-    return source.endsWith('.m3u8');
+    return source.endsWith('.m3u8') || source.includes('.m3u8') || source.endsWith('.M3U8') || source.includes('.M3U8');
   }
   private setupMp4(source: string): void {
     this.video.nativeElement.src = source;

@@ -27,7 +27,15 @@
         loading="lazy"
       />
         <ng-container *ngSwitchCase="'Stream'">
-          <ng-container [ngSwitch]="file?.iconType">
+          <img
+              [src]="file?.customIcon || 'assets/images/missing_thumb.png'"
+              [alt]="file?.type + ' preview thumbnail'"
+              width="274"
+              height="145"
+              loading="lazy"
+            />
+
+          <!-- <ng-container [ngSwitch]="file?.iconType">
             <img
               *ngSwitchCase="'custom'"
               [src]="file?.customIcon"
@@ -44,10 +52,17 @@
               height="145"
               loading="lazy"
             />
-          </ng-container>
+          </ng-container> -->
         </ng-container>
         <ng-container *ngSwitchCase="'Video'">
-          <ng-container [ngSwitch]="file?.iconType">
+          <img
+            [src]="file?.customIcon || 'assets/images/missing_thumb.png'"
+            [alt]="file?.type + ' preview thumbnail'"
+            width="274"
+            height="145"
+            loading="lazy"
+          />
+          <!-- <ng-container [ngSwitch]="file?.iconType">
             <img
               *ngSwitchCase="'custom'"
               [src]="file?.customIcon"
@@ -64,7 +79,7 @@
               height="145"
               loading="lazy"
             />
-          </ng-container>
+          </ng-container> -->
         </ng-container>
       </ng-container>
       <div class="thumb-type-icon">
